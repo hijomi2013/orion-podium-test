@@ -898,6 +898,13 @@ document.querySelector(".back-top").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+function updateFixedControlsVisibility() {
+  document.body.classList.toggle("is-scrolled", window.scrollY > 120);
+}
+
+window.addEventListener("scroll", updateFixedControlsVisibility, { passive: true });
+updateFixedControlsVisibility();
+
 function closeModal() {
   modals.forEach((modal) => modal.classList.add("hidden"));
 }

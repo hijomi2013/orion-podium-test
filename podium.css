@@ -140,6 +140,7 @@ select {
   gap: 22px;
   flex-wrap: wrap;
   z-index: 18;
+  transition: opacity 0.45s ease, filter 0.45s ease;
 }
 
 .primary-picker {
@@ -154,6 +155,7 @@ select {
   gap: 24px;
   flex-wrap: wrap;
   z-index: 18;
+  transition: opacity 0.45s ease, filter 0.45s ease;
 }
 
 .network-button {
@@ -345,6 +347,15 @@ select {
   gap: 30px;
   flex-wrap: wrap;
   z-index: 18;
+  transition: opacity 0.45s ease, filter 0.45s ease;
+}
+
+body.is-scrolled .primary-picker,
+body.is-scrolled .network-picker,
+body.is-scrolled .vision-picker {
+  opacity: 0.2;
+  filter: blur(0.5px);
+  pointer-events: none;
 }
 
 .vision-button {
@@ -697,7 +708,7 @@ select {
 
 .closed-network {
   width: min(1240px, 100%);
-  margin: 96px 285px 28px auto;
+  margin: 310px 285px 28px auto;
   text-align: center;
 }
 
@@ -1714,7 +1725,7 @@ select {
 
   .closed-network {
     width: min(1040px, calc(100vw - 790px));
-    margin: 78px 76px 24px auto;
+    margin: 285px 76px 24px auto;
   }
 
   .glass-panel {
