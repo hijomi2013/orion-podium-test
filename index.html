@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orion - Podium</title>
+    <link rel="stylesheet" href="podium.css">
+  </head>
+  <body>
+    <div class="quick-actions" aria-label="Actions rapides">
+      <button class="quick-action" type="button" data-modal-target="essilor-guarantee">Garantie Essilor</button>
+      <button class="quick-action" type="button" data-modal-target="proximity-delay">D&eacute;lai Proximity</button>
+    </div>
+
+    <main class="page">
+      <section class="primary-picker" aria-label="Sections principales">
+        <button class="network-button primary-button" type="button" data-network="libre">
+          <span class="nav-icon icon-glasses" aria-hidden="true"></span>
+          <span>Marché libre</span>
+        </button>
+        <button class="network-button primary-button" type="button" data-section="reseaux">
+          <span class="nav-icon icon-network" aria-hidden="true"></span>
+          <span>Réseaux</span>
+        </button>
+        <button class="network-button primary-button" type="button" data-network="devis">
+          <span class="nav-icon icon-file" aria-hidden="true"></span>
+          <span>Devis</span>
+        </button>
+        <button class="network-button primary-button" type="button" data-network="forfait">
+          <span class="nav-icon icon-tag" aria-hidden="true"></span>
+          <span>Forfait 2eme paire</span>
+        </button>
+      </section>
+
+      <section class="network-picker hidden" aria-label="Réseaux fermés">
+        <button class="network-button active" type="button" data-network="itelis">Itelis</button>
+        <button class="network-button" type="button" data-network="carte-blanche">Carte Blanche</button>
+        <button class="network-button" type="button" data-network="kalixia">Kalixia</button>
+        <button class="network-button" type="button" data-network="santeclair">Santéclair</button>
+        <button class="network-button" type="button" data-network="seveane">Sévéane</button>
+      </section>
+
+      <section class="vision-picker" aria-label="Type de verre"></section>
+
+      <aside class="lens-info-panel hidden" id="lens-info-panel" aria-live="polite"></aside>
+
+      <section class="closed-network hidden" aria-live="polite">
+        <div class="glass-panel">
+          <div class="network-hero" id="network-hero" role="button" tabindex="0">Itelis</div>
+          <div class="network-choices" id="network-choices"></div>
+          <div class="trust-strip" aria-label="Garanties">
+            <span><i class="trust-icon trust-shield" aria-hidden="true"></i>Verres certifiés<br>et de qualité</span>
+            <span><i class="trust-icon trust-user" aria-hidden="true"></i>Conseils personnalisés<br>par nos experts</span>
+            <span><i class="trust-icon trust-medal" aria-hidden="true"></i>Garantie adaptation<br>et satisfaction</span>
+            <span><i class="trust-icon trust-delivery" aria-hidden="true"></i>Livraison offerte<br>et rapide</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-top" type="button" aria-label="Retour haut">↑</button>
+    <div class="toast" id="toast" role="status" aria-live="polite">Copié !</div>
+
+    <div class="info-modal hidden" id="essilor-guarantee" role="dialog" aria-modal="true" aria-labelledby="essilor-guarantee-title">
+      <div class="info-modal-card">
+        <button class="info-modal-close" type="button" data-modal-close aria-label="Fermer">x</button>
+        <p>Module &agrave; compl&eacute;ter</p>
+        <h2 id="essilor-guarantee-title">Garantie Essilor</h2>
+      </div>
+    </div>
+
+    <div class="info-modal hidden" id="proximity-delay" role="dialog" aria-modal="true" aria-labelledby="proximity-delay-title">
+      <div class="info-modal-card">
+        <button class="info-modal-close" type="button" data-modal-close aria-label="Fermer">x</button>
+        <p>Module &agrave; compl&eacute;ter</p>
+        <h2 id="proximity-delay-title">D&eacute;lai Proximity</h2>
+      </div>
+    </div>
+
+    <script src="podium.js"></script>
+  </body>
+</html>
