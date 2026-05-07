@@ -129,21 +129,31 @@ select {
 }
 
 .network-picker {
+  position: fixed;
+  top: 182px;
+  left: 50%;
+  transform: translateX(-50%);
   width: min(900px, 100%);
-  margin: 26px auto 38px;
+  margin: 0;
   display: flex;
   justify-content: center;
   gap: 22px;
   flex-wrap: wrap;
+  z-index: 18;
 }
 
 .primary-picker {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
   width: min(980px, 100%);
-  margin: 18px auto 42px;
+  margin: 0;
   display: flex;
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  z-index: 18;
 }
 
 .network-button {
@@ -324,12 +334,17 @@ select {
 }
 
 .vision-picker {
+  position: fixed;
+  top: 276px;
+  left: 50%;
+  transform: translateX(-50%);
   width: min(920px, 100%);
-  margin: 44px auto 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
+  z-index: 18;
 }
 
 .vision-button {
@@ -1602,7 +1617,8 @@ select {
 
   .primary-picker {
     width: min(780px, 100%);
-    margin: 14px auto 34px;
+    top: 70px;
+    margin: 0;
     gap: 18px;
   }
 
@@ -1622,7 +1638,8 @@ select {
 
   .network-picker {
     width: min(760px, 100%);
-    margin: 18px auto 26px;
+    top: 176px;
+    margin: 0;
     gap: 14px;
   }
 
@@ -1641,7 +1658,8 @@ select {
 
   .vision-picker {
     width: min(760px, 100%);
-    margin: 30px auto 0;
+    top: 276px;
+    margin: 0;
     gap: 20px;
   }
 
