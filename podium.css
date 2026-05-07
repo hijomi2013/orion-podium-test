@@ -130,7 +130,7 @@ select {
 
 .network-picker {
   position: fixed;
-  top: 182px;
+  top: 210px;
   left: 50%;
   transform: translateX(-50%);
   width: min(900px, 100%);
@@ -337,7 +337,7 @@ select {
 
 .vision-picker {
   position: fixed;
-  top: 276px;
+  top: 306px;
   left: 50%;
   transform: translateX(-50%);
   width: min(920px, 100%);
@@ -1649,7 +1649,7 @@ body.is-scrolled .vision-picker {
 
   .network-picker {
     width: min(760px, 100%);
-    top: 176px;
+    top: 198px;
     margin: 0;
     gap: 14px;
   }
@@ -1669,7 +1669,7 @@ body.is-scrolled .vision-picker {
 
   .vision-picker {
     width: min(760px, 100%);
-    top: 276px;
+    top: 298px;
     margin: 0;
     gap: 20px;
   }
