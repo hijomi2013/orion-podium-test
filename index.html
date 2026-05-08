@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Orion - Podium</title>
-    <link rel="stylesheet" href="podium.css">
+    <link rel="stylesheet" href="podium.css?v=20260508-pedago-modal">
   </head>
   <body>
     <div class="quick-actions" aria-label="Actions rapides">
@@ -77,6 +77,15 @@
       </div>
     </div>
 
-    <script src="podium.js"></script>
+    <div class="info-modal hidden" id="pedagogy-modal" role="dialog" aria-modal="true" aria-labelledby="pedagogy-modal-title">
+      <div class="info-modal-card pedagogy-modal-card">
+        <button class="info-modal-close" type="button" data-modal-close aria-label="Fermer">x</button>
+        <p>Analyse Essilor</p>
+        <h2 id="pedagogy-modal-title"></h2>
+        <img id="pedagogy-modal-image" src="" alt="">
+      </div>
+    </div>
+
+    <script src="podium.js?v=20260508-pedago-modal"></script>
   </body>
 </html>
