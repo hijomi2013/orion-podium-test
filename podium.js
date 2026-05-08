@@ -1,6 +1,17 @@
 let networks = {};
+let pedagogyStories = {
+  type_verre: {},
+  matiere: {},
+  traitement: {},
+  option: {}
+};
 
 const lensStories = {
+  "Varilux XR Pro": {
+    typeTitle: "Progressif haut de gamme",
+    typeText: "Varilux XR met l'accent sur une vision progressive fluide, avec une priorité donnée à la réactivité et au confort de passage entre les distances.",
+    source: "Essilor / Varilux XR Series"
+  },
   "Varilux S 2": {
     typeTitle: "Progressif premium personnalisé",
     typeText: "Varilux S 2 priorise une vision progressive haut de gamme, avec une adaptation fine aux paramètres de port et au comportement de lecture.",
@@ -149,6 +160,9 @@ const networkChoices = document.querySelector("#network-choices");
 const toast = document.querySelector("#toast");
 const modalButtons = [...document.querySelectorAll("[data-modal-target]")];
 const modals = [...document.querySelectorAll(".info-modal")];
+const pedagogyModal = document.querySelector("#pedagogy-modal");
+const pedagogyModalTitle = document.querySelector("#pedagogy-modal-title");
+const pedagogyModalImage = document.querySelector("#pedagogy-modal-image");
 
 const familyLabels = {
   tous: "Tous",
@@ -249,6 +263,45 @@ function parseCsv(text) {
 
   const headers = rows.shift() || [];
   return rows.map((values) => Object.fromEntries(headers.map((header, index) => [header, (values[index] || "").trim()])));
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function storyFromPedagogyRow(row) {
+  return {
+    label: row.libelle_carte || "",
+    title: row.titre_court || row.cle || "À compléter",
+    text: row.resume_court || "À compléter",
+    source: row.source_courte || "",
+    image: row.image_picto || "",
+    modalTitle: row.modal_titre || row.titre_court || row.cle || "",
+    modalImage: row.image_modal || "",
+    sourceUrl: row.source_url || ""
+  };
+}
+
+function buildPedagogyStories(rows) {
+  const nextStories = {
+    type_verre: {},
+    matiere: {},
+    traitement: {},
+    option: {}
+  };
+
+  rows.forEach((row) => {
+    if (!row.categorie || !row.cle) return;
+    if (!nextStories[row.categorie]) nextStories[row.categorie] = {};
+    nextStories[row.categorie][row.cle] = storyFromPedagogyRow(row);
+  });
+
+  return nextStories;
 }
 
 function uniqueOrdered(values, order) {
@@ -392,6 +445,13 @@ async function loadCsvDatabase() {
   networks = buildNetworksFromCsv(parseCsv(text));
 }
 
+async function loadPedagogyDatabase() {
+  const response = await fetch("data/pedagogie-template.csv", { cache: "no-store" });
+  if (!response.ok) throw new Error(`CSV panneau introuvable (${response.status})`);
+  const text = await response.text();
+  pedagogyStories = buildPedagogyStories(parseCsv(text));
+}
+
 function showToast(anchor) {
   clearTimeout(toastTimer);
   if (anchor) {
@@ -409,7 +469,7 @@ function getTreatmentLabel(treatment) {
 
 function getLensStoryKey(lens) {
   const source = `${lens.csvName || ""} ${lens.template || ""}`;
-  if (source.includes("Varilux XR")) return "Varilux XR";
+  if (source.includes("Varilux XR")) return "Varilux XR Pro";
   if (source.includes("Varilux S 2")) return "Varilux S 2";
   if (source.includes("Varilux S2")) return "Varilux S 2";
   if (source.includes("Varilux Physio 3D")) return "Varilux Physio 3D";
@@ -541,10 +601,46 @@ function renderPriceControl(lens, index, lensPrice, isOpen) {
 
 function renderVisual(className, image, altText) {
   if (image) {
-    return `<div class="info-visual has-image ${className}"><img src="${image}" alt="${altText}"></div>`;
+    return `<div class="info-visual has-image ${className}"><img src="${escapeHtml(image)}" alt="${escapeHtml(altText)}"></div>`;
   }
 
   return `<div class="info-visual ${className}"><span></span></div>`;
+}
+
+function withPedagogyStory(category, key, fallback) {
+  const story = pedagogyStories[category]?.[key];
+  if (!story) return fallback;
+
+  return {
+    ...fallback,
+    title: story.title || fallback.title,
+    typeTitle: story.title || fallback.typeTitle,
+    text: story.text || fallback.text,
+    typeText: story.text || fallback.typeText,
+    source: story.source || fallback.source,
+    image: story.image || fallback.image,
+    modalTitle: story.modalTitle || story.title || fallback.title || fallback.typeTitle,
+    modalImage: story.modalImage || "",
+    sourceUrl: story.sourceUrl || ""
+  };
+}
+
+function renderInfoCard({ category, key, label, visualClass, story }) {
+  const modalAttributes = story.modalImage
+    ? ` role="button" tabindex="0" data-pedagogy-category="${escapeHtml(category)}" data-pedagogy-key="${escapeHtml(key)}"`
+    : "";
+
+  return `
+    <article class="info-card${story.modalImage ? " has-modal" : ""}"${modalAttributes}>
+      ${renderVisual(visualClass, story.image, story.title || story.typeTitle)}
+      <div>
+        <span class="info-label">${escapeHtml(label)}</span>
+        <h2>${escapeHtml(story.title || story.typeTitle)}</h2>
+        <p>${escapeHtml(story.text || story.typeText)}</p>
+        <small>${escapeHtml(story.source || "")}</small>
+      </div>
+    </article>
+  `;
 }
 
 function getTreatmentStory(treatment) {
@@ -659,24 +755,24 @@ function renderInfoPanel() {
 
   const lens = lenses[activeInfoIndex] || lenses[0];
   const selection = getSelection(lens, activeInfoIndex);
-  const lensStory = lensStories[getLensStoryKey(lens)];
-  const materialStory = materialStories[selection.material] || {
+  const lensStoryKey = getLensStoryKey(lens);
+  const lensStory = withPedagogyStory("type_verre", lensStoryKey, lensStories[lensStoryKey] || lensStories.Ormix);
+  const materialStory = withPedagogyStory("matiere", selection.material, materialStories[selection.material] || {
     title: selection.material || "À compléter",
     text: "À compléter",
     visual: "material-orma"
-  };
-  const treatmentStory = getTreatmentStory(selection.treatment);
+  });
+  const treatmentStory = withPedagogyStory("traitement", selection.treatment, getTreatmentStory(selection.treatment));
+  const photoStory = withPedagogyStory("option", "Photochromique", photochromicStory);
   const selectedName = getLensName(lens, activeInfoIndex);
   const photochromicCard = selection.transitions && isPhotochromicAvailable(lens) ? `
-    <article class="info-card info-card-photo">
-      ${renderVisual("photochromic-visual", photochromicStory.image, photochromicStory.title)}
-      <div>
-        <span class="info-label">Option</span>
-        <h2>${photochromicStory.title}</h2>
-        <p>${photochromicStory.text}</p>
-        <small>${photochromicStory.source}</small>
-      </div>
-    </article>
+    ${renderInfoCard({
+      category: "option",
+      key: "Photochromique",
+      label: "Option",
+      visualClass: "photochromic-visual",
+      story: photoStory
+    })}
   ` : "";
 
   lensInfoPanel.classList.remove("hidden", "panel-enter");
@@ -693,33 +789,37 @@ function renderInfoPanel() {
         <button class="copy-reference" type="button" data-copy-reference="${selectedName}" aria-label="Copier la référence">Copier</button>
       </span>
     </div>
-    <article class="info-card">
-      ${renderVisual("visual-type", lensStory.image, lensStory.typeTitle)}
-      <div>
-        <span class="info-label">Type de verre</span>
-        <h2>${lensStory.typeTitle}</h2>
-        <p>${lensStory.typeText}</p>
-        <small>${lensStory.source}</small>
-      </div>
-    </article>
-    <article class="info-card">
-      ${renderVisual(materialStory.visual, materialStory.image, materialStory.title)}
-      <div>
-        <span class="info-label">Matière</span>
-        <h2>${materialStory.title}</h2>
-        <p>${materialStory.text}</p>
-        <small>Essilor matières</small>
-      </div>
-    </article>
-    <article class="info-card">
-      ${renderVisual(treatmentStory.visual, treatmentStory.image, treatmentStory.title)}
-      <div>
-        <span class="info-label">Traitement</span>
-        <h2>${treatmentStory.title}</h2>
-        <p>${treatmentStory.text}</p>
-        <small>Essilor Crizal</small>
-      </div>
-    </article>
+    ${renderInfoCard({
+      category: "type_verre",
+      key: lensStoryKey,
+      label: "Type de verre",
+      visualClass: "visual-type",
+      story: {
+        ...lensStory,
+        title: lensStory.typeTitle || lensStory.title,
+        text: lensStory.typeText || lensStory.text
+      }
+    })}
+    ${renderInfoCard({
+      category: "matiere",
+      key: selection.material,
+      label: "Matière",
+      visualClass: materialStory.visual,
+      story: {
+        ...materialStory,
+        source: materialStory.source || "Essilor matières"
+      }
+    })}
+    ${renderInfoCard({
+      category: "traitement",
+      key: selection.treatment,
+      label: "Traitement",
+      visualClass: treatmentStory.visual,
+      story: {
+        ...treatmentStory,
+        source: treatmentStory.source || "Essilor Crizal"
+      }
+    })}
     ${photochromicCard}
   `;
 }
@@ -881,9 +981,25 @@ closedNetwork.addEventListener("click", (event) => {
 
 lensInfoPanel.addEventListener("click", (event) => {
   const copyButton = event.target.closest("[data-copy-reference]");
-  if (!copyButton) return;
+  if (copyButton) {
+    copyToClipboard(copyButton.dataset.copyReference).then(() => showToast(copyButton));
+    return;
+  }
 
-  copyToClipboard(copyButton.dataset.copyReference).then(() => showToast(copyButton));
+  const pedagogyCard = event.target.closest("[data-pedagogy-category][data-pedagogy-key]");
+  if (!pedagogyCard) return;
+
+  openPedagogyModal(pedagogyCard.dataset.pedagogyCategory, pedagogyCard.dataset.pedagogyKey);
+});
+
+lensInfoPanel.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+
+  const pedagogyCard = event.target.closest("[data-pedagogy-category][data-pedagogy-key]");
+  if (!pedagogyCard) return;
+
+  event.preventDefault();
+  openPedagogyModal(pedagogyCard.dataset.pedagogyCategory, pedagogyCard.dataset.pedagogyKey);
 });
 
 closedNetwork.addEventListener("keydown", (event) => {
@@ -907,6 +1023,17 @@ updateFixedControlsVisibility();
 
 function closeModal() {
   modals.forEach((modal) => modal.classList.add("hidden"));
+}
+
+function openPedagogyModal(category, key) {
+  const story = pedagogyStories[category]?.[key];
+  if (!story?.modalImage || !pedagogyModal || !pedagogyModalTitle || !pedagogyModalImage) return;
+
+  closeModal();
+  pedagogyModalTitle.textContent = story.modalTitle || story.title || key;
+  pedagogyModalImage.src = story.modalImage;
+  pedagogyModalImage.alt = story.modalTitle || story.title || key;
+  pedagogyModal.classList.remove("hidden");
 }
 
 modalButtons.forEach((button) => {
@@ -937,6 +1064,12 @@ async function initializeApp() {
     lensInfoPanel.classList.remove("hidden");
     lensInfoPanel.innerHTML = `<div class="info-panel-head"><span class="info-kicker">Base de données</span><div class="info-reference-row"><h2>CSV impossible à charger</h2></div></div><article class="info-card"><div><span class="info-label">À vérifier</span><p>Ouvre le site depuis Render ou un petit serveur local pour autoriser la lecture de data/verres-template.csv.</p></div></article>`;
     return;
+  }
+
+  try {
+    await loadPedagogyDatabase();
+  } catch (error) {
+    console.warn(error);
   }
 
   activeVision = getDefaultVision(activeNetwork);

@@ -1,33 +1,33 @@
-categorie;cle;libelle_carte;titre_court;resume_court;source_courte;image_picto;modal_titre;image_modal;source_url
-type_verre;Varilux XR Pro;Type de verre;Progressif haut de gamme;Varilux XR Pro : une vision ultra fluide et nette à toutes les distances grâce à l’IA comportementale et aux technologies progressives Essilor nouvelle génération.;Essilor / Varilux XR Series;assets/pedagogie/varilux-xr-pro-picto.png;Varilux XR Pro;assets/pedagogie/varilux-xr-pro-modal.png;
-type_verre;Varilux S 2;Type de verre;Progressif premium personnalisé;Varilux S 2 priorise une vision progressive haut de gamme, avec une adaptation fine aux paramètres de port et au comportement de lecture.;Essilor / Varilux S Series;;Varilux S Series;;
-type_verre;Varilux Physio 3D;Type de verre;Progressif Varilux équilibré;Varilux Physio 3D vise une vision nette et confortable à plusieurs distances, avec une bonne stabilité en mouvement.;Essilor / Varilux;;Varilux Physio 3D;;
-type_verre;Varilux Comfort Max;Type de verre;Progressif confort;Varilux Comfort Max privilégie une adaptation confortable et une vision quotidienne polyvalente.;Essilor / Varilux Comfort Max;;Varilux Comfort Max;;
-type_verre;Varilux Liberty;Type de verre;Progressif essentiel;Varilux Liberty 3.0 est une solution progressive plus accessible, pensée pour garder un bon confort quotidien.;Essilor / Varilux Liberty;;Varilux Liberty 3.0;;
-type_verre;Varilux Digitime;Type de verre;Verre digital;Varilux Digitime accompagne les usages numériques et les distances intermédiaires, avec une lecture plus confortable sur écrans.;Essilor / Varilux Digitime;;Varilux Digitime;;
-type_verre;Essilor Amatsi XT;Type de verre;Progressif Essilor accessible;Amatsi XT se place comme un progressif Essilor plus économique que les gammes Varilux, utile quand le prix devient prioritaire.;Essilor / Amatsi;;Essilor Amatsi XT;;
-type_verre;Essilor Prems HD;Type de verre;Progressif généraliste;Prems HD est un progressif Essilor simple et lisible dans l'offre, pensé pour une réponse plus standard.;Essilor / Prems HD;;Essilor Prems HD;;
-type_verre;Essilor Advans;Type de verre;Verre Essilor accessible;Advans est une solution Essilor plus simple, utile pour garder un bon équilibre prix, confort et traitement.;Essilor / Advans;;Essilor Advans;;
-type_verre;Essilor Inizio;Type de verre;Progressif d'entrée de gamme;Inizio sert de choix progressif économique dans les réseaux, avec une logique de compromis prix et adaptation.;Essilor / Inizio;;Essilor Inizio;;
-type_verre;Stellest;Type de verre;Verre enfant myopie;Stellest est orienté enfants, avec une logique de prise en charge spécifique de la myopie évolutive.;Essilor / Stellest;;Essilor Stellest;;
-type_verre;Xperio;Type de verre;Verre solaire polarisé;Xperio Polarized est orienté solaire, avec une réduction de l'éblouissement et une meilleure perception des contrastes dehors.;Essilor / Xperio;;Xperio Polarized;;
-type_verre;Eyezen Boost;Type de verre;Unifocal avec soutien digital;Eyezen Boost aide les porteurs sollicités par les écrans, avec un soutien de vision de près intégré.;Essilor / Eyezen Boost;;Eyezen Boost;;
-type_verre;Eyezen Start;Type de verre;Unifocal optimisé;Eyezen Start est un unifocal optimisé pour les usages modernes, notamment les distances variables et les écrans.;Essilor / Eyezen Start;;Eyezen Start;;
-type_verre;Eyezen Kids;Type de verre;Unifocal enfant;Eyezen Kids cible les usages de l'enfant, avec une logique de confort et de protection adaptée au quotidien scolaire.;Essilor / Eyezen;;Eyezen Kids;;
-type_verre;Ormix;Type de verre;Unifocal standard;Verre unifocal simple en matière Ormix, utile comme solution claire, compacte et économique dans le réseau.;Essilor;;Unifocal standard;;
-matiere;Orma;Matière;Orma 1.5;Matière organique standard, économique et polyvalente, adaptée aux corrections faibles à modérées.;Essilor matières;;Orma 1.5;;
-matiere;Ormix;Matière;Ormix 1.6;Matière plus mince que l'Orma, bon compromis entre finesse, légèreté et rendu esthétique.;Essilor matières;;Ormix 1.6;;
-matiere;Airwear;Matière;Airwear 1.59;Polycarbonate Essilor : léger, résistant aux chocs, intéressant pour enfants, sport et sécurité.;Essilor matières;;Airwear 1.59;;
-traitement;CZ EasyP;Traitement;Crizal Easy Pro;Traitement axé sur le nettoyage facile, la réduction des reflets et une bonne protection UV.;Essilor Crizal;;Crizal Easy Pro;;
-traitement;CZ Prev;Traitement;Crizal Prevencia;Traitement avec filtration sélective de la lumière bleu-violet, tout en gardant une vision claire.;Essilor Crizal;;Crizal Prevencia;;
-traitement;CZ Sapph;Traitement;Crizal Sapphire;Traitement antireflet premium, pensé pour réduire les reflets et améliorer la transparence du verre.;Essilor Crizal;;Crizal Sapphire;;
-traitement;CZ Rock;Traitement;Crizal Rock;Traitement antireflet orienté robustesse : résistance aux rayures, salissures, poussière et nettoyage facile.;Essilor Crizal;;Crizal Rock;;
-traitement;CZ Kids;Traitement;Traitement enfant;Option dédiée aux usages enfants quand elle existe dans le réseau, à valider verre par verre.;Essilor Crizal;;Traitement enfant;;
-traitement;HMC+BlueC;Traitement;HMC+BlueC;Traitement ou finition spécifique de cette offre, à utiliser selon la catégorie et le prix du verre.;Essilor Crizal;;HMC+BlueC;;
-traitement;HMC;Traitement;HMC;Traitement ou finition spécifique de cette offre, à utiliser selon la catégorie et le prix du verre.;Essilor Crizal;;HMC;;
-traitement;CZ Sun XP;Traitement;Cz Sun XP;Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.;Essilor Crizal;;Cz Sun XP;;
-traitement;XP Supra;Traitement;XP Supra;Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.;Essilor Crizal;;XP Supra;;
-traitement;Supra;Traitement;Supra;Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.;Essilor Crizal;;Supra;;
-traitement;Polar HMC FA;Traitement;Polar HMC FA;Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.;Essilor Crizal;;Polar HMC FA;;
-traitement;Polar HC;Traitement;Polar HC;Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.;Essilor Crizal;;Polar HC;;
-option;Photochromique;Option;Photochromique;Option qui fonce au soleil et redevient claire en intérieur. Le prix du verre est automatiquement recalculé quand elle est activée.;Essilor / Photochromique;assets/ui/lune-soleil.png;Photochromique;;
+categorie,cle,libelle_carte,titre_court,resume_court,source_courte,image_picto,modal_titre,image_modal,source_url
+type_verre,Varilux XR Pro,Type de verre,Progressif haut de gamme,Varilux XR Pro : une vision ultra fluide et nette à toutes les distances grâce à l’IA comportementale et aux technologies progressives Essilor nouvelle génération.,Essilor / Varilux XR Series,assets/pedagogie/varilux-xr-pro-picto.png,Varilux XR Pro,assets/pedagogie/varilux-xr-pro-modal.png,
+type_verre,Varilux S 2,Type de verre,Progressif premium personnalisé,"Varilux S 2 priorise une vision progressive haut de gamme, avec une adaptation fine aux paramètres de port et au comportement de lecture.",Essilor / Varilux S Series,,Varilux S Series,,
+type_verre,Varilux Physio 3D,Type de verre,Progressif Varilux équilibré,"Varilux Physio 3D vise une vision nette et confortable à plusieurs distances, avec une bonne stabilité en mouvement.",Essilor / Varilux,,Varilux Physio 3D,,
+type_verre,Varilux Comfort Max,Type de verre,Progressif confort,Varilux Comfort Max privilégie une adaptation confortable et une vision quotidienne polyvalente.,Essilor / Varilux Comfort Max,,Varilux Comfort Max,,
+type_verre,Varilux Liberty,Type de verre,Progressif essentiel,"Varilux Liberty 3.0 est une solution progressive plus accessible, pensée pour garder un bon confort quotidien.",Essilor / Varilux Liberty,,Varilux Liberty 3.0,,
+type_verre,Varilux Digitime,Type de verre,Verre digital,"Varilux Digitime accompagne les usages numériques et les distances intermédiaires, avec une lecture plus confortable sur écrans.",Essilor / Varilux Digitime,,Varilux Digitime,,
+type_verre,Essilor Amatsi XT,Type de verre,Progressif Essilor accessible,"Amatsi XT se place comme un progressif Essilor plus économique que les gammes Varilux, utile quand le prix devient prioritaire.",Essilor / Amatsi,,Essilor Amatsi XT,,
+type_verre,Essilor Prems HD,Type de verre,Progressif généraliste,"Prems HD est un progressif Essilor simple et lisible dans l'offre, pensé pour une réponse plus standard.",Essilor / Prems HD,,Essilor Prems HD,,
+type_verre,Essilor Advans,Type de verre,Verre Essilor accessible,"Advans est une solution Essilor plus simple, utile pour garder un bon équilibre prix, confort et traitement.",Essilor / Advans,,Essilor Advans,,
+type_verre,Essilor Inizio,Type de verre,Progressif d'entrée de gamme,"Inizio sert de choix progressif économique dans les réseaux, avec une logique de compromis prix et adaptation.",Essilor / Inizio,,Essilor Inizio,,
+type_verre,Stellest,Type de verre,Verre enfant myopie,"Stellest est orienté enfants, avec une logique de prise en charge spécifique de la myopie évolutive.",Essilor / Stellest,,Essilor Stellest,,
+type_verre,Xperio,Type de verre,Verre solaire polarisé,"Xperio Polarized est orienté solaire, avec une réduction de l'éblouissement et une meilleure perception des contrastes dehors.",Essilor / Xperio,,Xperio Polarized,,
+type_verre,Eyezen Boost,Type de verre,Unifocal avec soutien digital,"Eyezen Boost aide les porteurs sollicités par les écrans, avec un soutien de vision de près intégré.",Essilor / Eyezen Boost,,Eyezen Boost,,
+type_verre,Eyezen Start,Type de verre,Unifocal optimisé,"Eyezen Start est un unifocal optimisé pour les usages modernes, notamment les distances variables et les écrans.",Essilor / Eyezen Start,,Eyezen Start,,
+type_verre,Eyezen Kids,Type de verre,Unifocal enfant,"Eyezen Kids cible les usages de l'enfant, avec une logique de confort et de protection adaptée au quotidien scolaire.",Essilor / Eyezen,,Eyezen Kids,,
+type_verre,Ormix,Type de verre,Unifocal standard,"Verre unifocal simple en matière Ormix, utile comme solution claire, compacte et économique dans le réseau.",Essilor,,Unifocal standard,,
+matiere,Orma,Matière,Orma 1.5,"Matière organique standard, économique et polyvalente, adaptée aux corrections faibles à modérées.",Essilor matières,,Orma 1.5,,
+matiere,Ormix,Matière,Ormix 1.6,"Matière plus mince que l'Orma, bon compromis entre finesse, légèreté et rendu esthétique.",Essilor matières,,Ormix 1.6,,
+matiere,Airwear,Matière,Airwear 1.59,"Polycarbonate Essilor : léger, résistant aux chocs, intéressant pour enfants, sport et sécurité.",Essilor matières,,Airwear 1.59,,
+traitement,CZ EasyP,Traitement,Crizal Easy Pro,"Traitement axé sur le nettoyage facile, la réduction des reflets et une bonne protection UV.",Essilor Crizal,,Crizal Easy Pro,,
+traitement,CZ Prev,Traitement,Crizal Prevencia,"Traitement avec filtration sélective de la lumière bleu-violet, tout en gardant une vision claire.",Essilor Crizal,,Crizal Prevencia,,
+traitement,CZ Sapph,Traitement,Crizal Sapphire,"Traitement antireflet premium, pensé pour réduire les reflets et améliorer la transparence du verre.",Essilor Crizal,,Crizal Sapphire,,
+traitement,CZ Rock,Traitement,Crizal Rock,"Traitement antireflet orienté robustesse : résistance aux rayures, salissures, poussière et nettoyage facile.",Essilor Crizal,,Crizal Rock,,
+traitement,CZ Kids,Traitement,Traitement enfant,"Option dédiée aux usages enfants quand elle existe dans le réseau, à valider verre par verre.",Essilor Crizal,,Traitement enfant,,
+traitement,HMC+BlueC,Traitement,HMC+BlueC,"Traitement ou finition spécifique de cette offre, à utiliser selon la catégorie et le prix du verre.",Essilor Crizal,,HMC+BlueC,,
+traitement,HMC,Traitement,HMC,"Traitement ou finition spécifique de cette offre, à utiliser selon la catégorie et le prix du verre.",Essilor Crizal,,HMC,,
+traitement,CZ Sun XP,Traitement,Cz Sun XP,"Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",Essilor Crizal,,Cz Sun XP,,
+traitement,XP Supra,Traitement,XP Supra,"Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",Essilor Crizal,,XP Supra,,
+traitement,Supra,Traitement,Supra,"Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",Essilor Crizal,,Supra,,
+traitement,Polar HMC FA,Traitement,Polar HMC FA,"Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",Essilor Crizal,,Polar HMC FA,,
+traitement,Polar HC,Traitement,Polar HC,"Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",Essilor Crizal,,Polar HC,,
+option,Photochromique,Option,Photochromique,Option qui fonce au soleil et redevient claire en intérieur. Le prix du verre est automatiquement recalculé quand elle est activée.,Essilor / Photochromique,assets/ui/lune-soleil.png,Photochromique,,
