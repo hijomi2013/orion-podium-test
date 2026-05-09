@@ -469,12 +469,16 @@ function getTreatmentLabel(treatment) {
 
 function getLensStoryKey(lens) {
   const source = `${lens.csvName || ""} ${lens.template || ""}`;
+  if (source.includes("Varilux XR Design")) return "Varilux XR Design";
+  if (source.includes("Varilux XR Pro")) return "Varilux XR Pro";
   if (source.includes("Varilux XR")) return "Varilux XR Pro";
+  if (source.includes("Varilux P exten Track")) return "Varilux P exten Track";
   if (source.includes("Varilux S 2")) return "Varilux S 2";
   if (source.includes("Varilux S2")) return "Varilux S 2";
   if (source.includes("Varilux Physio 3D")) return "Varilux Physio 3D";
   if (source.includes("Varilux Cft Max")) return "Varilux Comfort Max";
-  if (source.includes("Varilux Liberty")) return "Varilux Liberty";
+  if (source.includes("Varilux Liberty 3")) return "Varilux Liberty 3";
+  if (source.includes("Varilux Liberty")) return "Varilux Liberty 3";
   if (source.includes("Varilux Digitime")) return "Varilux Digitime";
   if (source.includes("Essilor Amatsi XT")) return "Essilor Amatsi XT";
   if (source.includes("Essilor Advans")) return "Essilor Advans";
