@@ -1,0 +1,14 @@
+node-http-*.err
+node-http-*.out
+node-server-*.err
+node-server-*.out
+server-*.err
+server-*.out
+server.err.log
+server.out.log
+*-local-server.ps1
+ouvrir-*.bat
+ouvrir-*.ps1
+backups/
+font-preview-web/
+video-frames/
