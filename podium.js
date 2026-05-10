@@ -6,140 +6,64 @@ let pedagogyStories = {
   option: {}
 };
 
-const lensStories = {
-  "Varilux XR Pro": {
-    typeTitle: "Progressif haut de gamme",
-    typeText: "Varilux XR met l'accent sur une vision progressive fluide, avec une priorité donnée à la réactivité et au confort de passage entre les distances.",
-    source: "Essilor / Varilux XR Series"
+const fallbackVisuals = {
+  matiere: {
+    Orma: "material-orma",
+    Ormix: "material-ormix",
+    Airwear: "material-airwear"
   },
-  "Varilux S 2": {
-    typeTitle: "Progressif premium personnalisé",
-    typeText: "Varilux S 2 priorise une vision progressive haut de gamme, avec une adaptation fine aux paramètres de port et au comportement de lecture.",
-    source: "Essilor / Varilux S Series"
-  },
-  "Varilux Physio 3D": {
-    typeTitle: "Progressif Varilux équilibré",
-    typeText: "Varilux Physio 3D vise une vision nette et confortable à plusieurs distances, avec une bonne stabilité en mouvement.",
-    source: "Essilor / Varilux"
-  },
-  "Varilux XR": {
-    typeTitle: "Progressif haut de gamme",
-    typeText: "Varilux XR met l'accent sur une vision progressive fluide, avec une priorité donnée à la réactivité et au confort de passage entre les distances.",
-    source: "Essilor / Varilux XR Series"
-  },
-  "Varilux Comfort Max": {
-    typeTitle: "Progressif confort",
-    typeText: "Varilux Comfort Max privilégie une adaptation confortable et une vision quotidienne polyvalente.",
-    source: "Essilor / Varilux Comfort Max"
-  },
-  "Varilux Liberty": {
-    typeTitle: "Progressif essentiel",
-    typeText: "Varilux Liberty 3.0 est une solution progressive plus accessible, pensée pour garder un bon confort quotidien.",
-    source: "Essilor / Varilux Liberty"
-  },
-  "Varilux Digitime": {
-    typeTitle: "Verre digital",
-    typeText: "Varilux Digitime accompagne les usages numériques et les distances intermédiaires, avec une lecture plus confortable sur écrans.",
-    source: "Essilor / Varilux Digitime"
-  },
-  "Essilor Amatsi XT": {
-    typeTitle: "Progressif Essilor accessible",
-    typeText: "Amatsi XT se place comme un progressif Essilor plus économique que les gammes Varilux, utile quand le prix devient prioritaire.",
-    source: "Essilor / Amatsi"
-  },
-  "Essilor Prems HD": {
-    typeTitle: "Progressif généraliste",
-    typeText: "Prems HD est un progressif Essilor simple et lisible dans l'offre, pensé pour une réponse plus standard.",
-    source: "Essilor / Prems HD"
-  },
-  "Essilor Advans": {
-    typeTitle: "Verre Essilor accessible",
-    typeText: "Advans est une solution Essilor plus simple, utile pour garder un bon équilibre prix, confort et traitement.",
-    source: "Essilor / Advans"
-  },
-  "Essilor Inizio": {
-    typeTitle: "Progressif d'entrée de gamme",
-    typeText: "Inizio sert de choix progressif économique dans les réseaux, avec une logique de compromis prix et adaptation.",
-    source: "Essilor / Inizio"
-  },
-  Stellest: {
-    typeTitle: "Verre enfant myopie",
-    typeText: "Stellest est orienté enfants, avec une logique de prise en charge spécifique de la myopie évolutive.",
-    source: "Essilor / Stellest"
-  },
-  Xperio: {
-    typeTitle: "Verre solaire polarisé",
-    typeText: "Xperio Polarized est orienté solaire, avec une réduction de l'éblouissement et une meilleure perception des contrastes dehors.",
-    source: "Essilor / Xperio"
-  },
-  "Eyezen Boost": {
-    typeTitle: "Unifocal avec soutien digital",
-    typeText: "Eyezen Boost aide les porteurs sollicités par les écrans, avec un soutien de vision de près intégré.",
-    source: "Essilor / Eyezen Boost"
-  },
-  "Eyezen Start": {
-    typeTitle: "Unifocal optimisé",
-    typeText: "Eyezen Start est un unifocal optimisé pour les usages modernes, notamment les distances variables et les écrans.",
-    source: "Essilor / Eyezen Start"
-  },
-  "Eyezen Kids": {
-    typeTitle: "Unifocal enfant",
-    typeText: "Eyezen Kids cible les usages de l'enfant, avec une logique de confort et de protection adaptée au quotidien scolaire.",
-    source: "Essilor / Eyezen"
-  },
-  Ormix: {
-    typeTitle: "Unifocal standard",
-    typeText: "Verre unifocal simple en matière Ormix, utile comme solution claire, compacte et économique dans le réseau.",
-    source: "Essilor"
+  traitement: {
+    "CZ Rock": "treatment-rock",
+    "CZ Prev": "treatment-prev",
+    "CZ Sapph": "treatment-sapph",
+    "CZ EasyP": "treatment-easyp",
+    "CZ Kids": "treatment-kids"
   }
 };
 
-const materialStories = {
-  Orma: {
-    title: "Orma 1.5",
-    text: "Matière organique standard, économique et polyvalente, adaptée aux corrections faibles à modérées.",
-    visual: "material-orma"
-  },
-  Ormix: {
-    title: "Ormix 1.6",
-    text: "Matière plus mince que l'Orma, bon compromis entre finesse, légèreté et rendu esthétique.",
-    visual: "material-ormix"
-  },
-  Airwear: {
-    title: "Airwear 1.59",
-    text: "Polycarbonate Essilor : léger, résistant aux chocs, intéressant pour enfants, sport et sécurité.",
-    visual: "material-airwear"
-  }
-};
+function createFallbackStory(category, key) {
+  const title = key || "À compléter";
+  const defaults = {
+    type_verre: {
+      title: "À compléter",
+      typeTitle: "À compléter",
+      text: "À compléter",
+      typeText: "À compléter",
+      source: "",
+      image: "",
+      visual: "visual-type"
+    },
+    matiere: {
+      title,
+      text: "À compléter",
+      source: "Essilor matières",
+      image: "",
+      visual: fallbackVisuals.matiere[key] || "material-orma"
+    },
+    traitement: {
+      title,
+      text: "À compléter",
+      source: "Essilor Crizal",
+      image: "",
+      visual: fallbackVisuals.traitement[key] || "treatment-easyp"
+    },
+    option: {
+      title,
+      text: "À compléter",
+      source: "",
+      image: "",
+      visual: "photochromic-visual"
+    }
+  };
 
-const treatmentStories = {
-  "CZ Rock": {
-    title: "Crizal Rock",
-    text: "Traitement antireflet orienté robustesse : résistance aux rayures, salissures, poussière et nettoyage facile.",
-    visual: "treatment-rock"
-  },
-  "CZ Prev": {
-    title: "Crizal Prevencia",
-    text: "Traitement avec filtration sélective de la lumière bleu-violet, tout en gardant une vision claire.",
-    visual: "treatment-prev"
-  },
-  "CZ Sapph": {
-    title: "Crizal Sapphire",
-    text: "Traitement antireflet premium, pensé pour réduire les reflets et améliorer la transparence du verre.",
-    visual: "treatment-sapph"
-  },
-  "CZ EasyP": {
-    title: "Crizal Easy Pro",
-    text: "Traitement axé sur le nettoyage facile, la réduction des reflets et une bonne protection UV.",
-    visual: "treatment-easyp"
-  },
-  "CZ Kids": {
-    title: "Traitement enfant",
-    text: "Option dédiée aux usages enfants quand elle existe dans le réseau, à valider verre par verre.",
-    visual: "treatment-kids"
-  }
-};
-
+  return defaults[category] || {
+    title,
+    text: "À compléter",
+    source: "",
+    image: "",
+    visual: "visual-type"
+  };
+}
 const photochromicStory = {
   title: "Photochromique",
   text: "Option qui fonce au soleil et redevient claire en intérieur. Le prix du verre est automatiquement recalculé quand elle est activée.",
@@ -200,14 +124,14 @@ const csvConfig = {
     seveane: "seveane"
   },
   labels: {
-    libre: "March? libre",
+    libre: "Marché libre",
     devis: "Devis",
     forfait: "Forfait 2eme paire",
     itelis: "Itelis",
     "carte-blanche": "Carte Blanche",
     kalixia: "Kalixia",
-    santeclair: "Sant?clair",
-    seveane: "S?v?ane"
+    santeclair: "Santéclair",
+    seveane: "Sévéane"
   },
   materialOrder: ["Orma", "Ormix", "Airwear"],
   treatmentOrder: ["CZ EasyP", "CZ Prev", "CZ Sapph", "CZ Kids", "CZ Rock", "HMC+BlueC", "HC", "HMC", "CZ Sun XP", "XP Supra", "Supra", "Polar HMC FA", "Polar HC"],
@@ -354,7 +278,7 @@ function buildNetworksFromCsv(rows) {
 
     const family = row.type_verre;
     const priority = parsePriority(row.priorite);
-    const name = row.nom_verre || "? compl?ter";
+    const name = row.nom_verre || "À compléter";
     const key = [networkKey, family, priority, name].join("||");
 
     if (!lensGroups.has(key)) {
@@ -375,7 +299,7 @@ function buildNetworksFromCsv(rows) {
     const materialsForLens = uniqueOrdered(groupRows.map((row) => row.matiere), csvConfig.materialOrder);
     const treatmentsForLens = uniqueOrdered(groupRows.map((row) => row.traitement), csvConfig.treatmentOrder);
     const defaultMaterial = groupRows[0].matiere || materialsForLens[0] || "Orma";
-    const defaultTreatment = groupRows[0].traitement || treatmentsForLens[0] || "? compl?ter";
+    const defaultTreatment = groupRows[0].traitement || treatmentsForLens[0] || "À compléter";
     const optionGroup = optionGroups.get(group.optionGroupKey) || { materials: new Set(), treatments: new Set() };
 
     const prices = {};
@@ -468,10 +392,7 @@ function getTreatmentLabel(treatment) {
 }
 
 function getLensStoryKey(lens) {
-  const csvName = lens.csvName || "";
-  if (csvName && pedagogyStories.type_verre[csvName]) return csvName;
-  if (csvName && lensStories[csvName]) return csvName;
-  return "Ormix";
+  return lens.csvName || lens.name || "";
 }
 
 function getLensKey(index) {
@@ -629,20 +550,7 @@ function renderInfoCard({ category, key, label, visualClass, story }) {
 }
 
 function getTreatmentStory(treatment) {
-  if (treatmentStories[treatment]) return treatmentStories[treatment];
-  if (treatment.includes("Sun") || treatment.includes("Polar")) {
-    return {
-      title: treatment,
-      text: "Option solaire ou polarisée, pensée pour réduire l'éblouissement et améliorer le confort dehors.",
-      visual: "treatment-sapph"
-    };
-  }
-
-  return {
-    title: treatment,
-    text: "Traitement ou finition spécifique de cette offre, à utiliser selon la catégorie et le prix du verre.",
-    visual: "treatment-easyp"
-  };
+  return createFallbackStory("traitement", treatment);
 }
 
 function copyToClipboard(text) {
@@ -741,12 +649,8 @@ function renderInfoPanel() {
   const lens = lenses[activeInfoIndex] || lenses[0];
   const selection = getSelection(lens, activeInfoIndex);
   const lensStoryKey = getLensStoryKey(lens);
-  const lensStory = withPedagogyStory("type_verre", lensStoryKey, lensStories[lensStoryKey] || lensStories.Ormix);
-  const materialStory = withPedagogyStory("matiere", selection.material, materialStories[selection.material] || {
-    title: selection.material || "À compléter",
-    text: "À compléter",
-    visual: "material-orma"
-  });
+  const lensStory = withPedagogyStory("type_verre", lensStoryKey, createFallbackStory("type_verre", lensStoryKey));
+  const materialStory = withPedagogyStory("matiere", selection.material, createFallbackStory("matiere", selection.material));
   const treatmentStory = withPedagogyStory("traitement", selection.treatment, getTreatmentStory(selection.treatment));
   const photoStory = withPedagogyStory("option", "Photochromique", photochromicStory);
   const selectedName = getLensName(lens, activeInfoIndex);
