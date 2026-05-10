@@ -106,6 +106,7 @@ let pinnedOpenIndex = 0;
 let activeInfoIndex = 0;
 let infoPanelVisible = true;
 let animateInfoPanel = false;
+let infoPanelAnimationTimer;
 
 const lensSelections = {};
 
@@ -665,6 +666,7 @@ function renderInfoPanel() {
   ` : "";
 
   lensInfoPanel.classList.remove("hidden", "panel-enter");
+  clearTimeout(infoPanelAnimationTimer);
   if (animateInfoPanel) {
     void lensInfoPanel.offsetWidth;
     lensInfoPanel.classList.add("panel-enter");
@@ -711,6 +713,12 @@ function renderInfoPanel() {
     })}
     ${photochromicCard}
   `;
+
+  if (lensInfoPanel.classList.contains("panel-enter")) {
+    infoPanelAnimationTimer = setTimeout(() => {
+      lensInfoPanel.classList.remove("panel-enter");
+    }, 1500);
+  }
 }
 
 function renderNetwork() {
