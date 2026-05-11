@@ -13,22 +13,7 @@
   --main-zone-left: calc(var(--side-panel-left) + var(--side-panel-width) + 70px);
   --main-zone-right: 76px;
   --main-zone-center: calc(var(--main-zone-left) + ((100vw - var(--main-zone-left) - var(--main-zone-right)) / 2));
-}
-
-@font-face {
-  font-family: "Mali Orion";
-  src: url("assets/fonts/Mali-Regular.ttf") format("truetype");
-  font-weight: 400 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Orion Signature";
-  src: url("assets/fonts/Handlee-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  --font-ui: Inter, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
 }
 
 * {
@@ -42,7 +27,7 @@ body {
   background:
     url("assets/ui/accueil-background-test.jpg") center / cover fixed,
     #f5f8f8;
-  font-family: "Segoe UI Variable", "Segoe UI", Inter, Arial, sans-serif;
+  font-family: var(--font-ui);
   font-feature-settings: "cv02", "cv03", "cv04";
 }
 
@@ -745,7 +730,7 @@ body.is-scrolled .vision-picker {
   color: #fff;
   cursor: pointer;
   font-size: 24px;
-  font-family: "Mali Orion", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
@@ -829,7 +814,7 @@ body.is-scrolled .vision-picker {
   background: rgba(255, 255, 255, 0.92);
   color: var(--blue-dark);
   font-size: 18px;
-  font-family: "Mali Orion", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   line-height: 1;
   padding: 9px 20px;
@@ -855,7 +840,7 @@ body.is-scrolled .vision-picker {
   color: var(--blue-dark);
   cursor: pointer;
   font-size: 19px;
-  font-family: "Mali Orion", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 850;
   line-height: 1;
   transform: translateY(-50%);
@@ -1007,7 +992,7 @@ body.is-scrolled .vision-picker {
   color: #fff;
   cursor: pointer;
   font-size: 12px;
-  font-family: "Mali Orion", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   text-transform: uppercase;
   -webkit-font-smoothing: auto;
@@ -1311,7 +1296,7 @@ body.is-scrolled .vision-picker {
   color: #fff;
   cursor: pointer;
   font-size: 20px;
-  font-family: "Mali Orion", "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   text-transform: uppercase;
   transform-origin: center;
