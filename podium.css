@@ -2492,6 +2492,105 @@ body::before {
   transition: margin-top 0.26s ease;
 }
 
+@media (max-width: 1200px) {
+  .quick-actions {
+    position: static;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 18px 20px 0;
+  }
+
+  .quick-action {
+    min-height: 40px;
+    border-radius: 14px;
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 20px 72px;
+  }
+
+  .primary-picker,
+  .network-picker,
+  .vision-picker {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(860px, 100%);
+    margin: 0 auto;
+    transform: none;
+  }
+
+  body.has-network-picker .network-picker,
+  body.has-network-picker .vision-picker {
+    top: auto;
+  }
+
+  body.is-scrolled .primary-picker,
+  body.is-scrolled .network-picker,
+  body.is-scrolled .vision-picker {
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+  }
+
+  .primary-picker {
+    gap: 14px;
+  }
+
+  .network-picker {
+    gap: 12px;
+  }
+
+  .vision-picker {
+    gap: 16px;
+  }
+
+  .primary-button,
+  .network-button.primary-button {
+    min-width: 150px;
+    min-height: 88px;
+    border-radius: 20px;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+
+  .nav-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .network-button:not(.primary-button) {
+    min-height: 36px;
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .vision-button {
+    min-width: 160px;
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .lens-info-panel {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(860px, 100%);
+    margin: 0 auto;
+  }
+
+  .closed-network,
+  body.has-network-picker .closed-network {
+    width: min(980px, 100%);
+    margin: 0 auto 24px;
+  }
+}
+
 /* Typography system: one calm scale for a professional, readable Podium. */
 .network-button,
 .vision-button,
