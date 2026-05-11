@@ -2145,13 +2145,13 @@ body::before {
 
 @media (min-width: 1201px) {
   :root {
-    --layout-gutter: clamp(28px, 4.2vw, 92px);
-    --layout-width: min(1640px, calc(100vw - (var(--layout-gutter) * 2)));
+    --layout-gutter: clamp(18px, 1.8vw, 36px);
+    --layout-width: min(1880px, calc(100vw - (var(--layout-gutter) * 2)));
     --layout-left: calc((100vw - var(--layout-width)) / 2);
-    --column-gap: clamp(42px, 5vw, 104px);
-    --pedagogy-column-width: clamp(430px, 29vw, 560px);
-    --pedagogy-content-left: calc(var(--layout-left) + clamp(36px, 2.7vw, 58px));
-    --pedagogy-content-width: min(380px, calc(var(--pedagogy-column-width) - 92px));
+    --column-gap: clamp(28px, 3vw, 58px);
+    --pedagogy-column-width: clamp(520px, 30vw, 590px);
+    --pedagogy-content-left: calc(var(--layout-left) + clamp(18px, 1.6vw, 32px));
+    --pedagogy-content-width: min(520px, calc(var(--pedagogy-column-width) - 48px));
     --main-column-left: calc(var(--layout-left) + var(--pedagogy-column-width) + var(--column-gap));
     --main-column-width: calc(var(--layout-width) - var(--pedagogy-column-width) - var(--column-gap));
     --main-column-center: calc(var(--main-column-left) + (var(--main-column-width) / 2));
@@ -2165,60 +2165,211 @@ body::before {
   }
 
   .primary-picker {
-    top: 140px;
+    top: 112px;
     width: var(--main-column-width);
+    gap: 18px;
   }
 
   .network-picker {
-    top: 260px;
+    top: 204px;
     width: var(--main-column-width);
   }
 
   .vision-picker {
-    top: 346px;
+    top: 266px;
     width: var(--main-column-width);
+    gap: 18px;
   }
 
   .lens-info-panel {
     position: absolute;
     left: var(--pedagogy-content-left);
-    top: 168px;
+    top: 124px;
     width: var(--pedagogy-content-width);
     margin: 0;
+    gap: 12px;
   }
 
   .closed-network {
     width: var(--main-column-width);
-    margin: 400px 0 24px var(--main-column-left);
+    margin: 322px 0 24px var(--main-column-left);
   }
 
   .glass-panel {
     width: 100%;
-    padding: 48px 58px 44px;
+    padding: 34px 44px 34px;
+  }
+
+  .primary-button,
+  .network-button.primary-button {
+    min-width: 136px;
+    min-height: 84px;
+    border-radius: 18px;
+    gap: 7px;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .nav-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .vision-button {
+    min-width: 142px;
+    min-height: 42px;
+    font-size: 11px;
+  }
+
+  .info-panel-head {
+    gap: 4px;
+  }
+
+  .info-reference-row {
+    gap: 10px;
+  }
+
+  .info-panel-head strong {
+    font-size: 22px;
+    line-height: 1.05;
+  }
+
+  .copy-reference {
+    min-height: 32px;
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .info-card {
+    grid-template-columns: 156px 1fr;
+    gap: 16px;
+    min-height: 132px;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .info-card h2 {
+    margin: 2px 0 5px;
+    font-size: 17px;
+    line-height: 1.08;
+  }
+
+  .info-card p {
+    font-size: 12px;
+    line-height: 1.24;
+  }
+
+  .info-card small {
+    margin-top: 5px;
+    font-size: 10px;
+  }
+
+  .info-visual {
+    min-height: 104px;
+    border-radius: 12px;
+  }
+
+  .network-hero {
+    min-height: 72px;
+    font-size: 19px;
+  }
+
+  .network-hero.hover-open,
+  .network-hero.is-open {
+    min-height: 210px;
+  }
+
+  .network-choice {
+    min-height: 58px;
+    font-size: 17px;
+  }
+
+  .network-choice.hover-open,
+  .network-choice.is-open {
+    min-height: 210px;
+  }
+
+  .network-choices {
+    margin-top: 16px;
+    gap: 14px;
+  }
+
+  .closed-network:has(.network-hero.hover-open) .network-choices,
+  .closed-network:has(.network-hero.is-open) .network-choices {
+    margin-top: 18px;
+  }
+
+  .network-hero.hover-open .hero-label,
+  .network-hero.is-open .hero-label,
+  .network-choice.hover-open .hero-label,
+  .network-choice.is-open .hero-label {
+    top: 24px;
+    min-height: 38px;
+  }
+
+  .hero-pickers {
+    bottom: 16px;
+    gap: 7px;
+  }
+
+  .hero-option {
+    min-width: 94px;
+    min-height: 28px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+
+  .transition-toggle {
+    top: 18px;
+    right: 22px;
+    min-width: 142px;
+    min-height: 34px;
+    font-size: 8px;
+  }
+
+  .transition-toggle::before {
+    width: 34px;
+    height: 34px;
+    background-size: auto 34px;
+  }
+
+  .lens-price {
+    right: 28px;
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+
+  .network-hero.hover-open .lens-price,
+  .network-hero.is-open .lens-price,
+  .network-hero:focus-within .lens-price,
+  .network-choice.hover-open .lens-price,
+  .network-choice.is-open .lens-price,
+  .network-choice:focus-within .lens-price {
+    top: 104px;
   }
 }
 
 @media (min-width: 1201px) and (max-width: 1500px) {
   :root {
-    --layout-gutter: clamp(22px, 3vw, 46px);
-    --column-gap: clamp(28px, 3.4vw, 52px);
-    --pedagogy-column-width: clamp(390px, 32vw, 460px);
-    --pedagogy-content-width: min(350px, calc(var(--pedagogy-column-width) - 72px));
+    --layout-gutter: clamp(16px, 2vw, 28px);
+    --column-gap: clamp(22px, 2.8vw, 40px);
+    --pedagogy-column-width: clamp(420px, 31vw, 480px);
+    --pedagogy-content-width: min(410px, calc(var(--pedagogy-column-width) - 44px));
   }
 
   .primary-picker {
-    top: 112px;
+    top: 92px;
   }
 
   .vision-picker {
-    top: 306px;
+    top: 246px;
   }
 
   .lens-info-panel {
-    top: 128px;
+    top: 106px;
   }
 
   .closed-network {
-    margin-top: 372px;
+    margin-top: 298px;
   }
 }
