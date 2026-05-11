@@ -2137,10 +2137,10 @@ body::before {
 @media (min-width: 1201px) {
   :root {
     --layout-gutter: clamp(16px, 1.4vw, 28px);
-    --layout-width: calc(100vw - (var(--layout-gutter) * 2));
+    --layout-width: min(1960px, calc(100vw - (var(--layout-gutter) * 2)));
     --layout-left: calc((100vw - var(--layout-width)) / 2);
-    --column-gap: clamp(22px, 1.7vw, 34px);
-    --pedagogy-column-width: clamp(580px, 31vw, 620px);
+    --column-gap: clamp(28px, 2vw, 44px);
+    --pedagogy-column-width: clamp(590px, 31vw, 635px);
     --pedagogy-content-left: calc(var(--layout-left) + clamp(14px, 1.1vw, 22px));
     --pedagogy-content-width: min(610px, calc(var(--pedagogy-column-width) - 28px));
     --main-column-left: calc(var(--layout-left) + var(--pedagogy-column-width) + var(--column-gap));
@@ -2371,8 +2371,8 @@ body::before {
 @media (min-width: 1201px) and (max-width: 1500px) {
   :root {
     --layout-gutter: clamp(16px, 2vw, 28px);
-    --column-gap: clamp(20px, 2.4vw, 34px);
-    --pedagogy-column-width: clamp(450px, 32vw, 510px);
+    --column-gap: clamp(24px, 2.6vw, 40px);
+    --pedagogy-column-width: clamp(465px, 33vw, 520px);
     --pedagogy-content-width: min(490px, calc(var(--pedagogy-column-width) - 36px));
   }
 
