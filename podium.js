@@ -463,14 +463,15 @@ function formatFrenchPrice(price) {
 }
 
 function renderOptions(options, activeValue, dataName, availableOptions, index) {
-  return options
+  const visibleOptions = options.filter((option) => availableOptions.includes(option));
+
+  return visibleOptions
     .map((option) => {
-      const isAvailable = availableOptions.includes(option);
-      const classes = ["hero-option", option === activeValue ? "active" : "", isAvailable ? "" : "disabled"]
+      const classes = ["hero-option", option === activeValue ? "active" : ""]
         .filter(Boolean)
         .join(" ");
 
-      return `<button class="${classes}" type="button" data-index="${index}" data-${dataName}="${option}" ${isAvailable ? "" : "disabled"}>${option}</button>`;
+      return `<button class="${classes}" type="button" data-index="${index}" data-${dataName}="${option}">${option}</button>`;
     })
     .join("");
 }
