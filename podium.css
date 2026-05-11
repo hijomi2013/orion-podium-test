@@ -2145,13 +2145,13 @@ body::before {
 
 @media (min-width: 1201px) {
   :root {
-    --layout-gutter: clamp(18px, 1.8vw, 36px);
-    --layout-width: min(1880px, calc(100vw - (var(--layout-gutter) * 2)));
+    --layout-gutter: clamp(16px, 1.4vw, 28px);
+    --layout-width: min(1900px, calc(100vw - (var(--layout-gutter) * 2)));
     --layout-left: calc((100vw - var(--layout-width)) / 2);
-    --column-gap: clamp(28px, 3vw, 58px);
-    --pedagogy-column-width: clamp(520px, 30vw, 590px);
-    --pedagogy-content-left: calc(var(--layout-left) + clamp(18px, 1.6vw, 32px));
-    --pedagogy-content-width: min(520px, calc(var(--pedagogy-column-width) - 48px));
+    --column-gap: clamp(26px, 2.1vw, 40px);
+    --pedagogy-column-width: clamp(600px, 33vw, 650px);
+    --pedagogy-content-left: calc(var(--layout-left) + clamp(14px, 1.1vw, 22px));
+    --pedagogy-content-width: min(610px, calc(var(--pedagogy-column-width) - 28px));
     --main-column-left: calc(var(--layout-left) + var(--pedagogy-column-width) + var(--column-gap));
     --main-column-width: calc(var(--layout-width) - var(--pedagogy-column-width) - var(--column-gap));
     --main-column-center: calc(var(--main-column-left) + (var(--main-column-width) / 2));
@@ -2165,26 +2165,27 @@ body::before {
   }
 
   .primary-picker {
-    top: 112px;
+    top: 88px;
     width: var(--main-column-width);
-    gap: 18px;
+    gap: clamp(24px, 2.4vw, 44px);
   }
 
   .network-picker {
-    top: 204px;
+    top: 186px;
     width: var(--main-column-width);
+    gap: clamp(18px, 1.6vw, 30px);
   }
 
   .vision-picker {
-    top: 266px;
+    top: 224px;
     width: var(--main-column-width);
-    gap: 18px;
+    gap: clamp(22px, 2vw, 38px);
   }
 
   .lens-info-panel {
     position: absolute;
     left: var(--pedagogy-content-left);
-    top: 124px;
+    top: 98px;
     width: var(--pedagogy-content-width);
     margin: 0;
     gap: 12px;
@@ -2192,32 +2193,38 @@ body::before {
 
   .closed-network {
     width: var(--main-column-width);
-    margin: 322px 0 24px var(--main-column-left);
+    margin: 278px 0 24px var(--main-column-left);
   }
 
   .glass-panel {
     width: 100%;
-    padding: 34px 44px 34px;
+    padding: 30px 40px 32px;
   }
 
   .primary-button,
   .network-button.primary-button {
-    min-width: 136px;
-    min-height: 84px;
-    border-radius: 18px;
-    gap: 7px;
-    padding: 10px 18px;
-    font-size: 13px;
+    min-width: 170px;
+    min-height: 92px;
+    border-radius: 20px;
+    gap: 8px;
+    padding: 12px 22px;
+    font-size: 14px;
   }
 
   .nav-icon {
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .network-picker .network-button:not(.primary-button) {
+    min-height: 34px;
+    padding: 0 16px;
+    font-size: 11px;
   }
 
   .vision-button {
-    min-width: 142px;
-    min-height: 42px;
+    min-width: 164px;
+    min-height: 40px;
     font-size: 11px;
   }
 
@@ -2230,8 +2237,8 @@ body::before {
   }
 
   .info-panel-head strong {
-    font-size: 22px;
-    line-height: 1.05;
+    font-size: 25px;
+    line-height: 1.08;
   }
 
   .copy-reference {
@@ -2241,22 +2248,22 @@ body::before {
   }
 
   .info-card {
-    grid-template-columns: 156px 1fr;
-    gap: 16px;
-    min-height: 132px;
-    padding: 14px;
+    grid-template-columns: 178px 1fr;
+    gap: 18px;
+    min-height: 136px;
+    padding: 15px;
     border-radius: 14px;
   }
 
   .info-card h2 {
     margin: 2px 0 5px;
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.08;
   }
 
   .info-card p {
-    font-size: 12px;
-    line-height: 1.24;
+    font-size: 12.5px;
+    line-height: 1.26;
   }
 
   .info-card small {
@@ -2265,38 +2272,38 @@ body::before {
   }
 
   .info-visual {
-    min-height: 104px;
+    min-height: 112px;
     border-radius: 12px;
   }
 
   .network-hero {
-    min-height: 72px;
+    min-height: 68px;
     font-size: 19px;
   }
 
   .network-hero.hover-open,
   .network-hero.is-open {
-    min-height: 210px;
+    min-height: 188px;
   }
 
   .network-choice {
-    min-height: 58px;
+    min-height: 54px;
     font-size: 17px;
   }
 
   .network-choice.hover-open,
   .network-choice.is-open {
-    min-height: 210px;
+    min-height: 188px;
   }
 
   .network-choices {
-    margin-top: 16px;
-    gap: 14px;
+    margin-top: 14px;
+    gap: 12px;
   }
 
   .closed-network:has(.network-hero.hover-open) .network-choices,
   .closed-network:has(.network-hero.is-open) .network-choices {
-    margin-top: 18px;
+    margin-top: 16px;
   }
 
   .network-hero.hover-open .hero-label,
@@ -2304,17 +2311,18 @@ body::before {
   .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     top: 24px;
-    min-height: 38px;
+    min-height: 34px;
   }
 
   .hero-pickers {
-    bottom: 16px;
-    gap: 7px;
+    bottom: 14px;
+    gap: 6px;
+    width: min(860px, calc(100% - 300px));
   }
 
   .hero-option {
-    min-width: 94px;
-    min-height: 28px;
+    min-width: 100px;
+    min-height: 27px;
     padding: 0 12px;
     font-size: 10px;
   }
@@ -2345,7 +2353,7 @@ body::before {
   .network-choice.hover-open .lens-price,
   .network-choice.is-open .lens-price,
   .network-choice:focus-within .lens-price {
-    top: 104px;
+    top: 96px;
   }
 }
 
@@ -2353,23 +2361,23 @@ body::before {
   :root {
     --layout-gutter: clamp(16px, 2vw, 28px);
     --column-gap: clamp(22px, 2.8vw, 40px);
-    --pedagogy-column-width: clamp(420px, 31vw, 480px);
-    --pedagogy-content-width: min(410px, calc(var(--pedagogy-column-width) - 44px));
+    --pedagogy-column-width: clamp(470px, 34vw, 530px);
+    --pedagogy-content-width: min(490px, calc(var(--pedagogy-column-width) - 36px));
   }
 
   .primary-picker {
-    top: 92px;
+    top: 78px;
   }
 
   .vision-picker {
-    top: 246px;
+    top: 214px;
   }
 
   .lens-info-panel {
-    top: 106px;
+    top: 88px;
   }
 
   .closed-network {
-    margin-top: 298px;
+    margin-top: 262px;
   }
 }
