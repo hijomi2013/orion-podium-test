@@ -2381,3 +2381,76 @@ body::before {
     margin-top: 262px;
   }
 }
+
+/* Motion pass: keep the lens cards functional, but make opening feel cleaner. */
+.network-hero,
+.network-choice {
+  transition:
+    min-height 0.34s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+  will-change: min-height;
+}
+
+.network-hero::before,
+.network-choice::before {
+  opacity: 0;
+  transform: none;
+  transition: none;
+}
+
+.network-hero.hover-open::before,
+.network-hero.is-open::before,
+.network-choice.hover-open::before,
+.network-choice.is-open::before {
+  opacity: 0;
+  transform: none;
+}
+
+.hero-label {
+  transition:
+    top 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    max-width 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: top, transform;
+}
+
+.lens-price,
+.price-control {
+  transition:
+    top 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.24s ease;
+  will-change: top, transform;
+}
+
+.hero-pickers {
+  transition:
+    opacity 0.2s ease 0.08s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) 0.04s;
+  will-change: opacity, transform;
+}
+
+.transition-toggle {
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease 0.08s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) 0.04s;
+  will-change: opacity, transform;
+}
+
+.transition-toggle::before {
+  transition:
+    transform 0.24s ease,
+    background-position 0.24s ease,
+    filter 0.24s ease;
+}
+
+.network-choices,
+.closed-network:has(.network-hero.hover-open) .network-choices,
+.closed-network:has(.network-hero.is-open) .network-choices {
+  transition: margin-top 0.26s ease;
+}
