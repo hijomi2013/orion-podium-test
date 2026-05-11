@@ -14,6 +14,11 @@
   --main-zone-right: 76px;
   --main-zone-center: calc(var(--main-zone-left) + ((100vw - var(--main-zone-left) - var(--main-zone-right)) / 2));
   --font-ui: Inter, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --fw-regular: 440;
+  --fw-text: 480;
+  --fw-medium: 560;
+  --fw-semibold: 640;
+  --fw-strong: 700;
 }
 
 * {
@@ -29,6 +34,7 @@ body {
     #f5f8f8;
   font-family: var(--font-ui);
   font-feature-settings: "cv02", "cv03", "cv04";
+  font-weight: var(--fw-text);
 }
 
 body::before {
@@ -2470,59 +2476,66 @@ body::before {
   transition: margin-top 0.26s ease;
 }
 
-/* Typography weight pass: keep the interface serious without making it feel heavy. */
+/* Typography system: one calm scale for a professional, readable Podium. */
 .network-button,
 .vision-button,
 .copy-reference,
 .transition-toggle,
 .hero-option,
-.shop-price {
-  font-weight: 650;
+.shop-price,
+.trust-strip span {
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
 }
 
 .primary-button,
 .network-button.primary-button {
-  font-weight: 680;
+  font-weight: var(--fw-semibold);
 }
 
+.network-hero,
+.network-choice,
 .hero-label {
-  font-weight: 620;
-  text-shadow: 0 1px 8px rgba(7, 40, 56, 0.22);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.01em;
 }
 
 .network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
 .network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
-  font-weight: 650;
+  font-weight: var(--fw-semibold);
 }
 
-.network-hero,
-.network-choice {
-  font-weight: 620;
+.hero-label {
+  text-shadow: 0 1px 8px rgba(7, 40, 56, 0.2);
 }
 
 .lens-price,
 .price-toggle {
-  font-weight: 680;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
 }
 
 .info-panel-head strong {
-  font-weight: 700;
+  font-weight: var(--fw-strong);
+  letter-spacing: 0;
 }
 
 .info-label {
-  font-weight: 700;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
 }
 
 .info-card h2 {
-  font-weight: 700;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
 }
 
 .info-card p {
-  font-weight: 460;
+  font-weight: var(--fw-regular);
 }
 
 .info-card small {
-  font-weight: 560;
+  font-weight: var(--fw-medium);
 }
