@@ -2144,35 +2144,47 @@ body::before {
 }
 
 @media (min-width: 1201px) {
+  :root {
+    --side-panel-left: 38px;
+    --side-panel-width: min(448px, 30vw);
+    --main-panel-left: calc(var(--side-panel-left) + var(--side-panel-width) + 52px);
+    --main-panel-width: min(960px, calc(100vw - var(--main-panel-left) - 80px));
+    --main-controls-center: min(calc(var(--main-panel-left) + 720px), calc(100vw - 380px));
+  }
+
   .primary-picker,
   .network-picker,
   .vision-picker {
-    left: var(--main-zone-center);
+    left: var(--main-controls-center);
     transform: translateX(-50%);
   }
 
   .primary-picker {
-    top: 70px;
+    top: 56px;
   }
 
   .network-picker {
-    top: 198px;
+    top: 184px;
   }
 
   .vision-picker {
-    top: 298px;
+    top: 314px;
   }
 
   .lens-info-panel {
     position: absolute;
     left: var(--side-panel-left);
-    top: 70px;
+    top: 56px;
     width: var(--side-panel-width);
     margin: 0;
   }
 
   .closed-network {
-    width: min(1040px, calc(100vw - var(--main-zone-left) - var(--main-zone-right)));
-    margin: 285px var(--main-zone-right) 24px var(--main-zone-left);
+    width: var(--main-panel-width);
+    margin: 318px 0 24px var(--main-panel-left);
+  }
+
+  .glass-panel {
+    width: 100%;
   }
 }
