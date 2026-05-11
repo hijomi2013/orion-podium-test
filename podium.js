@@ -725,6 +725,7 @@ function renderNetwork() {
   ensureActiveVision();
   const lenses = getActiveLenses();
   renderVisionPicker();
+  document.body.classList.toggle("has-network-picker", !networkPicker.classList.contains("hidden"));
 
   if (!lenses.length) {
     closedNetwork.classList.add("hidden");
@@ -770,6 +771,7 @@ primaryButtons.forEach((button) => {
 
     if (button.dataset.section === "reseaux") {
       networkPicker.classList.remove("hidden");
+      document.body.classList.add("has-network-picker");
       activeNetwork = "itelis";
       activeVision = getDefaultVision(activeNetwork);
       infoPanelVisible = true;
@@ -781,6 +783,7 @@ primaryButtons.forEach((button) => {
     }
 
     networkPicker.classList.add("hidden");
+    document.body.classList.remove("has-network-picker");
     activeNetwork = button.dataset.network;
     activeVision = getDefaultVision(activeNetwork);
     infoPanelVisible = true;

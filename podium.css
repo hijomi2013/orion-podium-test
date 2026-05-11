@@ -2202,9 +2202,27 @@ body::before {
   }
 
   .network-picker .network-button:not(.primary-button) {
-    min-height: 34px;
-    padding: 0 16px;
+    min-height: 36px;
+    padding: 0 18px;
     font-size: 11px;
+  }
+
+  body.has-network-picker .network-picker {
+    top: 206px;
+    gap: clamp(22px, 2vw, 38px);
+  }
+
+  body.has-network-picker .network-picker .network-button:not(.primary-button) {
+    min-width: 108px;
+    min-height: 38px;
+  }
+
+  body.has-network-picker .vision-picker {
+    top: 274px;
+  }
+
+  body.has-network-picker .closed-network {
+    margin-top: 328px;
   }
 
   .vision-button {
@@ -2364,6 +2382,18 @@ body::before {
 
   .closed-network {
     margin-top: 262px;
+  }
+
+  body.has-network-picker .network-picker {
+    top: 184px;
+  }
+
+  body.has-network-picker .vision-picker {
+    top: 252px;
+  }
+
+  body.has-network-picker .closed-network {
+    margin-top: 306px;
   }
 }
 
