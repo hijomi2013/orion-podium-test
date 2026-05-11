@@ -1517,7 +1517,7 @@ body.is-scrolled .vision-picker {
 .pedagogy-modal-card {
   width: min(1420px, 94vw);
   max-height: 92vh;
-  overflow: auto;
+  overflow: hidden;
   padding: 34px;
 }
 
@@ -1525,7 +1525,7 @@ body.is-scrolled .vision-picker {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 76vh;
+  max-height: calc(92vh - 128px);
   object-fit: contain;
   border-radius: 18px;
   margin-top: 24px;
