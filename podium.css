@@ -2137,10 +2137,10 @@ body::before {
 @media (min-width: 1201px) {
   :root {
     --layout-gutter: clamp(16px, 1.4vw, 28px);
-    --layout-width: min(1900px, calc(100vw - (var(--layout-gutter) * 2)));
+    --layout-width: calc(100vw - (var(--layout-gutter) * 2));
     --layout-left: calc((100vw - var(--layout-width)) / 2);
-    --column-gap: clamp(26px, 2.1vw, 40px);
-    --pedagogy-column-width: clamp(600px, 33vw, 650px);
+    --column-gap: clamp(22px, 1.7vw, 34px);
+    --pedagogy-column-width: clamp(580px, 31vw, 620px);
     --pedagogy-content-left: calc(var(--layout-left) + clamp(14px, 1.1vw, 22px));
     --pedagogy-content-width: min(610px, calc(var(--pedagogy-column-width) - 28px));
     --main-column-left: calc(var(--layout-left) + var(--pedagogy-column-width) + var(--column-gap));
@@ -2338,16 +2338,18 @@ body::before {
 
   .transition-toggle {
     top: 18px;
-    right: 22px;
-    min-width: 142px;
-    min-height: 34px;
-    font-size: 8px;
+    right: 24px;
+    min-width: 180px;
+    min-height: 38px;
+    gap: 8px;
+    padding: 0 14px 0 10px;
+    font-size: 9px;
   }
 
   .transition-toggle::before {
-    width: 34px;
-    height: 34px;
-    background-size: auto 34px;
+    width: 38px;
+    height: 38px;
+    background-size: auto 38px;
   }
 
   .lens-price {
@@ -2369,8 +2371,8 @@ body::before {
 @media (min-width: 1201px) and (max-width: 1500px) {
   :root {
     --layout-gutter: clamp(16px, 2vw, 28px);
-    --column-gap: clamp(22px, 2.8vw, 40px);
-    --pedagogy-column-width: clamp(470px, 34vw, 530px);
+    --column-gap: clamp(20px, 2.4vw, 34px);
+    --pedagogy-column-width: clamp(450px, 32vw, 510px);
     --pedagogy-content-width: min(490px, calc(var(--pedagogy-column-width) - 36px));
   }
 
@@ -2463,11 +2465,25 @@ body::before {
   will-change: opacity, transform;
 }
 
+.network-hero.hover-open .transition-toggle,
+.network-hero.is-open .transition-toggle,
+.network-hero:focus-within .transition-toggle,
+.network-choice.hover-open .transition-toggle,
+.network-choice.is-open .transition-toggle,
+.network-choice:focus-within .transition-toggle {
+  opacity: 1;
+}
+
 .transition-toggle::before {
   transition:
     transform 0.24s ease,
     background-position 0.24s ease,
     filter 0.24s ease;
+}
+
+.transition-toggle span {
+  overflow: visible;
+  white-space: nowrap;
 }
 
 .network-choices,
