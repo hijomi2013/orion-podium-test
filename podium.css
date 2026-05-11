@@ -2145,46 +2145,52 @@ body::before {
 
 @media (min-width: 1201px) {
   :root {
-    --side-panel-left: 38px;
-    --side-panel-width: min(448px, 30vw);
-    --main-panel-left: calc(var(--side-panel-left) + var(--side-panel-width) + 52px);
-    --main-panel-width: min(960px, calc(100vw - var(--main-panel-left) - 80px));
-    --main-controls-center: min(calc(var(--main-panel-left) + 720px), calc(100vw - 380px));
+    --pedagogy-column-left: clamp(48px, 5.8vw, 120px);
+    --pedagogy-column-width: clamp(420px, 26.5vw, 540px);
+    --pedagogy-content-left: calc(var(--pedagogy-column-left) + clamp(34px, 2.7vw, 56px));
+    --pedagogy-content-width: min(370px, calc(var(--pedagogy-column-width) - 90px));
+    --main-column-left: calc(var(--pedagogy-column-left) + var(--pedagogy-column-width) + clamp(96px, 6.4vw, 132px));
+    --main-column-width: min(860px, calc(100vw - var(--main-column-left) - 400px));
+    --main-column-center: calc(var(--main-column-left) + (var(--main-column-width) / 2));
   }
 
   .primary-picker,
   .network-picker,
   .vision-picker {
-    left: var(--main-controls-center);
+    left: var(--main-column-center);
     transform: translateX(-50%);
   }
 
   .primary-picker {
-    top: 56px;
+    top: 140px;
+    width: var(--main-column-width);
   }
 
   .network-picker {
-    top: 184px;
+    top: 260px;
+    width: var(--main-column-width);
   }
 
   .vision-picker {
-    top: 314px;
+    top: 346px;
+    width: var(--main-column-width);
   }
 
   .lens-info-panel {
     position: absolute;
-    left: var(--side-panel-left);
-    top: 56px;
-    width: var(--side-panel-width);
+    left: var(--pedagogy-content-left);
+    top: 168px;
+    width: var(--pedagogy-content-width);
     margin: 0;
   }
 
   .closed-network {
-    width: var(--main-panel-width);
-    margin: 318px 0 24px var(--main-panel-left);
+    width: var(--main-column-width);
+    margin: 400px 0 24px var(--main-column-left);
   }
 
   .glass-panel {
     width: 100%;
+    padding: 48px 58px 44px;
   }
 }
