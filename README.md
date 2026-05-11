@@ -1,6 +1,8 @@
 # Orion Podium Test
 
-Projet de test separe du site Orion officiel. Ne pas toucher au depot/site `Orion` de production.
+Projet de test separe du site Orion officiel.
+
+Ne pas toucher au depot/site `Orion` de production depuis ce projet.
 
 Site de test en ligne :
 https://hijomi2013.github.io/orion-podium-test/
@@ -8,74 +10,91 @@ https://hijomi2013.github.io/orion-podium-test/
 Depot GitHub :
 https://github.com/hijomi2013/orion-podium-test
 
-## Etat Actuel
+## Etat Valide
 
-Cette page correspond au module `Podium`.
+Deux blocs sont maintenant consideres comme bons :
 
-La mecanique principale est en place :
-- navigation principale : Marche libre, Reseaux, Devis, Forfait 2eme paire ;
-- sous-navigation selon la section : reseaux, progressifs/unifocaux, forfaits, etc. ;
-- bulles de verres avec ouverture au clic ;
-- choix matiere, traitement et photochromique selon disponibilites du CSV ;
-- prix standard visibles directement ;
-- cas Santeclair : boutons Versailles / LVDB / Autres, prix affiche seulement apres clic ;
-- panneau pedagogique relie au CSV pedagogique ;
-- clic sur une carte du panneau pedagogique : ouverture d'une modal avec l'image detaillee ;
-- effet de survol des cartes pedagogiques conserve apres navigation et rerender du panneau ;
-- boutons rapides en haut a droite :
-  - `Essilor One`, avec modal image `assets/ui/essilor-one.png` ;
-  - `Delai Proximity`, avec modal image `assets/ui/proximity.png` ;
-- les modals rapides sont contraintes pour tenir dans un ecran 21,5 pouces Full HD sans scroll.
+- `Accueil` : page d'accueil finale validee.
+- `Podium` : module Podium finalise visuellement et fonctionnellement pour cette phase.
 
-Etat de fin de phase :
-- la page `Podium` est consideree comme terminee pour l'instant ;
-- les prochains travaux doivent partir sur une base saine autour de la page d'accueil Orion ;
-- `Podium` doit etre considere comme un module a integrer dans un projet Orion plus large, sans modifier le site Orion principal.
+La suite du travail doit porter sur les connexions entre les pages/modules.
 
-## Fichiers Principaux
+## Accueil
 
+Fichiers :
+- `accueil.html`
+- `accueil.css`
+- `accueil.js`
+
+Visuel valide :
+- 3 tuiles premium : Lentilles / Verres / Solaire.
+- Fond : `assets/ui/accueil-background-test.jpg`.
+- Logo : `assets/ui/logo-orion-complet.png`.
+- Images cartes :
+  - `assets/ui/accueil-lentilles.jpg`
+  - `assets/ui/accueil-verres.webp`
+  - `assets/ui/accueil-solaire.avif`
+
+Interaction validee :
+- cartes retournees au clic, pas au survol ;
+- une seule carte ouverte a la fois ;
+- quand une nouvelle carte s'ouvre, l'ancienne se referme avec un leger decalage ;
+- aucun lien actif pour l'instant.
+
+Attention : ces fichiers et assets d'accueil peuvent etre non suivis localement selon l'etat Git. Ne pas les supprimer ni les remplacer sans verification.
+
+## Podium
+
+Fichiers :
 - `index.html` : entree GitHub Pages.
-- `podium.html` : meme page que `index.html`, gardee pour lecture directe.
-- `podium.css` : style complet de la page.
-- `podium.js` : logique de navigation, chargement CSV, bulles, prix, panneau pedagogique et modals.
-- `data/verres-template.csv` : base des verres, prix, matieres, traitements, reseaux et references.
-- `data/pedagogie-template.csv` : contenu du panneau pedagogique et images de modal.
-- `assets/` : images, pictos, police et ressources visuelles.
+- `podium.html` : version directe de la page Podium.
+- `podium.css` : style complet.
+- `podium.js` : logique CSV, navigation, bulles, prix, panneau pedagogique et modales.
 
-## Architecture Prevue
+Etat valide :
+- fond harmonise avec l'accueil ;
+- logo et texte Orion retires de la page Podium ;
+- mise en page a deux vrais blocs : panneau pedagogique a gauche, verres a droite ;
+- boutons `Essilor One` et `Delai Proximity` conserves en retrait ;
+- rendu principal ajuste pour ecrans PC Full HD `1920x1080` et 2K ;
+- responsive ajoute pour eviter les collisions sur largeurs plus petites ;
+- bulles de verres fluidifiees sans casser les liaisons prix/matiere/traitement/pedagogie ;
+- les options matiere/traitement indisponibles ne sont plus affichees en grise ;
+- mode Reseaux espace correctement les sous-boutons ;
+- police simplifiee et harmonisee ;
+- modales contraintes sans scroll interne visible.
 
-Le projet Orion complet doit etre pense comme un ensemble de modules relies par une page d'accueil.
+Donnees :
+- `data/verres-template.csv` pilote les verres, prix, matieres, traitements, reseaux et references.
+- `data/pedagogie-template.csv` pilote le panneau pedagogique et les images de detail.
 
-Schema logique actuel :
-- `Accueil` : future page centrale de navigation ;
-- `Podium` : premier module termine pour l'instant ;
-- autres modules : a definir et construire plus tard.
+Regle importante : ne pas modifier la logique CSV a l'aveugle. Les bulles sont reliees aux prix, traitements, matieres, options photochromiques et au panneau pedagogique.
 
-La prochaine etape prevue est la construction de la page d'accueil. Elle devra pointer vers le module `Podium` et preparer l'ajout de futurs modules.
+## Assets
 
-## Regle Des CSV
+Le dossier `assets/` contient des ressources partagees entre Accueil, Podium et possiblement d'autres pages.
 
-`data/verres-template.csv` pilote les bulles de verres.
+Ne rien supprimer sans recherche prealable dans le projet.
 
-`data/pedagogie-template.csv` pilote le panneau pedagogique. Les correspondances se font par cle :
-- pour le type de verre : `categorie=type_verre` et `cle` doit correspondre au `nom_verre` du CSV verres ;
-- pour la matiere : `categorie=matiere` et `cle` doit correspondre a la valeur de `matiere` ;
-- pour le traitement : `categorie=traitement` et `cle` doit correspondre a la valeur de `traitement` ;
-- pour l'option photochromique : utiliser la cle/categorie prevue dans le CSV pedagogique.
+En particulier, verifier les usages avant de toucher aux fichiers dans :
+- `assets/ui/`
+- `assets/pedagogie/`
+- `assets/lens/`
 
-Les images indiquees dans le CSV pedagogique doivent exister dans `assets/`.
+## Workflow Conseille
 
-## Workflow
+Pour la suite, travailler par petites etapes :
 
-Pour modifier les donnees :
-1. modifier les CSV dans `data/` ;
-2. ajouter les images necessaires dans `assets/` ;
-3. verifier que les cles correspondent bien ;
-4. commit/push sur `main` ;
-5. attendre GitHub Pages, puis tester :
-   https://hijomi2013.github.io/orion-podium-test/
+1. verifier les fichiers concernes avant modification ;
+2. ne modifier que le module vise ;
+3. tester en local ou sur GitHub Pages ;
+4. commit/push sur `main` seulement quand l'etat est stable ;
+5. attendre le deploiement GitHub Pages, puis verifier en ligne.
 
-## Notes Pour La Suite
+URL de test :
+https://hijomi2013.github.io/orion-podium-test/
+
+## Notes Locales
 
 Source officielle locale actuelle :
 `C:\Users\hijom\Documents\GitHub\orion-podium-test`
@@ -84,9 +103,8 @@ Ce dossier est celui que GitHub Desktop doit afficher comme `orion-podium-test`.
 
 Ne plus utiliser les anciens dossiers locaux `New project`, `orion-podium-test-publish`, `orion-podium-test-deploy` ou `OrionV3` : ils etaient des copies de travail.
 
-Dernier etat verifie :
-- branche locale `main` alignee avec `origin/main` ;
-- remote GitHub : `https://github.com/hijomi2013/orion-podium-test` ;
-- dernier commit fonctionnel avant passation : `3b3656f` (`Fit quick modals to viewport`) ;
-- fichiers `index.html` et `podium.html` alignes pour GitHub Pages ;
-- attention : ne jamais toucher au depot/site Orion principal depuis ce projet test.
+Dernier etat fonctionnel verifie :
+- branche `main` alignee avec `origin/main` avant modification locale du README ;
+- dernier commit pousse pour Podium : `bcf9efa` (`Improve podium responsive fallback`) ;
+- `index.html` et `podium.html` alignes pour GitHub Pages ;
+- `accueil.html`, `accueil.css`, `accueil.js` existent localement et representent l'accueil valide.
