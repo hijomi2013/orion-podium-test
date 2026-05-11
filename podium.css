@@ -2145,12 +2145,15 @@ body::before {
 
 @media (min-width: 1201px) {
   :root {
-    --pedagogy-column-left: clamp(48px, 5.8vw, 120px);
-    --pedagogy-column-width: clamp(420px, 26.5vw, 540px);
-    --pedagogy-content-left: calc(var(--pedagogy-column-left) + clamp(34px, 2.7vw, 56px));
-    --pedagogy-content-width: min(370px, calc(var(--pedagogy-column-width) - 90px));
-    --main-column-left: calc(var(--pedagogy-column-left) + var(--pedagogy-column-width) + clamp(96px, 6.4vw, 132px));
-    --main-column-width: min(860px, calc(100vw - var(--main-column-left) - 400px));
+    --layout-gutter: clamp(28px, 4.2vw, 92px);
+    --layout-width: min(1640px, calc(100vw - (var(--layout-gutter) * 2)));
+    --layout-left: calc((100vw - var(--layout-width)) / 2);
+    --column-gap: clamp(42px, 5vw, 104px);
+    --pedagogy-column-width: clamp(430px, 29vw, 560px);
+    --pedagogy-content-left: calc(var(--layout-left) + clamp(36px, 2.7vw, 58px));
+    --pedagogy-content-width: min(380px, calc(var(--pedagogy-column-width) - 92px));
+    --main-column-left: calc(var(--layout-left) + var(--pedagogy-column-width) + var(--column-gap));
+    --main-column-width: calc(var(--layout-width) - var(--pedagogy-column-width) - var(--column-gap));
     --main-column-center: calc(var(--main-column-left) + (var(--main-column-width) / 2));
   }
 
@@ -2192,5 +2195,30 @@ body::before {
   .glass-panel {
     width: 100%;
     padding: 48px 58px 44px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+  :root {
+    --layout-gutter: clamp(22px, 3vw, 46px);
+    --column-gap: clamp(28px, 3.4vw, 52px);
+    --pedagogy-column-width: clamp(390px, 32vw, 460px);
+    --pedagogy-content-width: min(350px, calc(var(--pedagogy-column-width) - 72px));
+  }
+
+  .primary-picker {
+    top: 112px;
+  }
+
+  .vision-picker {
+    top: 306px;
+  }
+
+  .lens-info-panel {
+    top: 128px;
+  }
+
+  .closed-network {
+    margin-top: 372px;
   }
 }
