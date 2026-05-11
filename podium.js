@@ -675,7 +675,6 @@ function renderInfoPanel() {
   }
   lensInfoPanel.innerHTML = `
     <div class="info-panel-head">
-      <span class="info-kicker">Analyse Essilor</span>
       <span class="info-reference-row">
         <strong>${selectedName}</strong>
         <button class="copy-reference" type="button" data-copy-reference="${selectedName}" aria-label="Copier la référence">Copier</button>
