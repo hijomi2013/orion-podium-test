@@ -2469,3 +2469,60 @@ body::before {
 .closed-network:has(.network-hero.is-open) .network-choices {
   transition: margin-top 0.26s ease;
 }
+
+/* Typography weight pass: keep the interface serious without making it feel heavy. */
+.network-button,
+.vision-button,
+.copy-reference,
+.transition-toggle,
+.hero-option,
+.shop-price {
+  font-weight: 650;
+}
+
+.primary-button,
+.network-button.primary-button {
+  font-weight: 680;
+}
+
+.hero-label {
+  font-weight: 620;
+  text-shadow: 0 1px 8px rgba(7, 40, 56, 0.22);
+}
+
+.network-hero.hover-open .hero-label,
+.network-hero.is-open .hero-label,
+.network-choice.hover-open .hero-label,
+.network-choice.is-open .hero-label {
+  font-weight: 650;
+}
+
+.network-hero,
+.network-choice {
+  font-weight: 620;
+}
+
+.lens-price,
+.price-toggle {
+  font-weight: 680;
+}
+
+.info-panel-head strong {
+  font-weight: 700;
+}
+
+.info-label {
+  font-weight: 700;
+}
+
+.info-card h2 {
+  font-weight: 700;
+}
+
+.info-card p {
+  font-weight: 460;
+}
+
+.info-card small {
+  font-weight: 560;
+}
