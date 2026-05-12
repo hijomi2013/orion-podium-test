@@ -2407,6 +2407,70 @@ body::before {
 
 /* Desktop readability pass: keep the PC dashboard density, but stop opened lenses from feeling crushed. */
 @media (min-width: 1201px) {
+  .quick-actions {
+    top: 34px;
+    right: clamp(28px, 2.8vw, 54px);
+    gap: 16px;
+  }
+
+  .quick-action {
+    min-width: 128px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+
+  .primary-picker {
+    top: 82px;
+    gap: clamp(28px, 2.8vw, 50px);
+  }
+
+  .primary-button,
+  .network-button.primary-button {
+    min-width: 190px;
+    min-height: 108px;
+    border-radius: 22px;
+    gap: 10px;
+    padding: 14px 26px;
+    font-size: 15px;
+  }
+
+  .nav-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  body.has-network-picker .network-picker {
+    top: 216px;
+  }
+
+  body.has-network-picker .network-picker .network-button:not(.primary-button) {
+    min-width: 124px;
+    min-height: 42px;
+    padding: 0 22px;
+    font-size: 12px;
+  }
+
+  .vision-picker {
+    top: 240px;
+    gap: clamp(24px, 2.2vw, 42px);
+  }
+
+  body.has-network-picker .vision-picker {
+    top: 286px;
+  }
+
+  .vision-button {
+    min-width: 184px;
+    min-height: 48px;
+    font-size: 12px;
+  }
+
+  body.has-network-picker .closed-network {
+    margin-top: 348px;
+  }
+
   .glass-panel {
     padding: 36px 44px 38px;
   }
@@ -2499,6 +2563,54 @@ body::before {
 }
 
 @media (min-width: 1201px) and (max-width: 1500px) {
+  .quick-actions {
+    top: 24px;
+    right: 28px;
+  }
+
+  .quick-action {
+    min-width: 112px;
+    min-height: 42px;
+    padding: 0 18px;
+    font-size: 11px;
+  }
+
+  .primary-picker {
+    top: 72px;
+    gap: 22px;
+  }
+
+  .primary-button,
+  .network-button.primary-button {
+    min-width: 164px;
+    min-height: 96px;
+    font-size: 13px;
+  }
+
+  body.has-network-picker .network-picker {
+    top: 194px;
+  }
+
+  body.has-network-picker .network-picker .network-button:not(.primary-button) {
+    min-width: 108px;
+    min-height: 38px;
+    font-size: 11px;
+  }
+
+  body.has-network-picker .vision-picker {
+    top: 264px;
+  }
+
+  .vision-button {
+    min-width: 164px;
+    min-height: 42px;
+    font-size: 11px;
+  }
+
+  body.has-network-picker .closed-network {
+    margin-top: 318px;
+  }
+
   .glass-panel {
     padding: 32px 36px 34px;
   }
