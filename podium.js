@@ -461,7 +461,7 @@ function getSelection(lens, index) {
   const selection = lensSelections[key] || {
     material: preference.material || lens.defaultMaterial || lens.materials[0],
     treatment: preference.treatment || lens.defaultTreatment || lens.treatments[0],
-    transitions: false,
+    transitions: Boolean(preference.transitions),
     priceOpen: false,
     selectedShop: "prix_versailles"
   };
@@ -509,6 +509,18 @@ function applySharedOptionPreference({ material, treatment }) {
     selection.treatment = nextTreatment;
     selection.priceOpen = false;
     normalizeSelection(lens, selection);
+  });
+}
+
+function applySharedTransitionPreference(transitions) {
+  const lenses = getActiveLenses();
+  const preference = contextPreferences[getContextKey()] || {};
+  preference.transitions = Boolean(transitions);
+  contextPreferences[getContextKey()] = preference;
+
+  lenses.forEach((lens, index) => {
+    const selection = getSelection(lens, index);
+    selection.transitions = Boolean(transitions) && isPhotochromicAvailable(lens);
   });
 }
 
@@ -959,7 +971,7 @@ closedNetwork.addEventListener("click", (event) => {
     }
     if (transitionToggle) {
       event.preventDefault();
-      selection.transitions = !selection.transitions;
+      applySharedTransitionPreference(!selection.transitions);
     }
 
     infoPanelVisible = true;
