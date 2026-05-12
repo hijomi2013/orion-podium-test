@@ -3077,3 +3077,62 @@ body::before {
     font-size: clamp(19px, 1.35vw, 23px);
   }
 }
+
+/* Small click affordance for lens bubbles. */
+.network-hero,
+.network-choice {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.network-hero::after,
+.network-choice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0) 0 34%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0) 62%);
+  opacity: 0;
+  transform: translateX(-36%);
+  transition:
+    opacity 0.26s ease,
+    transform 0.52s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.network-hero:hover,
+.network-hero:focus-visible,
+.network-choice:hover,
+.network-choice:focus-visible {
+  border-color: rgba(255, 255, 255, 0.48);
+  filter: brightness(1.04);
+}
+
+.network-hero:hover::after,
+.network-hero:focus-visible::after,
+.network-choice:hover::after,
+.network-choice:focus-visible::after {
+  opacity: 1;
+  transform: translateX(36%);
+}
+
+.network-hero:focus-visible,
+.network-choice:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network-hero::after,
+  .network-choice::after {
+    transition: none;
+  }
+
+  .network-hero:hover::after,
+  .network-hero:focus-visible::after,
+  .network-choice:hover::after,
+  .network-choice:focus-visible::after {
+    opacity: 0;
+    transform: none;
+  }
+}
