@@ -2896,3 +2896,54 @@ body::before {
 .info-card small {
   font-weight: var(--fw-medium);
 }
+
+/* Text clarity pass: remove the soft filtered feel from lens bubbles. */
+.network-hero,
+.network-choice,
+.hero-label,
+.hero-option,
+.transition-toggle,
+.lens-price,
+.shop-price {
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.network-hero,
+.network-choice {
+  text-shadow: none;
+}
+
+.hero-label {
+  color: #ffffff;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0;
+  text-shadow: 0 1px 2px rgba(9, 46, 64, 0.22);
+}
+
+.network-hero.hover-open .hero-label,
+.network-hero.is-open .hero-label,
+.network-choice.hover-open .hero-label,
+.network-choice.is-open .hero-label {
+  font-weight: var(--fw-semibold);
+}
+
+.hero-option,
+.shop-price,
+.lens-price {
+  color: #123f52;
+  font-weight: var(--fw-semibold);
+  text-shadow: none;
+}
+
+.hero-option.active,
+.hero-option:hover,
+.shop-price.active,
+.shop-price:hover {
+  color: #0c3d50;
+}
+
+.transition-toggle {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: none;
+}
