@@ -2990,3 +2990,66 @@ body::before {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.22);
 }
+
+/* Extend the Verres blue palette to active controls without making the whole page heavy. */
+.primary-button.active,
+.primary-button:hover,
+.network-button.active,
+.network-button:hover,
+.vision-button.active,
+.vision-button:hover {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(145deg, #2b4e6a, #123758 54%, #0a223e);
+  box-shadow:
+    0 22px 46px rgba(10, 34, 62, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.vision-button.active,
+.vision-button:hover,
+.network-picker .network-button.active,
+.network-picker .network-button:hover {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(145deg, #315d7d, #1768b6 58%, #123758);
+}
+
+.hero-option {
+  border-color: rgba(196, 225, 246, 0.78);
+  background: rgba(248, 253, 255, 0.94);
+  box-shadow:
+    0 8px 18px rgba(7, 34, 62, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+}
+
+.hero-option:hover,
+.hero-option.active {
+  border-color: rgba(255, 255, 255, 0.94);
+  background: #ffffff;
+  box-shadow:
+    0 12px 24px rgba(7, 34, 62, 0.2),
+    inset 0 0 0 1px rgba(23, 104, 182, 0.12);
+}
+
+.hero-option:not(.active):not(:hover) {
+  color: rgba(235, 246, 255, 0.82);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(203, 230, 248, 0.46);
+}
+
+.hero-option.disabled,
+.hero-option:disabled {
+  color: rgba(235, 246, 255, 0.36);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(203, 230, 248, 0.22);
+}
+
+.shop-price {
+  border-color: rgba(196, 225, 246, 0.8);
+}
+
+.transition-toggle:has(input:checked) {
+  background: rgba(255, 255, 255, 0.94);
+  color: #102f4e;
+}
