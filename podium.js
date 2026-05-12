@@ -109,6 +109,7 @@ let animateInfoPanel = false;
 let infoPanelAnimationTimer;
 
 const lensSelections = {};
+const contextPreferences = {};
 
 
 const csvConfig = {
@@ -400,23 +401,115 @@ function getLensKey(index) {
   return `${activeNetwork}:${activeVision}:${index}`;
 }
 
+function getContextKey() {
+  return `${activeNetwork}:${activeVision}`;
+}
+
+function getComboKey(material, treatment) {
+  return `${material}|${treatment}`;
+}
+
+function hasLensCombo(lens, material, treatment) {
+  const combo = getComboKey(material, treatment);
+  return Boolean(
+    lens.prices?.[combo]
+    || lens.references?.[combo]
+    || lens.shopPrices?.[combo]
+  );
+}
+
+function getFirstValidTreatment(lens, material, preferredTreatment) {
+  const candidates = [
+    preferredTreatment,
+    lens.defaultTreatment,
+    ...(lens.treatments || [])
+  ].filter(Boolean);
+
+  return candidates.find((treatment) => lens.treatments.includes(treatment) && hasLensCombo(lens, material, treatment)) || "";
+}
+
+function getFirstValidMaterial(lens, treatment, preferredMaterial) {
+  const candidates = [
+    preferredMaterial,
+    lens.defaultMaterial,
+    ...(lens.materials || [])
+  ].filter(Boolean);
+
+  return candidates.find((material) => lens.materials.includes(material) && hasLensCombo(lens, material, treatment)) || "";
+}
+
+function normalizeSelection(lens, selection) {
+  if (!lens.materials.includes(selection.material)) selection.material = lens.defaultMaterial || lens.materials[0];
+  if (!lens.treatments.includes(selection.treatment)) selection.treatment = lens.defaultTreatment || lens.treatments[0];
+
+  if (!hasLensCombo(lens, selection.material, selection.treatment)) {
+    const treatment = getFirstValidTreatment(lens, selection.material, selection.treatment);
+    if (treatment) {
+      selection.treatment = treatment;
+    } else {
+      const material = getFirstValidMaterial(lens, selection.treatment, selection.material);
+      if (material) selection.material = material;
+    }
+  }
+
+  return selection;
+}
+
 function getSelection(lens, index) {
   const key = getLensKey(index);
+  const preference = contextPreferences[getContextKey()] || {};
   const selection = lensSelections[key] || {
-    material: lens.defaultMaterial || lens.materials[0],
-    treatment: lens.defaultTreatment || lens.treatments[0],
+    material: preference.material || lens.defaultMaterial || lens.materials[0],
+    treatment: preference.treatment || lens.defaultTreatment || lens.treatments[0],
     transitions: false,
     priceOpen: false,
     selectedShop: "prix_versailles"
   };
 
-  if (!lens.materials.includes(selection.material)) selection.material = lens.materials[0];
-  if (!lens.treatments.includes(selection.treatment)) selection.treatment = lens.defaultTreatment || lens.treatments[0];
+  normalizeSelection(lens, selection);
   if (!isPhotochromicAvailable(lens)) selection.transitions = false;
   if (!selection.selectedShop) selection.selectedShop = "prix_versailles";
 
   lensSelections[key] = selection;
   return selection;
+}
+
+function applySharedOptionPreference({ material, treatment }) {
+  const lenses = getActiveLenses();
+  const preference = contextPreferences[getContextKey()] || {};
+
+  if (material) preference.material = material;
+  if (treatment) preference.treatment = treatment;
+  contextPreferences[getContextKey()] = preference;
+
+  lenses.forEach((lens, index) => {
+    const selection = getSelection(lens, index);
+    let nextMaterial = selection.material;
+    let nextTreatment = selection.treatment;
+
+    if (material && lens.materials.includes(material)) {
+      const compatibleTreatment = getFirstValidTreatment(lens, material, nextTreatment);
+      if (compatibleTreatment) {
+        nextMaterial = material;
+        nextTreatment = compatibleTreatment;
+      }
+    }
+
+    if (treatment && lens.treatments.includes(treatment)) {
+      const compatibleMaterial = getFirstValidMaterial(lens, treatment, nextMaterial);
+      if (compatibleMaterial) {
+        nextMaterial = compatibleMaterial;
+        nextTreatment = treatment;
+      }
+    }
+
+    if (!hasLensCombo(lens, nextMaterial, nextTreatment)) return;
+
+    selection.material = nextMaterial;
+    selection.treatment = nextTreatment;
+    selection.priceOpen = false;
+    normalizeSelection(lens, selection);
+  });
 }
 
 function isPhotochromicAvailable(lens) {
@@ -858,9 +951,12 @@ closedNetwork.addEventListener("click", (event) => {
     const lens = getActiveLenses()[index];
     const selection = getSelection(lens, index);
 
-    if (materialButton) selection.material = materialButton.dataset.material;
-    if (treatmentButton) selection.treatment = treatmentButton.dataset.treatment;
-    if (materialButton || treatmentButton) selection.priceOpen = false;
+    if (materialButton || treatmentButton) {
+      applySharedOptionPreference({
+        material: materialButton?.dataset.material,
+        treatment: treatmentButton?.dataset.treatment
+      });
+    }
     if (transitionToggle) {
       event.preventDefault();
       selection.transitions = !selection.transitions;
