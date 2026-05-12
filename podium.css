@@ -3092,20 +3092,20 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(112deg, rgba(255, 255, 255, 0) 0 34%, rgba(255, 255, 255, 0.18) 48%, rgba(255, 255, 255, 0) 62%);
+    linear-gradient(112deg, rgba(255, 255, 255, 0) 0 38%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 62%);
   opacity: 0;
-  transform: translateX(-36%);
+  transform: translateX(-24%);
   transition:
-    opacity 0.26s ease,
-    transform 0.52s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 0.24s ease,
+    transform 0.46s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .network-hero:hover,
 .network-hero:focus-visible,
 .network-choice:hover,
 .network-choice:focus-visible {
-  border-color: rgba(255, 255, 255, 0.48);
-  filter: brightness(1.04);
+  border-color: rgba(255, 255, 255, 0.34);
+  filter: brightness(1.018);
 }
 
 .network-hero:hover::after,
@@ -3113,7 +3113,7 @@ body::before {
 .network-choice:hover::after,
 .network-choice:focus-visible::after {
   opacity: 1;
-  transform: translateX(36%);
+  transform: translateX(24%);
 }
 
 .network-hero:focus-visible,
