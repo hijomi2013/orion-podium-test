@@ -1402,6 +1402,7 @@ body.is-scrolled .vision-picker {
   position: fixed;
   top: 28px;
   left: 34px;
+  right: auto;
   z-index: 20;
   display: flex;
   gap: 14px;
@@ -1647,7 +1648,8 @@ body.is-scrolled .vision-picker {
 
   .quick-actions {
     top: 22px;
-    right: 26px;
+    left: 26px;
+    right: auto;
     gap: 12px;
   }
 
@@ -2410,6 +2412,7 @@ body::before {
   .quick-actions {
     top: 34px;
     left: clamp(28px, 2.8vw, 54px);
+    right: auto;
     gap: 16px;
   }
 
@@ -2566,6 +2569,7 @@ body::before {
   .quick-actions {
     top: 24px;
     left: 28px;
+    right: auto;
   }
 
   .quick-action {
