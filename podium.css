@@ -1401,7 +1401,7 @@ body.is-scrolled .vision-picker {
 .quick-actions {
   position: fixed;
   top: 28px;
-  right: 34px;
+  left: 34px;
   z-index: 20;
   display: flex;
   gap: 14px;
@@ -2409,7 +2409,7 @@ body::before {
 @media (min-width: 1201px) {
   .quick-actions {
     top: 34px;
-    right: clamp(28px, 2.8vw, 54px);
+    left: clamp(28px, 2.8vw, 54px);
     gap: 16px;
   }
 
@@ -2565,7 +2565,7 @@ body::before {
 @media (min-width: 1201px) and (max-width: 1500px) {
   .quick-actions {
     top: 24px;
-    right: 28px;
+    left: 28px;
   }
 
   .quick-action {
@@ -2737,7 +2737,7 @@ body::before {
 @media (max-width: 1200px) {
   .quick-actions {
     position: static;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 18px 20px 0;
   }
