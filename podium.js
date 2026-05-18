@@ -507,7 +507,7 @@ function applySharedOptionPreference({ material, treatment }) {
 
     selection.material = nextMaterial;
     selection.treatment = nextTreatment;
-    selection.priceOpen = false;
+    if (activeNetwork !== "santeclair") selection.priceOpen = false;
     normalizeSelection(lens, selection);
   });
 }
@@ -541,11 +541,11 @@ function applySharedShopPreference(selectedShop) {
   });
 }
 
-function syncSanteclairOpenPrice() {
+function syncSanteclairOpenShop() {
   if (activeNetwork !== "santeclair") return;
 
   const lens = getActiveLenses()[pinnedOpenIndex];
-  if (lens) ensureSanteclairPriceOpen(lens, pinnedOpenIndex);
+  if (lens) ensureSanteclairShopSelection(lens, pinnedOpenIndex);
 }
 
 function isPhotochromicAvailable(lens) {
@@ -587,7 +587,7 @@ function getAvailableShopEntries(shopPrices) {
   return Object.entries(csvConfig.shopLabels).filter(([shopKey]) => shopPrices[shopKey]);
 }
 
-function ensureSanteclairPriceOpen(lens, index) {
+function ensureSanteclairShopSelection(lens, index) {
   if (activeNetwork !== "santeclair") return;
 
   const selection = getSelection(lens, index);
@@ -598,7 +598,6 @@ function ensureSanteclairPriceOpen(lens, index) {
   if (!shopPrices[selection.selectedShop]) {
     selection.selectedShop = availableShopEntries[0][0];
   }
-  selection.priceOpen = true;
 }
 
 function parseFrenchPrice(price) {
@@ -625,7 +624,7 @@ function renderOptions(options, activeValue, dataName, availableOptions, index) 
 
 function renderPriceControl(lens, index, lensPrice, isOpen) {
   const selection = getSelection(lens, index);
-  if (isOpen) ensureSanteclairPriceOpen(lens, index);
+  if (isOpen) ensureSanteclairShopSelection(lens, index);
   const shopPrices = getShopPrices(lens, index);
   const isSanteclair = activeNetwork === "santeclair";
 
@@ -882,7 +881,7 @@ function renderNetwork() {
     return;
   }
 
-  syncSanteclairOpenPrice();
+  syncSanteclairOpenShop();
   closedNetwork.classList.remove("hidden");
   document.querySelector("#network-hero").outerHTML = renderLens(lenses[0], 0, "network-hero", 'id="network-hero"');
 
