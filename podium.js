@@ -559,6 +559,24 @@ function getShopPrices(lens, index) {
   return lens.shopPrices?.[`${selection.material}|${selection.treatment}`] || {};
 }
 
+function getAvailableShopEntries(shopPrices) {
+  return Object.entries(csvConfig.shopLabels).filter(([shopKey]) => shopPrices[shopKey]);
+}
+
+function ensureSanteclairPriceOpen(lens, index) {
+  if (activeNetwork !== "santeclair") return;
+
+  const selection = getSelection(lens, index);
+  const shopPrices = lens.shopPrices?.[`${selection.material}|${selection.treatment}`] || {};
+  const availableShopEntries = getAvailableShopEntries(shopPrices);
+  if (!availableShopEntries.length) return;
+
+  if (!shopPrices[selection.selectedShop]) {
+    selection.selectedShop = availableShopEntries[0][0];
+  }
+  selection.priceOpen = true;
+}
+
 function parseFrenchPrice(price) {
   return Number(String(price).match(/\d+(?:[,.]\d+)?/)?.[0].replace(",", ".") || 0);
 }
@@ -583,6 +601,7 @@ function renderOptions(options, activeValue, dataName, availableOptions, index) 
 
 function renderPriceControl(lens, index, lensPrice, isOpen) {
   const selection = getSelection(lens, index);
+  if (isOpen) ensureSanteclairPriceOpen(lens, index);
   const shopPrices = getShopPrices(lens, index);
   const isSanteclair = activeNetwork === "santeclair";
 
@@ -590,7 +609,7 @@ function renderPriceControl(lens, index, lensPrice, isOpen) {
     return lensPrice ? `<span class="lens-price">${lensPrice}</span>` : "";
   }
 
-  const availableShopEntries = Object.entries(csvConfig.shopLabels).filter(([shopKey]) => shopPrices[shopKey]);
+  const availableShopEntries = getAvailableShopEntries(shopPrices);
   if (!availableShopEntries.length) return "";
 
   const selectedShop = shopPrices[selection.selectedShop] ? selection.selectedShop : availableShopEntries[0][0];
