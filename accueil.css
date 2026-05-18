@@ -35,7 +35,7 @@ button {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: clamp(18px, 3.2vh, 34px) 5vw 34px;
+  padding: clamp(14px, 2.4vh, 26px) 5vw 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,10 +47,10 @@ button {
 }
 
 .brand-logo {
-  width: clamp(430px, 44vw, 650px);
+  width: clamp(400px, 38vw, 560px);
   height: auto;
   display: block;
-  margin: 0 auto 8px;
+  margin: 0 auto 4px;
   object-fit: contain;
   filter: drop-shadow(0 16px 22px rgba(14, 61, 95, 0.08));
 }
@@ -58,16 +58,16 @@ button {
 .hero h1 {
   margin: 0;
   color: #112849;
-  font-size: clamp(34px, 4vw, 58px);
+  font-size: clamp(34px, 3.55vw, 52px);
   font-weight: 430;
   line-height: 1.02;
   letter-spacing: 0;
 }
 
 .hero p {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   color: #4b607a;
-  font-size: clamp(16px, 1.45vw, 22px);
+  font-size: clamp(16px, 1.25vw, 20px);
   font-weight: 400;
 }
 
@@ -77,8 +77,8 @@ button {
   grid-template-columns: repeat(3, minmax(270px, 345px));
   align-items: center;
   justify-content: center;
-  gap: clamp(28px, 4vw, 58px);
-  margin-top: clamp(30px, 4.4vh, 48px);
+  gap: clamp(26px, 3vw, 46px);
+  margin-top: clamp(24px, 3vh, 34px);
   perspective: 1500px;
 }
 
@@ -91,7 +91,7 @@ button {
   --tilt-x: 0deg;
   --tilt-y: 0deg;
   position: relative;
-  min-height: 540px;
+  min-height: 486px;
   outline: none;
   perspective: 1200px;
 }
@@ -137,8 +137,8 @@ button {
 .card-face {
   position: absolute;
   inset: 0;
-  min-height: 540px;
-  padding: 28px 34px 34px;
+  min-height: 486px;
+  padding: 24px 30px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -230,22 +230,22 @@ button {
 
 .visual {
   width: 100%;
-  height: 194px;
+  height: 166px;
   display: grid;
   place-items: center;
-  margin: -8px 0 12px;
+  margin: -8px 0 8px;
 }
 
 .category-image {
   position: relative;
   z-index: 1;
   display: block;
-  width: 250px;
-  height: 164px;
+  width: 222px;
+  height: 144px;
   max-width: calc(100% - 8px);
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.84);
-  border-radius: 32px;
+  border-radius: 28px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 18px 26px rgba(20, 45, 66, 0.1);
@@ -268,7 +268,7 @@ button {
 }
 
 .card-kicker {
-  margin: 0 0 11px;
+  margin: 0 0 8px;
   color: color-mix(in srgb, var(--accent) 74%, #17263a);
   font-size: 13px;
   font-weight: 760;
@@ -284,7 +284,7 @@ button {
 .card h2 {
   margin: 0;
   color: var(--accent);
-  font-size: clamp(31px, 2.7vw, 42px);
+  font-size: clamp(31px, 2.45vw, 38px);
   font-weight: 740;
   line-height: 1;
   letter-spacing: 0;
@@ -298,7 +298,7 @@ button {
 .title-line {
   width: 34px;
   height: 3px;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   border-radius: 999px;
   background: var(--accent);
 }
@@ -310,9 +310,9 @@ button {
 
 .card-copy {
   max-width: 230px;
-  margin: 24px auto 0;
+  margin: 18px auto 0;
   color: #20334d;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 430;
   line-height: 1.36;
 }
@@ -321,11 +321,11 @@ button {
   width: min(100%, 292px);
   display: grid;
   gap: 10px;
-  margin: 26px auto 0;
+  margin: 22px auto 0;
 }
 
 .card-options button {
-  min-height: 45px;
+  min-height: 42px;
   display: grid;
   grid-template-columns: 31px 1fr 18px;
   align-items: center;
@@ -384,6 +384,35 @@ button {
   border: 2px solid currentColor;
   border-radius: 4px 4px 10px 10px;
   clip-path: polygon(50% 0, 100% 17%, 88% 78%, 50% 100%, 12% 78%, 0 17%);
+}
+
+.mini-wrench::before,
+.mini-wrench::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.mini-wrench::before {
+  left: 4px;
+  top: 9px;
+  width: 15px;
+  height: 5px;
+  border: 2px solid currentColor;
+  border-left: 0;
+  border-radius: 0 7px 7px 0;
+  transform: rotate(-42deg);
+}
+
+.mini-wrench::after {
+  left: 3px;
+  top: 13px;
+  width: 11px;
+  height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: rotate(-42deg);
+  transform-origin: right center;
 }
 
 .mini-box {
@@ -447,8 +476,8 @@ button {
 }
 
 .round-arrow {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   display: grid;
   place-items: center;
   margin-top: auto;
@@ -459,7 +488,7 @@ button {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.62),
     0 13px 24px rgba(0, 0, 0, 0.08);
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 280;
   line-height: 1;
 }
@@ -470,6 +499,139 @@ button {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     0 0 18px rgba(var(--accent-rgb), 0.22);
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.image-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 28, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.image-modal__dialog {
+  position: relative;
+  width: min(1580px, calc(100vw - 48px));
+  height: min(920px, calc(100vh - 48px));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  background: rgba(247, 250, 250, 0.96);
+  box-shadow:
+    0 38px 90px rgba(7, 22, 36, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 220ms ease;
+}
+
+.image-modal.is-open .image-modal__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.image-modal__header {
+  min-height: 54px;
+  display: grid;
+  grid-template-columns: 1fr 38px;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 2px 14px;
+  padding: 8px 14px 8px 18px;
+  border-bottom: 1px solid rgba(35, 54, 70, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(241, 246, 247, 0.9));
+}
+
+.image-modal__header p,
+.image-modal__header h2 {
+  margin: 0;
+}
+
+.image-modal__header p {
+  grid-column: 1;
+  grid-row: 1;
+  color: #667589;
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.image-modal__header h2 {
+  grid-column: 1;
+  grid-row: 2;
+  color: #142642;
+  font-size: 22px;
+  font-weight: 720;
+  line-height: 1;
+}
+
+.image-modal__close {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(35, 54, 70, 0.16);
+  border-radius: 50%;
+  color: #182b43;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 22px rgba(20, 45, 66, 0.1);
+  cursor: pointer;
+  font-size: 27px;
+  font-weight: 260;
+  line-height: 1;
+}
+
+.image-modal__viewport {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 24px 24px 32px;
+}
+
+.image-modal__viewport img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(min(920px, 100vh - 48px) - 112px);
+  margin: 0 auto;
+  object-fit: contain;
+  box-shadow: 0 18px 42px rgba(20, 45, 66, 0.13);
+}
+
+.image-modal__viewport img.is-tall {
+  max-height: none;
+}
+
+.image-modal__viewport:has(img.is-tall) {
+  overflow: auto;
+  place-items: start center;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 @media (max-width: 1020px) {
@@ -522,5 +684,31 @@ button {
   .card-options button {
     min-height: 43px;
     font-size: 17px;
+  }
+
+  .image-modal {
+    padding: 12px;
+  }
+
+  .image-modal__dialog {
+    width: 100%;
+    height: calc(100vh - 24px);
+  }
+
+  .image-modal__header {
+    min-height: 50px;
+    padding: 8px 12px 8px 14px;
+  }
+
+  .image-modal__header h2 {
+    font-size: 20px;
+  }
+
+  .image-modal__viewport {
+    padding: 14px 14px 20px;
+  }
+
+  .image-modal__viewport img {
+    max-height: calc(100vh - 104px);
   }
 }

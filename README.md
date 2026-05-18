@@ -12,12 +12,14 @@ https://github.com/hijomi2013/orion-podium-test
 
 ## Etat Valide
 
-Deux blocs sont maintenant consideres comme bons :
+Les blocs suivants sont maintenant consideres comme bons :
 
 - `Accueil` : page d'accueil finale validee.
 - `Podium` : module Podium finalise visuellement et fonctionnellement pour cette phase.
+- `Univers Verres` : acces Podium et module SAV en construction valides en local.
+- `Univers Solaire` : catalogues Demetz, Oakley, Ray-Ban, Vuarnet et Bolle valides en local.
 
-La suite du travail doit porter sur les connexions entre les pages/modules.
+La suite du travail doit porter sur l'`Univers Lentilles`.
 
 ## Accueil
 
@@ -39,9 +41,38 @@ Interaction validee :
 - cartes retournees au clic, pas au survol ;
 - une seule carte ouverte a la fois ;
 - quand une nouvelle carte s'ouvre, l'ancienne se referme avec un leger decalage ;
-- aucun lien actif pour l'instant.
+- univers `Verres` actif avec acces `Podium` et modale `SAV` ;
+- univers `Solaire` actif avec modales catalogues ;
+- univers `Lentilles` encore a construire.
 
 Attention : ces fichiers et assets d'accueil peuvent etre non suivis localement selon l'etat Git. Ne pas les supprimer ni les remplacer sans verification.
+
+## Univers Verres
+
+Etat valide local :
+- bouton `Podium` actif depuis la carte Verres ;
+- bouton `SAV` actif avec modale image ;
+- image SAV : `assets/verres/sav-construction.png`.
+
+## Univers Solaire
+
+Etat valide local :
+- boutons solaires actifs depuis la carte Solaire ;
+- ouverture en modale des visuels/catalogues ;
+- marques presentes : Demetz, Oakley, Ray-Ban, Vuarnet, Bolle.
+
+Assets :
+- `assets/solaire/demetz.jpg`
+- `assets/solaire/oakley.png`
+- `assets/solaire/rayban.jpg`
+- `assets/solaire/vuarnet.jpg`
+- `assets/solaire/bolle.png`
+
+## Univers Lentilles
+
+Etat :
+- a construire maintenant.
+- les boutons `Offre`, `Garantie`, `Produits` et `Offres 3+1` sont encore des entrees d'attente.
 
 ## Podium
 
@@ -79,7 +110,8 @@ Ne rien supprimer sans recherche prealable dans le projet.
 En particulier, verifier les usages avant de toucher aux fichiers dans :
 - `assets/ui/`
 - `assets/pedagogie/`
-- `assets/lens/`
+- `assets/solaire/`
+- `assets/verres/`
 
 ## Workflow Conseille
 
@@ -104,7 +136,8 @@ Ce dossier est celui que GitHub Desktop doit afficher comme `orion-podium-test`.
 Ne plus utiliser les anciens dossiers locaux `New project`, `orion-podium-test-publish`, `orion-podium-test-deploy` ou `OrionV3` : ils etaient des copies de travail.
 
 Dernier etat fonctionnel verifie :
-- branche `main` alignee avec `origin/main` avant modification locale du README ;
-- dernier commit pousse pour Podium : `bcf9efa` (`Improve podium responsive fallback`) ;
-- `index.html` et `podium.html` alignes pour GitHub Pages ;
-- `accueil.html`, `accueil.css`, `accueil.js` existent localement et representent l'accueil valide.
+- branche `main` alignee avec `origin/main` avant validation des univers Verres/Solaire ;
+- dernier commit pousse avant cette mise a jour : `8da51f9` (`Bust Essilor One image cache`) ;
+- `index.html` sert l'accueil sur GitHub Pages ;
+- `podium.html` reste la page directe du module Podium ;
+- `accueil.html`, `accueil.css`, `accueil.js` representent l'accueil valide avec Verres et Solaire actifs.

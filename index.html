@@ -60,7 +60,7 @@
               <span class="title-line"></span>
               <div class="card-options" aria-label="Options Verres">
                 <button type="button" data-href="podium.html"><i class="mini mini-podium"></i><span>Podium</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-shield"></i><span>SAV</span><b>&rsaquo;</b></button>
+                <button type="button" data-info-modal="sav"><i class="mini mini-wrench"></i><span>SAV</span><b>&rsaquo;</b></button>
               </div>
               <span class="round-arrow" aria-hidden="true">&rarr;</span>
             </div>
@@ -84,11 +84,11 @@
               <h2>Solaire</h2>
               <span class="title-line"></span>
               <div class="card-options" aria-label="Options Solaire">
-                <button type="button" disabled><i class="mini mini-sun"></i><span>Demetz</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-sun"></i><span>Oakley</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-sun"></i><span>Ray-Ban</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-sun"></i><span>Vuarnet</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-sun"></i><span>Bolle</span><b>&rsaquo;</b></button>
+                <button type="button" data-solaire-modal="demetz"><i class="mini mini-sun"></i><span>Demetz</span><b>&rsaquo;</b></button>
+                <button type="button" data-solaire-modal="oakley"><i class="mini mini-sun"></i><span>Oakley</span><b>&rsaquo;</b></button>
+                <button type="button" data-solaire-modal="rayban"><i class="mini mini-sun"></i><span>Ray-Ban</span><b>&rsaquo;</b></button>
+                <button type="button" data-solaire-modal="vuarnet"><i class="mini mini-sun"></i><span>Vuarnet</span><b>&rsaquo;</b></button>
+                <button type="button" data-solaire-modal="bolle"><i class="mini mini-sun"></i><span>Bolle</span><b>&rsaquo;</b></button>
               </div>
               <span class="round-arrow" aria-hidden="true">&rarr;</span>
             </div>
@@ -96,6 +96,20 @@
         </article>
       </section>
     </main>
+
+    <div class="image-modal" id="image-modal" aria-hidden="true">
+      <div class="image-modal__overlay" data-modal-close></div>
+      <section class="image-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="image-modal-title">
+        <header class="image-modal__header">
+          <p id="image-modal-kicker">Catalogue solaire</p>
+          <h2 id="image-modal-title">Solaire</h2>
+          <button class="image-modal__close" type="button" data-modal-close aria-label="Fermer">&times;</button>
+        </header>
+        <div class="image-modal__viewport">
+          <img id="image-modal-image" src="" alt="">
+        </div>
+      </section>
+    </div>
 
     <script src="accueil.js"></script>
   </body>

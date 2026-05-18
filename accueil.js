@@ -1,8 +1,55 @@
 const cards = [...document.querySelectorAll(".card")];
 const links = [...document.querySelectorAll("[data-href]")];
+const solaireTriggers = [...document.querySelectorAll("[data-solaire-modal]")];
+const infoTriggers = [...document.querySelectorAll("[data-info-modal]")];
+const imageModal = document.querySelector("#image-modal");
+const imageModalKicker = document.querySelector("#image-modal-kicker");
+const imageModalTitle = document.querySelector("#image-modal-title");
+const imageModalImage = document.querySelector("#image-modal-image");
+const imageModalClose = [...document.querySelectorAll("[data-modal-close]")];
 const SWITCH_CLOSE_DELAY = 360;
 const TILT_STRENGTH = 5;
 let pendingCloseTimer = 0;
+let lastModalTrigger = null;
+
+const solarCatalogues = {
+  demetz: {
+    title: "Demetz",
+    image: "assets/solaire/demetz.jpg",
+    alt: "Catalogue solaire Demetz",
+    isTall: true,
+  },
+  oakley: {
+    title: "Oakley",
+    image: "assets/solaire/oakley.png",
+    alt: "Tarif montures sport Oakley",
+  },
+  rayban: {
+    title: "Ray-Ban",
+    image: "assets/solaire/rayban.jpg",
+    alt: "Tarif Ray-Ban Authentic",
+  },
+  vuarnet: {
+    title: "Vuarnet",
+    image: "assets/solaire/vuarnet.jpg",
+    alt: "Catalogue solaire Vuarnet",
+    isTall: true,
+  },
+  bolle: {
+    title: "Bolle",
+    image: "assets/solaire/bolle.png",
+    alt: "Prix de vente Bolle Safety",
+  },
+};
+
+const infoCatalogues = {
+  sav: {
+    kicker: "Module Verres",
+    title: "SAV",
+    image: "assets/verres/sav-construction.png",
+    alt: "Page SAV en construction",
+  },
+};
 
 function clearPendingClose() {
   if (!pendingCloseTimer) return;
@@ -69,6 +116,7 @@ cards.forEach((card) => {
   });
 
   card.addEventListener("keydown", (event) => {
+    if (event.target.closest("button")) return;
     if (event.key !== "Enter" && event.key !== " ") return;
 
     event.preventDefault();
@@ -90,8 +138,65 @@ links.forEach((link) => {
   });
 });
 
-document.addEventListener("click", closeCards);
+function openImageModal(catalogue, trigger) {
+  if (!catalogue || !imageModal || !imageModalKicker || !imageModalTitle || !imageModalImage) return;
+
+  lastModalTrigger = trigger;
+  imageModalKicker.textContent = catalogue.kicker || "Catalogue solaire";
+  imageModalTitle.textContent = catalogue.title;
+  imageModalImage.src = catalogue.image;
+  imageModalImage.alt = catalogue.alt;
+  imageModalImage.classList.toggle("is-tall", Boolean(catalogue.isTall));
+  imageModal.classList.add("is-open");
+  imageModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeImageModal() {
+  if (!imageModal || !imageModal.classList.contains("is-open")) return;
+
+  imageModal.classList.remove("is-open");
+  imageModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  imageModalImage.removeAttribute("src");
+
+  if (lastModalTrigger) lastModalTrigger.focus();
+  lastModalTrigger = null;
+}
+
+solaireTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openImageModal(solarCatalogues[trigger.dataset.solaireModal], trigger);
+  });
+});
+
+infoTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openImageModal(infoCatalogues[trigger.dataset.infoModal], trigger);
+  });
+});
+
+imageModalClose.forEach((closeControl) => {
+  closeControl.addEventListener("click", (event) => {
+    event.stopPropagation();
+    closeImageModal();
+  });
+});
+
+document.addEventListener("click", () => {
+  if (imageModal && imageModal.classList.contains("is-open")) return;
+  closeCards();
+});
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeCards();
+  if (event.key !== "Escape") return;
+
+  if (imageModal && imageModal.classList.contains("is-open")) {
+    closeImageModal();
+    return;
+  }
+
+  closeCards();
 });
