@@ -624,23 +624,19 @@ function renderOptions(options, activeValue, dataName, availableOptions, index) 
 
 function renderPriceControl(lens, index, lensPrice, isOpen) {
   const selection = getSelection(lens, index);
-  if (isOpen) ensureSanteclairShopSelection(lens, index);
-  const shopPrices = getShopPrices(lens, index);
   const isSanteclair = activeNetwork === "santeclair";
 
   if (!isSanteclair) {
     return lensPrice ? `<span class="lens-price">${lensPrice}</span>` : "";
   }
 
+  ensureSanteclairShopSelection(lens, index);
+  const shopPrices = getShopPrices(lens, index);
   const availableShopEntries = getAvailableShopEntries(shopPrices);
   if (!availableShopEntries.length) return "";
 
   const selectedShop = shopPrices[selection.selectedShop] ? selection.selectedShop : availableShopEntries[0][0];
   const selectedPrice = selection.priceOpen ? getFormattedPrice(shopPrices[selectedShop], lens, selection) : "";
-
-  if (!isOpen) {
-    return selectedPrice ? `<span class="lens-price">${selectedPrice}</span>` : "";
-  }
 
   const shopButtons = availableShopEntries
     .map(([shopKey, label]) => `<button class="shop-price${selection.priceOpen && shopKey === selectedShop ? " active" : ""}" type="button" data-shop-price="${shopKey}" data-index="${index}">${label}</button>`)
@@ -903,10 +899,6 @@ function openLensByIndex(index, shouldAnimateInfo = true) {
     lensElement.classList.toggle("is-open", Number(lensElement.dataset.index || 0) === index);
   });
 
-  if (activeNetwork === "santeclair") {
-    renderNetwork();
-    return;
-  }
   renderInfoPanel();
 }
 
