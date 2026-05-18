@@ -463,7 +463,7 @@ function getSelection(lens, index) {
     treatment: preference.treatment || lens.defaultTreatment || lens.treatments[0],
     transitions: Boolean(preference.transitions),
     priceOpen: false,
-    selectedShop: "prix_versailles"
+    selectedShop: preference.selectedShop || "prix_versailles"
   };
 
   normalizeSelection(lens, selection);
@@ -522,6 +522,30 @@ function applySharedTransitionPreference(transitions) {
     const selection = getSelection(lens, index);
     selection.transitions = Boolean(transitions) && isPhotochromicAvailable(lens);
   });
+}
+
+function applySharedShopPreference(selectedShop) {
+  const lenses = getActiveLenses();
+  const preference = contextPreferences[getContextKey()] || {};
+  preference.selectedShop = selectedShop;
+  contextPreferences[getContextKey()] = preference;
+
+  lenses.forEach((lens, index) => {
+    const selection = getSelection(lens, index);
+    const shopPrices = lens.shopPrices?.[`${selection.material}|${selection.treatment}`] || {};
+    const availableShopEntries = getAvailableShopEntries(shopPrices);
+    if (!availableShopEntries.length) return;
+
+    selection.selectedShop = shopPrices[selectedShop] ? selectedShop : availableShopEntries[0][0];
+    selection.priceOpen = true;
+  });
+}
+
+function syncSanteclairOpenPrice() {
+  if (activeNetwork !== "santeclair") return;
+
+  const lens = getActiveLenses()[pinnedOpenIndex];
+  if (lens) ensureSanteclairPriceOpen(lens, pinnedOpenIndex);
 }
 
 function isPhotochromicAvailable(lens) {
@@ -858,6 +882,7 @@ function renderNetwork() {
     return;
   }
 
+  syncSanteclairOpenPrice();
   closedNetwork.classList.remove("hidden");
   document.querySelector("#network-hero").outerHTML = renderLens(lenses[0], 0, "network-hero", 'id="network-hero"');
 
@@ -875,17 +900,14 @@ function openLensByIndex(index, shouldAnimateInfo = true) {
   animateInfoPanel = shouldAnimateInfo;
   pinnedOpenIndex = index;
 
-  if (activeNetwork === "santeclair") {
-    const lens = getActiveLenses()[index];
-    if (lens) ensureSanteclairPriceOpen(lens, index);
-    renderNetwork();
-    return;
-  }
-
   closedNetwork.querySelectorAll(".network-hero, .network-choice").forEach((lensElement) => {
     lensElement.classList.toggle("is-open", Number(lensElement.dataset.index || 0) === index);
   });
 
+  if (activeNetwork === "santeclair") {
+    renderNetwork();
+    return;
+  }
   renderInfoPanel();
 }
 
@@ -967,11 +989,8 @@ closedNetwork.addEventListener("click", (event) => {
   if (shopPriceButton) {
     event.preventDefault();
     const index = Number(shopPriceButton.dataset.index);
-    const lens = getActiveLenses()[index];
-    const selection = getSelection(lens, index);
 
-    selection.selectedShop = shopPriceButton.dataset.shopPrice;
-    selection.priceOpen = true;
+    applySharedShopPreference(shopPriceButton.dataset.shopPrice);
 
     activeInfoIndex = index;
     infoPanelVisible = true;
