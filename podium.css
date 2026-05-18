@@ -3140,3 +3140,41 @@ body::before {
     transform: none;
   }
 }
+
+/* Final desktop layout polish: more breathing room and no lingering controls while scrolling. */
+body.is-scrolled .primary-picker,
+body.is-scrolled .network-picker,
+body.is-scrolled .vision-picker,
+body.is-scrolled .quick-actions {
+  opacity: 0;
+  filter: none;
+  pointer-events: none;
+}
+
+.quick-actions {
+  transition: opacity 0.32s ease, filter 0.32s ease;
+}
+
+@media (min-width: 1201px) {
+  .quick-actions {
+    top: 20px;
+  }
+
+  .closed-network {
+    width: min(1120px, var(--main-column-width));
+  }
+
+  .glass-panel {
+    padding-inline: 34px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+  .quick-actions {
+    top: 18px;
+  }
+
+  .closed-network {
+    width: min(980px, var(--main-column-width));
+  }
+}
