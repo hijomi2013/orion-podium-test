@@ -875,6 +875,13 @@ function openLensByIndex(index, shouldAnimateInfo = true) {
   animateInfoPanel = shouldAnimateInfo;
   pinnedOpenIndex = index;
 
+  if (activeNetwork === "santeclair") {
+    const lens = getActiveLenses()[index];
+    if (lens) ensureSanteclairPriceOpen(lens, index);
+    renderNetwork();
+    return;
+  }
+
   closedNetwork.querySelectorAll(".network-hero, .network-choice").forEach((lensElement) => {
     lensElement.classList.toggle("is-open", Number(lensElement.dataset.index || 0) === index);
   });
