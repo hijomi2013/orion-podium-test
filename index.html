@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Orion - Accueil</title>
-    <link rel="stylesheet" href="accueil.css">
+    <link rel="stylesheet" href="accueil.css?v=20260518-directeur-pill">
   </head>
   <body>
     <main class="home" aria-labelledby="home-title">
@@ -13,6 +13,16 @@
         <h1 id="home-title">Votre espace optique</h1>
         <p>Lentilles, verres, solaire et offres en un seul endroit.</p>
       </header>
+
+      <div class="director-access">
+        <button class="director-toggle" type="button" aria-expanded="false" aria-controls="director-panel" data-director-toggle>
+          Directeur
+        </button>
+        <div class="director-panel" id="director-panel">
+          <button type="button" data-info-modal="directeur-planning"><i class="mini mini-calendar"></i><span>Planning</span><b>&rsaquo;</b></button>
+          <button type="button" data-info-modal="directeur-encaissements"><i class="mini mini-cash"></i><span>Encaissements</span><b>&rsaquo;</b></button>
+        </div>
+      </div>
 
       <section class="cards" aria-label="Univers Orion">
         <article class="card card-lentilles" tabindex="0">
@@ -32,10 +42,10 @@
               <h2>Lentilles</h2>
               <span class="title-line"></span>
               <div class="card-options" aria-label="Options Lentilles">
-                <button type="button" disabled><i class="mini mini-tag"></i><span>Offre</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-shield"></i><span>Garantie</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-box"></i><span>Produits</span><b>&rsaquo;</b></button>
-                <button type="button" disabled><i class="mini mini-plus"></i><span>Offres 3+1</span><b>&rsaquo;</b></button>
+                <button type="button" data-info-modal="lentilles-offre"><i class="mini mini-tag"></i><span>Offre</span><b>&rsaquo;</b></button>
+                <button type="button" data-info-modal="lentilles-garantie"><i class="mini mini-shield"></i><span>Garantie</span><b>&rsaquo;</b></button>
+                <button type="button" data-info-modal="lentilles-produits"><i class="mini mini-box"></i><span>Produits</span><b>&rsaquo;</b></button>
+                <button type="button" data-info-modal="lentilles-3plus1"><i class="mini mini-plus"></i><span>Offres 3+1</span><b>&rsaquo;</b></button>
               </div>
               <span class="round-arrow" aria-hidden="true">&rarr;</span>
             </div>
@@ -111,6 +121,6 @@
       </section>
     </div>
 
-    <script src="accueil.js"></script>
+    <script src="accueil.js?v=20260518-directeur-pill"></script>
   </body>
 </html>

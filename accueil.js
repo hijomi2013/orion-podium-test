@@ -7,6 +7,8 @@ const imageModalKicker = document.querySelector("#image-modal-kicker");
 const imageModalTitle = document.querySelector("#image-modal-title");
 const imageModalImage = document.querySelector("#image-modal-image");
 const imageModalClose = [...document.querySelectorAll("[data-modal-close]")];
+const directorAccess = document.querySelector(".director-access");
+const directorToggle = document.querySelector("[data-director-toggle]");
 const SWITCH_CLOSE_DELAY = 360;
 const TILT_STRENGTH = 5;
 let pendingCloseTimer = 0;
@@ -43,6 +45,42 @@ const solarCatalogues = {
 };
 
 const infoCatalogues = {
+  "lentilles-offre": {
+    kicker: "Univers Lentilles",
+    title: "Offre",
+    alt: "Offres lentilles",
+  },
+  "lentilles-garantie": {
+    kicker: "Univers Lentilles",
+    title: "Garantie",
+    image: "assets/lentilles/garantie-lentille.png",
+    alt: "Garantie lentilles",
+    isTall: true,
+  },
+  "lentilles-produits": {
+    kicker: "Univers Lentilles",
+    title: "Produits",
+    image: "assets/lentilles/entretien-lentille.png",
+    alt: "Produits lentilles",
+  },
+  "lentilles-3plus1": {
+    kicker: "Univers Lentilles",
+    title: "Offres 3+1",
+    image: "assets/lentilles/offre3plus1.png",
+    alt: "Offres lentilles 3+1",
+  },
+  "directeur-planning": {
+    kicker: "Espace Directeur",
+    title: "Planning",
+    image: "assets/verres/sav-construction.png",
+    alt: "Planning directeur",
+  },
+  "directeur-encaissements": {
+    kicker: "Espace Directeur",
+    title: "Encaissements",
+    image: "assets/verres/sav-construction.png",
+    alt: "Encaissements directeur",
+  },
   sav: {
     kicker: "Module Verres",
     title: "SAV",
@@ -67,6 +105,12 @@ function setCardOpen(card, isOpen) {
 function closeCards() {
   clearPendingClose();
   cards.forEach((card) => setCardOpen(card, false));
+}
+
+function closeDirectorAccess() {
+  if (!directorAccess || !directorToggle) return;
+  directorAccess.classList.remove("is-open");
+  directorToggle.setAttribute("aria-expanded", "false");
 }
 
 function openCard(cardToOpen) {
@@ -131,6 +175,18 @@ cards.forEach((card) => {
   });
 });
 
+if (directorAccess && directorToggle) {
+  directorAccess.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  directorToggle.addEventListener("click", () => {
+    const isOpen = directorAccess.classList.toggle("is-open");
+    directorToggle.setAttribute("aria-expanded", String(isOpen));
+    closeCards();
+  });
+}
+
 links.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -141,12 +197,18 @@ links.forEach((link) => {
 function openImageModal(catalogue, trigger) {
   if (!catalogue || !imageModal || !imageModalKicker || !imageModalTitle || !imageModalImage) return;
 
-  lastModalTrigger = trigger;
+  lastModalTrigger = directorAccess && directorAccess.contains(trigger) ? directorToggle : trigger;
   imageModalKicker.textContent = catalogue.kicker || "Catalogue solaire";
   imageModalTitle.textContent = catalogue.title;
-  imageModalImage.src = catalogue.image;
-  imageModalImage.alt = catalogue.alt;
+  if (catalogue.image) {
+    imageModalImage.src = catalogue.image;
+    imageModalImage.alt = catalogue.alt;
+  } else {
+    imageModalImage.removeAttribute("src");
+    imageModalImage.alt = "";
+  }
   imageModalImage.classList.toggle("is-tall", Boolean(catalogue.isTall));
+  imageModalImage.classList.toggle("is-pending", !catalogue.image);
   imageModal.classList.add("is-open");
   imageModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -174,6 +236,7 @@ solaireTriggers.forEach((trigger) => {
 infoTriggers.forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     event.stopPropagation();
+    closeDirectorAccess();
     openImageModal(infoCatalogues[trigger.dataset.infoModal], trigger);
   });
 });
@@ -187,6 +250,7 @@ imageModalClose.forEach((closeControl) => {
 
 document.addEventListener("click", () => {
   if (imageModal && imageModal.classList.contains("is-open")) return;
+  closeDirectorAccess();
   closeCards();
 });
 
@@ -198,5 +262,6 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
+  closeDirectorAccess();
   closeCards();
 });

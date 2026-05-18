@@ -18,8 +18,10 @@ Les blocs suivants sont maintenant consideres comme bons :
 - `Podium` : module Podium finalise visuellement et fonctionnellement pour cette phase.
 - `Univers Verres` : acces Podium et module SAV en construction valides en local.
 - `Univers Solaire` : catalogues Demetz, Oakley, Ray-Ban, Vuarnet et Bolle valides en local.
+- `Univers Lentilles` : premiers contenus integres en modales depuis l'accueil.
+- `Espace Directeur` : acces discret ajoute sur l'accueil, avec Planning et Encaissements en construction.
 
-La suite du travail doit porter sur l'`Univers Lentilles`.
+La suite du travail doit porter sur le contenu restant de l'`Univers Lentilles`, notamment l'image de l'offre.
 
 ## Accueil
 
@@ -41,9 +43,11 @@ Interaction validee :
 - cartes retournees au clic, pas au survol ;
 - une seule carte ouverte a la fois ;
 - quand une nouvelle carte s'ouvre, l'ancienne se referme avec un leger decalage ;
+- animation de survol ajoutee sur les bulles cliquables ;
 - univers `Verres` actif avec acces `Podium` et modale `SAV` ;
 - univers `Solaire` actif avec modales catalogues ;
-- univers `Lentilles` encore a construire.
+- univers `Lentilles` actif avec modales `Garantie`, `Produits` et `Offres 3+1` ;
+- acces `Directeur` en pastille discrete en haut a droite, avec `Planning` et `Encaissements` relies a la modale en construction.
 
 Attention : ces fichiers et assets d'accueil peuvent etre non suivis localement selon l'etat Git. Ne pas les supprimer ni les remplacer sans verification.
 
@@ -71,8 +75,24 @@ Assets :
 ## Univers Lentilles
 
 Etat :
-- a construire maintenant.
-- les boutons `Offre`, `Garantie`, `Produits` et `Offres 3+1` sont encore des entrees d'attente.
+- boutons actifs depuis la carte Lentilles ;
+- `Garantie`, `Produits` et `Offres 3+1` ouvrent des images en modale ;
+- `Offre` reste en attente d'image et affiche un emplacement "Image a ajouter".
+
+Assets :
+- `assets/lentilles/garantie-lentille.png`
+- `assets/lentilles/entretien-lentille.png`
+- `assets/lentilles/offre3plus1.png`
+
+## Espace Directeur
+
+Etat :
+- acces discret en pastille sur l'accueil, en haut a droite ;
+- ouverture d'un petit panneau avec `Planning` et `Encaissements` ;
+- les deux entrees ouvrent pour l'instant la modale en construction.
+
+Asset utilise :
+- `assets/verres/sav-construction.png`
 
 ## Podium
 
@@ -108,6 +128,7 @@ Le dossier `assets/` contient des ressources partagees entre Accueil, Podium et 
 Ne rien supprimer sans recherche prealable dans le projet.
 
 En particulier, verifier les usages avant de toucher aux fichiers dans :
+- `assets/lentilles/`
 - `assets/ui/`
 - `assets/pedagogie/`
 - `assets/solaire/`
@@ -136,8 +157,7 @@ Ce dossier est celui que GitHub Desktop doit afficher comme `orion-podium-test`.
 Ne plus utiliser les anciens dossiers locaux `New project`, `orion-podium-test-publish`, `orion-podium-test-deploy` ou `OrionV3` : ils etaient des copies de travail.
 
 Dernier etat fonctionnel verifie :
-- branche `main` alignee avec `origin/main` avant validation des univers Verres/Solaire ;
-- dernier commit pousse avant cette mise a jour : `8da51f9` (`Bust Essilor One image cache`) ;
+- branche `main` mise a jour avec Accueil, Lentilles, Solaire, Verres et acces Directeur ;
 - `index.html` sert l'accueil sur GitHub Pages ;
 - `podium.html` reste la page directe du module Podium ;
-- `accueil.html`, `accueil.css`, `accueil.js` representent l'accueil valide avec Verres et Solaire actifs.
+- `accueil.html`, `accueil.css`, `accueil.js` representent l'accueil valide avec Verres, Solaire, Lentilles et Directeur actifs.
