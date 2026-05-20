@@ -741,8 +741,8 @@ body.is-scrolled .vision-picker {
   top: 42px;
   transform: translate(-50%, 0);
   min-height: 62px;
-  width: calc(100% - 500px);
-  max-width: calc(100% - 500px);
+  width: calc(100% - 240px);
+  max-width: calc(100% - 240px);
 }
 
 .lens-price {
@@ -919,16 +919,17 @@ body.is-scrolled .vision-picker {
 
 .transition-toggle {
   position: absolute;
-  top: 22px;
+  top: auto;
+  bottom: 24px;
   right: 28px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: auto;
-  min-width: 184px;
-  min-height: 46px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   margin: 0 auto;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
@@ -937,7 +938,7 @@ body.is-scrolled .vision-picker {
   cursor: pointer;
   font-size: 10px;
   font-weight: 800;
-  padding: 0 15px 0 12px;
+  padding: 0;
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(-6px);
@@ -1013,15 +1014,12 @@ body.is-scrolled .vision-picker {
 }
 
 .transition-toggle span {
-  display: flex;
-  align-items: center;
-  overflow: visible;
-  text-overflow: clip;
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   white-space: nowrap;
-}
-
-.transition-toggle strong {
-  font: inherit;
 }
 
 .network-choices {
@@ -2196,12 +2194,14 @@ body::before {
   }
 
   .transition-toggle {
-    top: 18px;
+    top: auto;
+    bottom: 14px;
     right: 24px;
-    min-width: 180px;
-    min-height: 38px;
-    gap: 8px;
-    padding: 0 14px 0 10px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0;
     font-size: 9px;
   }
 
@@ -2378,10 +2378,13 @@ body::before {
   }
 
   .transition-toggle {
-    top: 22px;
+    top: auto;
+    bottom: 20px;
     right: 28px;
-    min-width: 188px;
-    min-height: 42px;
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
     font-size: 10px;
   }
 
@@ -2489,7 +2492,10 @@ body::before {
   }
 
   .transition-toggle {
-    min-width: 170px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     font-size: 9px;
   }
 }
@@ -2567,7 +2573,7 @@ body::before {
 }
 
 .transition-toggle span {
-  overflow: visible;
+  overflow: hidden;
   white-space: nowrap;
 }
 
@@ -2701,7 +2707,7 @@ body::before {
 
 .network-hero.is-open .hero-label,
 .network-choice.is-open .hero-label {
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-medium);
 }
 
 .hero-label {
@@ -2755,14 +2761,14 @@ body::before {
 
 .hero-label {
   color: #ffffff;
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-medium);
   letter-spacing: 0;
   text-shadow: 0 1px 2px rgba(9, 46, 64, 0.22);
 }
 
 .network-hero.is-open .hero-label,
 .network-choice.is-open .hero-label {
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-medium);
 }
 
 .hero-option,
@@ -2892,19 +2898,21 @@ body::before {
 /* The opened lens reference is the name to remember, so it gets stronger hierarchy. */
 .network-hero.is-open .hero-label,
 .network-choice.is-open .hero-label {
-  width: calc(100% - 520px);
-  max-width: min(720px, calc(100% - 520px));
+  width: calc(100% - 240px);
+  max-width: min(920px, calc(100% - 240px));
   font-size: clamp(22px, 1.45vw, 29px);
-  font-weight: var(--fw-strong);
+  font-weight: var(--fw-medium);
   line-height: 1.12;
-  text-wrap: balance;
+  overflow: visible;
+  white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 @media (min-width: 1201px) and (max-width: 1500px) {
   .network-hero.is-open .hero-label,
   .network-choice.is-open .hero-label {
-    width: calc(100% - 430px);
-    max-width: min(620px, calc(100% - 430px));
+    width: calc(100% - 220px);
+    max-width: min(820px, calc(100% - 220px));
     font-size: clamp(19px, 1.35vw, 23px);
   }
 }
@@ -3013,4 +3021,3 @@ body.is-scrolled .quick-actions {
     width: min(980px, var(--main-column-width));
   }
 }
-

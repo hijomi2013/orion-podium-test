@@ -762,7 +762,7 @@ function renderLens(lens, index, className, extraAttributes = "") {
       ${renderPriceControl(lens, index, lensPrice, isOpen)}
       <label class="transition-toggle${photochromicAvailable ? "" : " disabled"}" data-index="${index}" title="${photochromicAvailable ? "" : "Photochromique non disponible sur ce verre"}">
         <input type="checkbox" data-index="${index}" data-transition="true" ${selection.transitions ? "checked" : ""} ${photochromicAvailable ? "" : "disabled"}>
-        <span><strong>Photochromique</strong></span>
+        <span>Photochromique</span>
       </label>
       <span class="hero-pickers">
         <span class="hero-picker material-picker" aria-label="Choix de la matiere">
