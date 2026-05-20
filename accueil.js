@@ -6,6 +6,8 @@ const imageModal = document.querySelector("#image-modal");
 const imageModalKicker = document.querySelector("#image-modal-kicker");
 const imageModalTitle = document.querySelector("#image-modal-title");
 const imageModalImage = document.querySelector("#image-modal-image");
+const imageModalOfferActions = document.querySelector("#image-modal-offer-actions");
+const lensOfferButtons = [...document.querySelectorAll("[data-lens-offer]")];
 const imageModalClose = [...document.querySelectorAll("[data-modal-close]")];
 const directorAccess = document.querySelector(".director-access");
 const directorToggle = document.querySelector("[data-director-toggle]");
@@ -13,6 +15,29 @@ const SWITCH_CLOSE_DELAY = 360;
 const TILT_STRENGTH = 5;
 let pendingCloseTimer = 0;
 let lastModalTrigger = null;
+
+const lensOfferImages = {
+  alcon: {
+    image: "assets/lentilles/offre/alcon.png",
+    alt: "Offre lentilles Alcon",
+  },
+  "johnson-johnson": {
+    image: "assets/lentilles/offre/johnson.png",
+    alt: "Offre lentilles Johnson & Johnson",
+  },
+  "bausch-lomb": {
+    image: "assets/lentilles/offre/bauschlomb.png",
+    alt: "Offre lentilles Bausch & Lomb",
+  },
+  ophtalmic: {
+    image: "assets/lentilles/offre/ophtalmic.png",
+    alt: "Offre lentilles Ophtalmic",
+  },
+  coopervision: {
+    image: "assets/lentilles/offre/coopervision.png",
+    alt: "Offre lentilles Coopervision",
+  },
+};
 
 const solarCatalogues = {
   demetz: {
@@ -48,7 +73,9 @@ const infoCatalogues = {
   "lentilles-offre": {
     kicker: "Univers Lentilles",
     title: "Offre",
-    alt: "Offres lentilles",
+    image: lensOfferImages.alcon.image,
+    alt: lensOfferImages.alcon.alt,
+    hasOfferActions: true,
   },
   "lentilles-garantie": {
     kicker: "Univers Lentilles",
@@ -200,6 +227,12 @@ function openImageModal(catalogue, trigger) {
   lastModalTrigger = directorAccess && directorAccess.contains(trigger) ? directorToggle : trigger;
   imageModalKicker.textContent = catalogue.kicker || "Catalogue solaire";
   imageModalTitle.textContent = catalogue.title;
+  if (imageModalOfferActions) {
+    imageModalOfferActions.hidden = !catalogue.hasOfferActions;
+    lensOfferButtons.forEach((button, index) => {
+      button.classList.toggle("is-active", Boolean(catalogue.hasOfferActions) && index === 0);
+    });
+  }
   if (catalogue.image) {
     imageModalImage.src = catalogue.image;
     imageModalImage.alt = catalogue.alt;
@@ -213,6 +246,25 @@ function openImageModal(catalogue, trigger) {
   imageModal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 }
+
+function setLensOfferImage(offerKey) {
+  const offer = lensOfferImages[offerKey];
+  if (!offer || !imageModalImage) return;
+
+  imageModalImage.src = offer.image;
+  imageModalImage.alt = offer.alt;
+  imageModalImage.classList.remove("is-pending", "is-tall");
+}
+
+lensOfferButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    lensOfferButtons.forEach((offerButton) => {
+      offerButton.classList.toggle("is-active", offerButton === button);
+    });
+    setLensOfferImage(button.dataset.lensOffer);
+  });
+});
 
 function closeImageModal() {
   if (!imageModal || !imageModal.classList.contains("is-open")) return;
