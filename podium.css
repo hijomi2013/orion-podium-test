@@ -3021,3 +3021,45 @@ body.is-scrolled .quick-actions {
     width: min(980px, var(--main-column-width));
   }
 }
+
+/* Clarity pass: reduce the white haze while keeping the calm glass panels. */
+.primary-button,
+.network-button,
+.vision-button {
+  background: rgba(238, 248, 251, 0.74);
+  backdrop-filter: blur(8px) saturate(1.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(42, 103, 133, 0.16),
+    0 16px 34px rgba(21, 58, 82, 0.12);
+}
+
+.glass-panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.58), rgba(215, 239, 246, 0.34)),
+    rgba(232, 246, 249, 0.28);
+  border-color: rgba(44, 121, 154, 0.26);
+  backdrop-filter: blur(10px) saturate(1.08);
+  box-shadow:
+    0 34px 86px rgba(25, 65, 88, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+.info-card {
+  background: rgba(248, 252, 253, 0.58);
+  border-color: rgba(46, 126, 158, 0.24);
+  backdrop-filter: blur(4px) saturate(1.06);
+  box-shadow: 0 20px 46px rgba(25, 65, 88, 0.14);
+}
+
+.network-hero,
+.network-choice {
+  box-shadow:
+    0 26px 58px rgba(10, 34, 62, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(79, 143, 193, 0.14);
+}
+
+.hero-option:not(.active):not(:hover) {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(203, 230, 248, 0.34);
+}
