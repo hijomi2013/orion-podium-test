@@ -7,7 +7,9 @@ const imageModalKicker = document.querySelector("#image-modal-kicker");
 const imageModalTitle = document.querySelector("#image-modal-title");
 const imageModalImage = document.querySelector("#image-modal-image");
 const imageModalOfferActions = document.querySelector("#image-modal-offer-actions");
+const imageModal3Plus1Actions = document.querySelector("#image-modal-3plus1-actions");
 const lensOfferButtons = [...document.querySelectorAll("[data-lens-offer]")];
+const lens3Plus1Buttons = [...document.querySelectorAll("[data-lens-3plus1]")];
 const imageModalClose = [...document.querySelectorAll("[data-modal-close]")];
 const directorAccess = document.querySelector(".director-access");
 const directorToggle = document.querySelector("[data-director-toggle]");
@@ -36,6 +38,33 @@ const lensOfferImages = {
   coopervision: {
     image: "assets/lentilles/offre/coopervision.png",
     alt: "Offre lentilles Coopervision",
+  },
+};
+
+const lens3Plus1Images = {
+  "dailies-aqua-comfort": {
+    image: "assets/lentilles/offre3plus1/dailies.png",
+    alt: "Offre 3+1 Dailies Aqua Comfort+",
+  },
+  "precision-one": {
+    image: "assets/lentilles/offre3plus1/precision-one.png",
+    alt: "Offre 3+1 Precision One",
+  },
+  "total-one": {
+    image: "assets/lentilles/offre3plus1/total-one.png",
+    alt: "Offre 3+1 Total One",
+  },
+  moist: {
+    image: "assets/lentilles/offre3plus1/moist.png",
+    alt: "Offre 3+1 Moist",
+  },
+  oasys: {
+    image: "assets/lentilles/offre3plus1/oasys.png",
+    alt: "Offre 3+1 Oasys",
+  },
+  "oasys-max": {
+    image: "assets/lentilles/offre3plus1/oasys-max.png",
+    alt: "Offre 3+1 Oasys Max",
   },
 };
 
@@ -93,8 +122,9 @@ const infoCatalogues = {
   "lentilles-3plus1": {
     kicker: "Univers Lentilles",
     title: "Offres 3+1",
-    image: "assets/lentilles/offre3plus1.png",
-    alt: "Offres lentilles 3+1",
+    image: lens3Plus1Images["dailies-aqua-comfort"].image,
+    alt: lens3Plus1Images["dailies-aqua-comfort"].alt,
+    has3Plus1Actions: true,
   },
   "directeur-planning": {
     kicker: "Espace Directeur",
@@ -233,6 +263,12 @@ function openImageModal(catalogue, trigger) {
       button.classList.toggle("is-active", Boolean(catalogue.hasOfferActions) && index === 0);
     });
   }
+  if (imageModal3Plus1Actions) {
+    imageModal3Plus1Actions.hidden = !catalogue.has3Plus1Actions;
+    lens3Plus1Buttons.forEach((button, index) => {
+      button.classList.toggle("is-active", Boolean(catalogue.has3Plus1Actions) && index === 0);
+    });
+  }
   if (catalogue.image) {
     imageModalImage.src = catalogue.image;
     imageModalImage.alt = catalogue.alt;
@@ -256,6 +292,21 @@ function setLensOfferImage(offerKey) {
   imageModalImage.classList.remove("is-pending", "is-tall");
 }
 
+function setLens3Plus1Image(offerKey) {
+  const offer = lens3Plus1Images[offerKey];
+  if (!offer || !imageModalImage) return;
+
+  if (offer.image) {
+    imageModalImage.src = offer.image;
+    imageModalImage.alt = offer.alt;
+  } else {
+    imageModalImage.removeAttribute("src");
+    imageModalImage.alt = "";
+  }
+  imageModalImage.classList.toggle("is-pending", !offer.image);
+  imageModalImage.classList.remove("is-tall");
+}
+
 lensOfferButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -263,6 +314,16 @@ lensOfferButtons.forEach((button) => {
       offerButton.classList.toggle("is-active", offerButton === button);
     });
     setLensOfferImage(button.dataset.lensOffer);
+  });
+});
+
+lens3Plus1Buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    lens3Plus1Buttons.forEach((offerButton) => {
+      offerButton.classList.toggle("is-active", offerButton === button);
+    });
+    setLens3Plus1Image(button.getAttribute("data-lens-3plus1"));
   });
 });
 

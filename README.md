@@ -14,14 +14,14 @@ https://github.com/hijomi2013/orion-podium-test
 
 Les blocs suivants sont maintenant consideres comme bons :
 
-- `Accueil` : page d'accueil finale validee.
-- `Podium` : module Podium finalise visuellement et fonctionnellement pour cette phase.
+- `Accueil` : page d'accueil finale validee, prete pour verification avant bascule.
+- `Podium` : module Podium finalise visuellement et fonctionnellement, pret pour verification avant bascule.
 - `Univers Verres` : acces Podium et module SAV en construction valides en local.
 - `Univers Solaire` : catalogues Demetz, Oakley, Ray-Ban, Vuarnet et Bolle valides en local.
-- `Univers Lentilles` : premiers contenus integres en modales depuis l'accueil.
+- `Univers Lentilles` : contenus integres en modales depuis l'accueil, avec offre marques et offre 3+1.
 - `Espace Directeur` : acces discret ajoute sur l'accueil, avec Planning et Encaissements en construction.
 
-La suite du travail doit porter sur le contenu restant de l'`Univers Lentilles`, notamment l'image de l'offre.
+Important : ce depot reste le site de test. La bascule vers le vrai site Orion n'est pas encore faite depuis ce projet.
 
 ## Accueil
 
@@ -46,10 +46,12 @@ Interaction validee :
 - animation de survol ajoutee sur les bulles cliquables ;
 - univers `Verres` actif avec acces `Podium` et modale `SAV` ;
 - univers `Solaire` actif avec modales catalogues ;
-- univers `Lentilles` actif avec modales `Garantie`, `Produits` et `Offres 3+1` ;
+- univers `Lentilles` actif avec modales `Offre`, `Garantie`, `Produits` et `Offres 3+1` ;
+- modale `Offre` avec boutons Alcon, Johnson & Johnson, Bausch & Lomb, Ophtalmic et Coopervision ;
+- modale `Offres 3+1` avec boutons Dailies Aqua Comfort+, Precision One, Total One, Moist, Oasys et Oasys Max ;
 - acces `Directeur` en pastille discrete en haut a droite, avec `Planning` et `Encaissements` relies a la modale en construction.
 
-Attention : ces fichiers et assets d'accueil peuvent etre non suivis localement selon l'etat Git. Ne pas les supprimer ni les remplacer sans verification.
+Attention : `index.html` sert actuellement l'accueil sur GitHub Pages. `accueil.html` reste une copie directe de la page d'accueil pour ouverture locale ou comparaison.
 
 ## Univers Verres
 
@@ -76,13 +78,24 @@ Assets :
 
 Etat :
 - boutons actifs depuis la carte Lentilles ;
-- `Garantie`, `Produits` et `Offres 3+1` ouvrent des images en modale ;
-- `Offre` reste en attente d'image et affiche un emplacement "Image a ajouter".
+- `Offre`, `Garantie`, `Produits` et `Offres 3+1` ouvrent des images en modale ;
+- `Offre` affiche les visuels par marque avec boutons internes ;
+- `Offres 3+1` affiche les visuels par gamme avec boutons internes, Dailies Aqua Comfort+ ouvert par defaut.
 
 Assets :
 - `assets/lentilles/garantie-lentille.png`
 - `assets/lentilles/entretien-lentille.png`
-- `assets/lentilles/offre3plus1.png`
+- `assets/lentilles/offre/alcon.png`
+- `assets/lentilles/offre/johnson.png`
+- `assets/lentilles/offre/bauschlomb.png`
+- `assets/lentilles/offre/ophtalmic.png`
+- `assets/lentilles/offre/coopervision.png`
+- `assets/lentilles/offre3plus1/dailies.png`
+- `assets/lentilles/offre3plus1/precision-one.png`
+- `assets/lentilles/offre3plus1/total-one.png`
+- `assets/lentilles/offre3plus1/moist.png`
+- `assets/lentilles/offre3plus1/oasys.png`
+- `assets/lentilles/offre3plus1/oasys-max.png`
 
 ## Espace Directeur
 
@@ -125,6 +138,11 @@ Regle importante : ne pas modifier la logique CSV a l'aveugle. Les bulles sont r
 
 Le dossier `assets/` contient des ressources partagees entre Accueil, Podium et possiblement d'autres pages.
 
+Nettoyage effectue :
+- suppression des anciennes images/logos et polices non references ;
+- suppression de l'ancienne image unique de l'offre 3+1, remplacee par les 6 visuels ranges dans `assets/lentilles/offre3plus1/` ;
+- verification statique : aucun asset restant n'est detecte comme orphelin.
+
 Ne rien supprimer sans recherche prealable dans le projet.
 
 En particulier, verifier les usages avant de toucher aux fichiers dans :
@@ -143,6 +161,7 @@ Pour la suite, travailler par petites etapes :
 3. tester en local ou sur GitHub Pages ;
 4. commit/push sur `main` seulement quand l'etat est stable ;
 5. attendre le deploiement GitHub Pages, puis verifier en ligne.
+6. seulement apres validation explicite, preparer la bascule vers le vrai site Orion.
 
 URL de test :
 https://hijomi2013.github.io/orion-podium-test/

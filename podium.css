@@ -46,47 +46,6 @@ select {
   font: inherit;
 }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  min-height: 64px;
-  background: linear-gradient(90deg, var(--blue-dark), var(--blue));
-  box-shadow: 0 12px 26px rgba(42, 96, 116, 0.16);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  width: 100%;
-  max-width: 1180px;
-  padding: 0 18px;
-}
-
-.nav a,
-.nav button {
-  border: 0;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 760;
-  line-height: 1;
-  padding: 8px 4px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.nav a:hover,
-.nav button:hover {
-  color: #dff2fa;
-}
-
 .page {
   min-height: 100vh;
   padding: 70px 32px 96px;
@@ -553,24 +512,6 @@ body.is-scrolled .vision-picker {
   font-weight: 700;
 }
 
-.info-card-photo {
-  animation: infoCardReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes infoCardReveal {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.985);
-    filter: blur(2px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
 .info-visual {
   min-height: 142px;
   border-radius: 14px;
@@ -762,15 +703,12 @@ body.is-scrolled .vision-picker {
     transform 1.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.network-hero.hover-open,
 .network-hero.is-open {
   min-height: 276px;
   box-shadow: 0 28px 62px rgba(34, 87, 108, 0.22);
 }
 
-.network-hero.hover-open::before,
 .network-hero.is-open::before,
-.network-choice.hover-open::before,
 .network-choice.is-open::before {
   opacity: 1;
   transform: translateX(28%);
@@ -798,9 +736,7 @@ body.is-scrolled .vision-picker {
     max-width 1.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   top: 42px;
   transform: translate(-50%, 0);
@@ -833,38 +769,6 @@ body.is-scrolled .vision-picker {
     box-shadow 1.25s ease;
 }
 
-.price-toggle {
-  position: absolute;
-  right: 42px;
-  top: 50%;
-  z-index: 3;
-  min-width: 58px;
-  min-height: 38px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--blue-dark);
-  cursor: pointer;
-  font-size: 19px;
-  font-family: var(--font-ui);
-  font-weight: 850;
-  line-height: 1;
-  transform: translateY(-50%);
-  box-shadow: 0 10px 22px rgba(21, 72, 91, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.52);
-  transition:
-    top 1.55s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.35s ease,
-    background 0.35s ease,
-    color 0.35s ease;
-}
-
-.price-toggle:hover,
-.price-toggle.active {
-  background: #fff;
-  color: #1c6478;
-  transform: translateY(-50%) scale(1.04);
-}
-
 .price-control {
   position: absolute;
   right: 42px;
@@ -878,18 +782,6 @@ body.is-scrolled .vision-picker {
   transition:
     top 1.55s cubic-bezier(0.16, 1, 0.3, 1),
     transform 1.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.price-control .price-toggle {
-  position: static;
-  min-width: 50px;
-  min-height: 34px;
-  transform: none;
-}
-
-.price-control .price-toggle:hover,
-.price-control .price-toggle.active {
-  transform: none;
 }
 
 .price-control .lens-price {
@@ -928,25 +820,15 @@ body.is-scrolled .vision-picker {
   color: var(--title);
 }
 
-.network-hero.hover-open .lens-price,
 .network-hero.is-open .lens-price,
 .network-hero:focus-within .lens-price,
-.network-choice.hover-open .lens-price,
 .network-choice.is-open .lens-price,
 .network-choice:focus-within .lens-price {
   top: 136px;
 }
 
-.network-hero.hover-open .price-toggle,
-.network-hero.is-open .price-toggle,
-.network-hero:focus-within .price-toggle,
-.network-choice.hover-open .price-toggle,
-.network-choice.is-open .price-toggle,
-.network-choice:focus-within .price-toggle,
-.network-hero.hover-open .price-control,
 .network-hero.is-open .price-control,
 .network-hero:focus-within .price-control,
-.network-choice.hover-open .price-control,
 .network-choice.is-open .price-control,
 .network-choice:focus-within .price-control {
   top: 128px;
@@ -977,10 +859,8 @@ body.is-scrolled .vision-picker {
   flex-wrap: wrap;
 }
 
-.network-hero.hover-open .hero-pickers,
 .network-hero:focus-within .hero-pickers,
 .network-hero.is-open .hero-pickers,
-.network-choice.hover-open .hero-pickers,
 .network-choice:focus-within .hero-pickers,
 .network-choice.is-open .hero-pickers {
   max-height: 180px;
@@ -1069,10 +949,8 @@ body.is-scrolled .vision-picker {
     transform 1.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.network-hero.hover-open .transition-toggle,
 .network-hero.is-open .transition-toggle,
 .network-hero:focus-within .transition-toggle,
-.network-choice.hover-open .transition-toggle,
 .network-choice.is-open .transition-toggle,
 .network-choice:focus-within .transition-toggle {
   opacity: 1;
@@ -1113,10 +991,8 @@ body.is-scrolled .vision-picker {
   filter: grayscale(1) opacity(0.58);
 }
 
-.network-hero.hover-open .transition-toggle.disabled,
 .network-hero.is-open .transition-toggle.disabled,
 .network-hero:focus-within .transition-toggle.disabled,
-.network-choice.hover-open .transition-toggle.disabled,
 .network-choice.is-open .transition-toggle.disabled,
 .network-choice:focus-within .transition-toggle.disabled {
   opacity: 0.48;
@@ -1281,7 +1157,6 @@ body.is-scrolled .vision-picker {
   box-shadow: -18px 10px 0 -6px currentColor, -2px 10px 0 -6px currentColor;
 }
 
-.closed-network:has(.network-hero.hover-open) .network-choices,
 .closed-network:has(.network-hero.is-open) .network-choices {
   margin-top: 34px;
 }
@@ -1314,7 +1189,6 @@ body.is-scrolled .vision-picker {
     box-shadow 1.45s ease;
 }
 
-.network-choice.hover-open,
 .network-choice.is-open {
   min-height: 266px;
   box-shadow: 0 28px 58px rgba(34, 87, 108, 0.2);
@@ -1343,12 +1217,10 @@ body.is-scrolled .vision-picker {
   font-size: 18px;
 }
 
-.network-choice:nth-child(2).hover-open,
 .network-choice:nth-child(2).is-open {
   width: 100%;
 }
 
-.network-choice:nth-child(3).hover-open,
 .network-choice:nth-child(3).is-open {
   width: 100%;
 }
@@ -1638,19 +1510,11 @@ body.is-scrolled .vision-picker {
 }
 
 @media (max-width: 980px) {
-  .nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-  }
-
-  .network-hero.hover-open,
   .network-hero.is-open {
     min-height: 260px;
   }
 
-  .network-choice.hover-open,
   .network-choice.is-open,
-  .network-choice:nth-child(2).hover-open {
     min-height: 250px;
   }
 
@@ -1760,21 +1624,10 @@ body.is-scrolled .vision-picker {
     line-height: 1.08;
   }
 
-  .copy-button {
-    min-height: 40px;
-    padding: 0 18px;
-    font-size: 12px;
-  }
-
   .info-card {
     min-height: 124px;
     gap: 16px;
     padding: 16px;
-  }
-
-  .info-card-visual {
-    width: 128px;
-    height: 96px;
   }
 
   .info-card h3 {
@@ -1803,7 +1656,6 @@ body.is-scrolled .vision-picker {
     font-size: 22px;
   }
 
-  .network-hero.hover-open,
   .network-hero.is-open {
     min-height: 250px;
   }
@@ -1813,7 +1665,6 @@ body.is-scrolled .vision-picker {
     font-size: 18px;
   }
 
-  .network-choice.hover-open,
   .network-choice.is-open {
     min-height: 244px;
   }
@@ -1834,9 +1685,7 @@ body.is-scrolled .vision-picker {
     font-size: 17px;
   }
 
-  .network-hero.hover-open .hero-label,
   .network-hero.is-open .hero-label,
-  .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     top: 36px;
     min-height: 58px;
@@ -1850,10 +1699,8 @@ body.is-scrolled .vision-picker {
     padding: 8px 18px;
   }
 
-  .network-hero.hover-open .lens-price,
   .network-hero.is-open .lens-price,
   .network-hero:focus-within .lens-price,
-  .network-choice.hover-open .lens-price,
   .network-choice.is-open .lens-price,
   .network-choice:focus-within .lens-price {
     top: 124px;
@@ -1931,8 +1778,7 @@ body::before {
 
 .primary-button,
 .network-button,
-.vision-button,
-.utility-link {
+.vision-button {
   color: #173d4f;
   background: rgba(246, 252, 254, 0.9);
   box-shadow:
@@ -1974,9 +1820,7 @@ body::before {
   text-shadow: 0 2px 14px rgba(9, 46, 64, 0.22);
 }
 
-.network-hero.hover-open,
 .network-hero.is-open,
-.network-choice.hover-open,
 .network-choice.is-open {
   box-shadow:
     0 30px 68px rgba(18, 76, 98, 0.3),
@@ -2016,7 +1860,6 @@ body::before {
 }
 
 .info-card h2,
-.lens-info-title,
 .closed-network h1 {
   color: #173f52;
 }
@@ -2039,9 +1882,7 @@ body::before {
     0 0 1px rgba(255, 255, 255, 0.42);
 }
 
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   font-weight: 780;
 }
@@ -2111,9 +1952,7 @@ body::before {
 }
 
 /* Keep dense forfait combinations readable without letting options collide with the lens name. */
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   top: 30px;
   min-height: 46px;
@@ -2138,19 +1977,15 @@ body::before {
   font-size: 12px;
 }
 
-.network-hero.hover-open .lens-price,
 .network-hero.is-open .lens-price,
 .network-hero:focus-within .lens-price,
-.network-choice.hover-open .lens-price,
 .network-choice.is-open .lens-price,
 .network-choice:focus-within .lens-price {
   top: 130px;
 }
 
-.network-hero.hover-open .price-control,
 .network-hero.is-open .price-control,
 .network-hero:focus-within .price-control,
-.network-choice.hover-open .price-control,
 .network-choice.is-open .price-control,
 .network-choice:focus-within .price-control {
   top: 124px;
@@ -2319,7 +2154,6 @@ body::before {
     font-size: 19px;
   }
 
-  .network-hero.hover-open,
   .network-hero.is-open {
     min-height: 188px;
   }
@@ -2329,7 +2163,6 @@ body::before {
     font-size: 17px;
   }
 
-  .network-choice.hover-open,
   .network-choice.is-open {
     min-height: 188px;
   }
@@ -2339,14 +2172,11 @@ body::before {
     gap: 12px;
   }
 
-  .closed-network:has(.network-hero.hover-open) .network-choices,
   .closed-network:has(.network-hero.is-open) .network-choices {
     margin-top: 16px;
   }
 
-  .network-hero.hover-open .hero-label,
   .network-hero.is-open .hero-label,
-  .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     top: 24px;
     min-height: 34px;
@@ -2387,10 +2217,8 @@ body::before {
     padding: 8px 18px;
   }
 
-  .network-hero.hover-open .lens-price,
   .network-hero.is-open .lens-price,
   .network-hero:focus-within .lens-price,
-  .network-choice.hover-open .lens-price,
   .network-choice.is-open .lens-price,
   .network-choice:focus-within .lens-price {
     top: 96px;
@@ -2515,9 +2343,7 @@ body::before {
     font-size: 18px;
   }
 
-  .network-hero.hover-open,
   .network-hero.is-open,
-  .network-choice.hover-open,
   .network-choice.is-open {
     min-height: clamp(226px, 24vh, 260px);
   }
@@ -2526,9 +2352,7 @@ body::before {
     gap: 14px;
   }
 
-  .network-hero.hover-open .hero-label,
   .network-hero.is-open .hero-label,
-  .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     top: 28px;
     min-height: 42px;
@@ -2573,19 +2397,15 @@ body::before {
     padding: 9px 20px;
   }
 
-  .network-hero.hover-open .lens-price,
   .network-hero.is-open .lens-price,
   .network-hero:focus-within .lens-price,
-  .network-choice.hover-open .lens-price,
   .network-choice.is-open .lens-price,
   .network-choice:focus-within .lens-price {
     top: 112px;
   }
 
-  .network-hero.hover-open .price-control,
   .network-hero.is-open .price-control,
   .network-hero:focus-within .price-control,
-  .network-choice.hover-open .price-control,
   .network-choice.is-open .price-control,
   .network-choice:focus-within .price-control {
     top: 108px;
@@ -2646,16 +2466,12 @@ body::before {
     padding: 32px 36px 34px;
   }
 
-  .network-hero.hover-open,
   .network-hero.is-open,
-  .network-choice.hover-open,
   .network-choice.is-open {
     min-height: 222px;
   }
 
-  .network-hero.hover-open .hero-label,
   .network-hero.is-open .hero-label,
-  .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     width: calc(100% - 420px);
     max-width: calc(100% - 420px);
@@ -2695,9 +2511,7 @@ body::before {
   transition: none;
 }
 
-.network-hero.hover-open::before,
 .network-hero.is-open::before,
-.network-choice.hover-open::before,
 .network-choice.is-open::before {
   opacity: 0;
   transform: none;
@@ -2738,10 +2552,8 @@ body::before {
   will-change: opacity, transform;
 }
 
-.network-hero.hover-open .transition-toggle,
 .network-hero.is-open .transition-toggle,
 .network-hero:focus-within .transition-toggle,
-.network-choice.hover-open .transition-toggle,
 .network-choice.is-open .transition-toggle,
 .network-choice:focus-within .transition-toggle {
   opacity: 1;
@@ -2760,7 +2572,6 @@ body::before {
 }
 
 .network-choices,
-.closed-network:has(.network-hero.hover-open) .network-choices,
 .closed-network:has(.network-hero.is-open) .network-choices {
   transition: margin-top 0.26s ease;
 }
@@ -2888,9 +2699,7 @@ body::before {
   letter-spacing: 0.01em;
 }
 
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   font-weight: var(--fw-semibold);
 }
@@ -2899,8 +2708,7 @@ body::before {
   text-shadow: 0 1px 8px rgba(7, 40, 56, 0.2);
 }
 
-.lens-price,
-.price-toggle {
+.lens-price {
   font-weight: var(--fw-semibold);
   letter-spacing: 0;
 }
@@ -2952,9 +2760,7 @@ body::before {
   text-shadow: 0 1px 2px rgba(9, 46, 64, 0.22);
 }
 
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   font-weight: var(--fw-semibold);
 }
@@ -2994,9 +2800,7 @@ body::before {
     inset 0 -1px 0 rgba(79, 143, 193, 0.12);
 }
 
-.network-hero.hover-open,
 .network-hero.is-open,
-.network-choice.hover-open,
 .network-choice.is-open {
   box-shadow:
     0 32px 72px rgba(10, 34, 62, 0.24),
@@ -3086,9 +2890,7 @@ body::before {
 }
 
 /* The opened lens reference is the name to remember, so it gets stronger hierarchy. */
-.network-hero.hover-open .hero-label,
 .network-hero.is-open .hero-label,
-.network-choice.hover-open .hero-label,
 .network-choice.is-open .hero-label {
   width: calc(100% - 520px);
   max-width: min(720px, calc(100% - 520px));
@@ -3099,9 +2901,7 @@ body::before {
 }
 
 @media (min-width: 1201px) and (max-width: 1500px) {
-  .network-hero.hover-open .hero-label,
   .network-hero.is-open .hero-label,
-  .network-choice.hover-open .hero-label,
   .network-choice.is-open .hero-label {
     width: calc(100% - 430px);
     max-width: min(620px, calc(100% - 430px));
@@ -3213,3 +3013,4 @@ body.is-scrolled .quick-actions {
     width: min(980px, var(--main-column-width));
   }
 }
+

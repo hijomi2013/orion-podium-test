@@ -79,22 +79,23 @@ button {
 }
 
 .director-toggle {
-  min-height: 34px;
-  padding: 0 16px;
-  border: 1px solid rgba(35, 54, 76, 0.1);
+  min-height: 36px;
+  padding: 0 17px;
+  border: 1px solid rgba(20, 24, 31, 0.18);
   border-radius: 999px;
-  color: rgba(28, 45, 68, 0.62);
+  color: rgba(20, 24, 31, 0.78);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(241, 247, 249, 0.34)),
-    rgba(255, 255, 255, 0.24);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(224, 226, 230, 0.42)),
+    rgba(25, 29, 36, 0.08);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    0 10px 28px rgba(22, 44, 66, 0.06);
-  backdrop-filter: blur(14px) saturate(1.08);
-  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -1px 0 rgba(20, 24, 31, 0.08),
+    0 12px 30px rgba(14, 18, 24, 0.11);
+  backdrop-filter: blur(16px) saturate(1.02);
+  -webkit-backdrop-filter: blur(16px) saturate(1.02);
   cursor: pointer;
   font-size: 12px;
-  font-weight: 620;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition:
@@ -108,19 +109,20 @@ button {
 .director-toggle:hover,
 .director-toggle:focus-visible,
 .director-access.is-open .director-toggle {
-  border-color: rgba(35, 54, 76, 0.18);
-  color: rgba(23, 38, 59, 0.82);
+  border-color: rgba(20, 24, 31, 0.3);
+  color: rgba(12, 16, 22, 0.92);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(241, 247, 249, 0.48)),
-    rgba(255, 255, 255, 0.34);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(218, 221, 226, 0.56)),
+    rgba(20, 24, 31, 0.12);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 14px 32px rgba(22, 44, 66, 0.09);
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 0 rgba(20, 24, 31, 0.1),
+    0 16px 36px rgba(12, 16, 22, 0.16);
   transform: translateY(-1px);
 }
 
 .director-toggle:focus-visible {
-  outline: 2px solid rgba(49, 120, 178, 0.28);
+  outline: 2px solid rgba(20, 24, 31, 0.22);
   outline-offset: 4px;
 }
 
@@ -132,16 +134,17 @@ button {
   padding: 8px;
   display: grid;
   gap: 6px;
-  border: 1px solid rgba(35, 54, 76, 0.12);
+  border: 1px solid rgba(20, 24, 31, 0.16);
   border-radius: 14px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(244, 249, 250, 0.68)),
-    rgba(255, 255, 255, 0.54);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(226, 229, 233, 0.74)),
+    rgba(28, 32, 39, 0.12);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    0 22px 48px rgba(20, 42, 64, 0.13);
-  backdrop-filter: blur(18px) saturate(1.08);
-  -webkit-backdrop-filter: blur(18px) saturate(1.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    inset 0 -1px 0 rgba(20, 24, 31, 0.08),
+    0 24px 52px rgba(12, 16, 22, 0.18);
+  backdrop-filter: blur(20px) saturate(1.02);
+  -webkit-backdrop-filter: blur(20px) saturate(1.02);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-5px) scale(0.98);
@@ -165,13 +168,13 @@ button {
   grid-template-columns: 22px 1fr 12px;
   align-items: center;
   gap: 9px;
-  border: 1px solid rgba(35, 54, 76, 0.08);
+  border: 1px solid rgba(20, 24, 31, 0.1);
   border-radius: 10px;
-  color: rgba(28, 45, 68, 0.72);
-  background: rgba(255, 255, 255, 0.38);
+  color: rgba(18, 23, 31, 0.74);
+  background: rgba(255, 255, 255, 0.48);
   cursor: pointer;
   font-size: 13px;
-  font-weight: 560;
+  font-weight: 620;
   text-align: left;
   transition:
     transform 180ms ease,
@@ -183,26 +186,26 @@ button {
 
 .director-panel button:hover,
 .director-panel button:focus-visible {
-  border-color: rgba(49, 120, 178, 0.18);
-  color: #172b45;
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 10px 20px rgba(22, 44, 66, 0.08);
+  border-color: rgba(20, 24, 31, 0.18);
+  color: #111820;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 24px rgba(12, 16, 22, 0.12);
   transform: translateY(-1px);
 }
 
 .director-panel button:focus-visible {
-  outline: 2px solid rgba(49, 120, 178, 0.24);
+  outline: 2px solid rgba(20, 24, 31, 0.18);
   outline-offset: 2px;
 }
 
 .director-panel .mini {
   width: 18px;
   height: 18px;
-  color: rgba(28, 45, 68, 0.62);
+  color: rgba(18, 23, 31, 0.66);
 }
 
 .director-panel b {
-  color: rgba(28, 45, 68, 0.42);
+  color: rgba(18, 23, 31, 0.42);
   font-size: 20px;
   font-weight: 280;
   line-height: 1;
@@ -684,43 +687,9 @@ button {
     linear-gradient(currentColor, currentColor) right bottom / 5px 6px no-repeat;
 }
 
-.mini-calendar {
+.mini-square {
   border: 2px solid currentColor;
-  border-radius: 4px;
-}
-
-.mini-calendar::before,
-.mini-calendar::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  right: 4px;
-  background: currentColor;
-}
-
-.mini-calendar::before {
-  top: 5px;
-  height: 2px;
-}
-
-.mini-calendar::after {
-  top: 11px;
-  height: 6px;
-  background:
-    linear-gradient(90deg, currentColor 0 3px, transparent 3px 6px, currentColor 6px 9px, transparent 9px 12px, currentColor 12px);
-}
-
-.mini-cash {
-  border: 2px solid currentColor;
-  border-radius: 4px;
-}
-
-.mini-cash::before {
-  content: "";
-  position: absolute;
-  inset: 5px 7px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
+  border-radius: 5px;
 }
 
 .mini-sun {
