@@ -3063,3 +3063,52 @@ body.is-scrolled .quick-actions {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(203, 230, 248, 0.34);
 }
+
+/* Photochromic tooltip above the sun/moon bubble. */
+.transition-toggle span {
+  position: absolute;
+  right: 50%;
+  bottom: calc(100% + 8px);
+  inline-size: auto;
+  block-size: auto;
+  min-width: max-content;
+  padding: 5px 10px 6px;
+  overflow: visible;
+  clip: auto;
+  border-radius: 7px;
+  background: rgba(72, 85, 94, 0.92);
+  box-shadow: 0 8px 18px rgba(9, 28, 46, 0.2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(50%, 4px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  z-index: 3;
+}
+
+.transition-toggle span::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 100%;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  transform: translate(50%, -4px) rotate(45deg);
+}
+
+.transition-toggle:hover span,
+.transition-toggle:focus-within span,
+.transition-toggle:has(input:checked) span {
+  opacity: 1;
+  transform: translate(50%, 0);
+}
+
+.transition-toggle.disabled span {
+  display: none;
+}
