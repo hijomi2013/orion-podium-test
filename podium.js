@@ -1011,7 +1011,7 @@ closedNetwork.addEventListener("click", (event) => {
     }
 
     infoPanelVisible = true;
-    animateInfoPanel = Boolean(materialButton || treatmentButton || transitionToggle);
+    animateInfoPanel = false;
     pinnedOpenIndex = index;
     renderNetwork();
     return;
@@ -1019,7 +1019,7 @@ closedNetwork.addEventListener("click", (event) => {
 
   const lensElement = event.target.closest(".network-hero, .network-choice");
   if (lensElement) {
-    openLensByIndex(Number(lensElement.dataset.index || 0), true);
+    openLensByIndex(Number(lensElement.dataset.index || 0), false);
   }
 });
 
@@ -1050,7 +1050,7 @@ closedNetwork.addEventListener("keydown", (event) => {
   const lensElement = event.target.closest(".network-hero, .network-choice");
   if ((event.key === "Enter" || event.key === " ") && lensElement) {
     event.preventDefault();
-    openLensByIndex(Number(lensElement.dataset.index || 0), true);
+    openLensByIndex(Number(lensElement.dataset.index || 0), false);
   }
 });
 
