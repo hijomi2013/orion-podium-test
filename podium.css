@@ -3063,3 +3063,93 @@ body.is-scrolled .quick-actions {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(203, 230, 248, 0.34);
 }
+
+/* Contrast pass: darker page depth, bluer borders, less white glass. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(10, 28, 50, 0.2), rgba(10, 28, 50, 0.32)),
+    radial-gradient(circle at 68% 18%, rgba(79, 143, 193, 0.14), rgba(10, 28, 50, 0) 36%);
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.primary-button,
+.network-button,
+.vision-button {
+  border: 1px solid rgba(42, 103, 133, 0.32);
+  background: rgba(225, 241, 246, 0.72);
+  backdrop-filter: blur(4px) saturate(1.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(42, 103, 133, 0.12),
+    0 16px 34px rgba(14, 45, 72, 0.16);
+}
+
+.glass-panel {
+  border-color: rgba(42, 116, 150, 0.56);
+  background:
+    linear-gradient(145deg, rgba(219, 238, 244, 0.48), rgba(157, 196, 211, 0.28)),
+    rgba(180, 213, 224, 0.18);
+  backdrop-filter: blur(2px) saturate(1.08);
+  box-shadow:
+    0 38px 92px rgba(13, 42, 70, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(42, 116, 150, 0.2);
+}
+
+.network-hero,
+.network-choice {
+  border-color: rgba(106, 166, 210, 0.58);
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 24%),
+    radial-gradient(circle at 18% 0%, rgba(79, 143, 193, 0.18), rgba(255, 255, 255, 0) 32%),
+    radial-gradient(circle at 82% 108%, rgba(79, 143, 193, 0.22), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(145deg, rgba(73, 116, 151, 0.98), rgba(45, 86, 125, 0.99) 48%, rgba(28, 61, 101, 1));
+  box-shadow:
+    0 28px 64px rgba(7, 28, 56, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(106, 166, 210, 0.18);
+}
+
+.network-hero.is-open,
+.network-choice.is-open {
+  box-shadow:
+    0 34px 78px rgba(7, 28, 56, 0.34),
+    0 0 0 1px rgba(106, 166, 210, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.info-card {
+  border-color: rgba(46, 126, 158, 0.42);
+  background: rgba(220, 238, 243, 0.76);
+  backdrop-filter: none;
+  box-shadow: 0 22px 52px rgba(13, 42, 70, 0.18);
+}
+
+.quick-action,
+.shop-price,
+.lens-price,
+.hero-option {
+  border-color: rgba(74, 139, 176, 0.46);
+}
+
+.quick-action {
+  background:
+    linear-gradient(180deg, rgba(234, 248, 251, 0.88), rgba(197, 225, 234, 0.74)),
+    linear-gradient(135deg, rgba(79, 143, 193, 0.12), rgba(42, 142, 162, 0.18));
+  backdrop-filter: blur(4px) saturate(1.06);
+}
+
+.hero-option:not(.active):not(:hover) {
+  color: rgba(235, 246, 255, 0.9);
+  background: rgba(18, 55, 92, 0.2);
+  border-color: rgba(126, 184, 221, 0.48);
+}
