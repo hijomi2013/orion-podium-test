@@ -1575,19 +1575,43 @@ body.is-scrolled .vision-picker {
   display: none;
 }
 
-.back-top {
+.podium-home-link {
   position: fixed;
-  right: 18px;
-  bottom: 20px;
-  width: 40px;
-  height: 40px;
-  border: 0;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #55add0, #6bc7c3);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  box-shadow: 0 12px 24px rgba(47, 77, 90, 0.16);
+  left: 24px;
+  bottom: 22px;
+  z-index: 12;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(58, 103, 142, 0.18);
+  border-radius: 999px;
+  color: rgba(33, 66, 86, 0.68);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 10px 24px rgba(21, 50, 68, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.podium-home-link:hover,
+.podium-home-link:focus-visible {
+  color: rgba(25, 53, 76, 0.92);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 30px rgba(21, 50, 68, 0.12);
+  transform: translateY(-1px);
+}
+
+.podium-home-link:focus-visible {
+  outline: 2px solid rgba(79, 143, 193, 0.28);
+  outline-offset: 3px;
 }
 
 .toast {
@@ -3160,6 +3184,10 @@ body.is-scrolled .quick-actions {
     top: 20px;
   }
 
+  .lens-info-panel {
+    top: 118px;
+  }
+
   .closed-network {
     width: min(1120px, var(--main-column-width));
   }
@@ -3172,6 +3200,10 @@ body.is-scrolled .quick-actions {
 @media (min-width: 1201px) and (max-width: 1500px) {
   .quick-actions {
     top: 18px;
+  }
+
+  .lens-info-panel {
+    top: 104px;
   }
 
   .closed-network {

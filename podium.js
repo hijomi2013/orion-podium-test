@@ -1054,10 +1054,6 @@ closedNetwork.addEventListener("keydown", (event) => {
   }
 });
 
-document.querySelector(".back-top").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
 function updateFixedControlsVisibility() {
   document.body.classList.toggle("is-scrolled", window.scrollY > 120);
 }
