@@ -951,11 +951,13 @@ button {
   max-height: calc(min(920px, 100vh - 48px) - 190px);
 }
 
+#image-modal-offer-actions,
 #image-modal-3plus1-actions {
   gap: 10px;
   padding: 10px 18px 9px;
 }
 
+#image-modal-offer-actions button,
 #image-modal-3plus1-actions button {
   min-height: 34px;
   border-radius: 12px;
@@ -963,6 +965,7 @@ button {
   font-size: 12px;
 }
 
+.image-modal__dialog:has(#image-modal-offer-actions:not([hidden])) .image-modal__viewport img,
 .image-modal__dialog:has(#image-modal-3plus1-actions:not([hidden])) .image-modal__viewport img {
   max-height: calc(min(920px, 100vh - 48px) - 158px);
 }
@@ -1090,11 +1093,13 @@ body.modal-open {
     max-height: calc(100vh - 174px);
   }
 
+  #image-modal-offer-actions,
   #image-modal-3plus1-actions {
     gap: 8px;
     padding: 9px 10px;
   }
 
+  #image-modal-offer-actions button,
   #image-modal-3plus1-actions button {
     min-height: 32px;
     padding: 0 11px;
@@ -1102,6 +1107,7 @@ body.modal-open {
     font-size: 10px;
   }
 
+  .image-modal__dialog:has(#image-modal-offer-actions:not([hidden])) .image-modal__viewport img,
   .image-modal__dialog:has(#image-modal-3plus1-actions:not([hidden])) .image-modal__viewport img {
     max-height: calc(100vh - 144px);
   }
