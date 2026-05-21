@@ -48,7 +48,7 @@ Interaction validee :
 - univers `Solaire` actif avec modales catalogues ;
 - univers `Lentilles` actif avec modales `Offre`, `Garantie`, `Produits` et `Offres 3+1` ;
 - modale `Offre` avec boutons Alcon, Johnson & Johnson, Bausch & Lomb, Ophtalmic et Coopervision ;
-- modale `Offres 3+1` avec boutons Dailies Aqua Comfort+, Precision One, Total One, Moist, Oasys et Oasys Max ;
+- modale `Offres 3+1` avec boutons Precision One, Total One, Moist, Oasys et Oasys Max ;
 - acces `Directeur` en pastille discrete en haut a droite, avec `Planning` et `Encaissements` relies a la modale en construction.
 
 Attention : `index.html` sert actuellement l'accueil sur GitHub Pages. `accueil.html` reste une copie directe de la page d'accueil pour ouverture locale ou comparaison.
@@ -80,7 +80,7 @@ Etat :
 - boutons actifs depuis la carte Lentilles ;
 - `Offre`, `Garantie`, `Produits` et `Offres 3+1` ouvrent des images en modale ;
 - `Offre` affiche les visuels par marque avec boutons internes ;
-- `Offres 3+1` affiche les visuels par gamme avec boutons internes, Dailies Aqua Comfort+ ouvert par defaut.
+- `Offres 3+1` affiche les visuels par gamme avec boutons internes, Moist ouvert par defaut.
 
 Assets :
 - `assets/lentilles/garantie-lentille.png`
@@ -90,7 +90,6 @@ Assets :
 - `assets/lentilles/offre/bauschlomb.png`
 - `assets/lentilles/offre/ophtalmic.png`
 - `assets/lentilles/offre/coopervision.png`
-- `assets/lentilles/offre3plus1/dailies.png`
 - `assets/lentilles/offre3plus1/precision-one.png`
 - `assets/lentilles/offre3plus1/total-one.png`
 - `assets/lentilles/offre3plus1/moist.png`

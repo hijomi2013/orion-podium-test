@@ -42,10 +42,6 @@ const lensOfferImages = {
 };
 
 const lens3Plus1Images = {
-  "dailies-aqua-comfort": {
-    image: "assets/lentilles/offre3plus1/dailies.png",
-    alt: "Offre 3+1 Dailies Aqua Comfort+",
-  },
   "precision-one": {
     image: "assets/lentilles/offre3plus1/precision-one.png",
     alt: "Offre 3+1 Precision One",
@@ -122,9 +118,10 @@ const infoCatalogues = {
   "lentilles-3plus1": {
     kicker: "Univers Lentilles",
     title: "Offres 3+1",
-    image: lens3Plus1Images["dailies-aqua-comfort"].image,
-    alt: lens3Plus1Images["dailies-aqua-comfort"].alt,
+    image: lens3Plus1Images.moist.image,
+    alt: lens3Plus1Images.moist.alt,
     has3Plus1Actions: true,
+    default3Plus1: "moist",
   },
   "directeur-planning": {
     kicker: "Espace Directeur",
@@ -265,8 +262,11 @@ function openImageModal(catalogue, trigger) {
   }
   if (imageModal3Plus1Actions) {
     imageModal3Plus1Actions.hidden = !catalogue.has3Plus1Actions;
-    lens3Plus1Buttons.forEach((button, index) => {
-      button.classList.toggle("is-active", Boolean(catalogue.has3Plus1Actions) && index === 0);
+    lens3Plus1Buttons.forEach((button) => {
+      button.classList.toggle(
+        "is-active",
+        Boolean(catalogue.has3Plus1Actions) && button.getAttribute("data-lens-3plus1") === catalogue.default3Plus1
+      );
     });
   }
   if (catalogue.image) {
