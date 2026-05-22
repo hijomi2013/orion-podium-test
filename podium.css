@@ -30,7 +30,8 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    url("assets/ui/accueil-background-test.jpg") center / cover fixed,
+    linear-gradient(180deg, rgba(12, 38, 58, 0.2), rgba(25, 78, 95, 0.14) 46%, rgba(9, 31, 48, 0.22)),
+    url("assets/ui/accueil-background-marble.png") center / cover fixed,
     #f5f8f8;
   font-family: var(--font-ui);
   font-feature-settings: "cv02", "cv03", "cv04";
@@ -1761,7 +1762,8 @@ body.is-scrolled .vision-picker {
 body {
   color: #314f5d;
   background:
-    url("assets/ui/accueil-background-test.jpg") center / cover fixed,
+    linear-gradient(180deg, rgba(12, 38, 58, 0.2), rgba(25, 78, 95, 0.14) 46%, rgba(9, 31, 48, 0.22)),
+    url("assets/ui/accueil-background-marble.png") center / cover fixed,
     #f5f8f8;
 }
 
