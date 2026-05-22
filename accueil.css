@@ -692,6 +692,55 @@ button {
   border-radius: 5px;
 }
 
+.mini-calendar {
+  border: 2px solid currentColor;
+  border-radius: 5px;
+}
+
+.mini-calendar::before,
+.mini-calendar::after,
+.mini-cash::before,
+.mini-cash::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.mini-calendar::before {
+  left: 3px;
+  right: 3px;
+  top: 6px;
+  height: 2px;
+  background: currentColor;
+}
+
+.mini-calendar::after {
+  left: 4px;
+  right: 4px;
+  top: -3px;
+  height: 6px;
+  border-inline: 2px solid currentColor;
+}
+
+.mini-cash {
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.mini-cash::before {
+  inset: 5px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.mini-cash::after {
+  left: 3px;
+  right: 3px;
+  top: 4px;
+  bottom: 4px;
+  border-inline: 2px solid currentColor;
+}
+
 .mini-sun {
   border: 2px solid currentColor;
   border-radius: 50%;

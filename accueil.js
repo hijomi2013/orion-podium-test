@@ -169,6 +169,7 @@ function closeDirectorAccess() {
 
 function openCard(cardToOpen) {
   clearPendingClose();
+  closeDirectorAccess();
 
   const cardsToClose = cards.filter((card) => card !== cardToOpen && card.classList.contains("is-flipped"));
 
