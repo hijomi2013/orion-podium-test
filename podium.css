@@ -1513,7 +1513,7 @@ body.is-scrolled .vision-picker {
     min-height: 260px;
   }
 
-  .network-choice.is-open,
+  .network-choice.is-open {
     min-height: 250px;
   }
 
