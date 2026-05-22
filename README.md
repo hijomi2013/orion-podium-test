@@ -12,16 +12,18 @@ https://github.com/hijomi2013/orion-podium-test
 
 ## Etat Valide
 
-Les blocs suivants sont maintenant consideres comme bons :
+Les blocs suivants sont maintenant consideres comme termines pour le site de test :
 
-- `Accueil` : page d'accueil finale validee, prete pour verification avant bascule.
-- `Podium` : module Podium finalise visuellement et fonctionnellement, pret pour verification avant bascule.
-- `Univers Verres` : acces Podium et module SAV en construction valides en local.
-- `Univers Solaire` : catalogues Demetz, Oakley, Ray-Ban, Vuarnet et Bolle valides en local.
-- `Univers Lentilles` : contenus integres en modales depuis l'accueil, avec offre marques et offre 3+1.
+- `Accueil` : page d'accueil finale validee.
+- `Podium` : module Podium finalise visuellement et fonctionnellement.
+- `Univers Verres` : acces Podium et module SAV en construction valides.
+- `Univers Solaire` : catalogues Demetz, Oakley, Ray-Ban, Vuarnet et Bolle valides.
+- `Univers Lentilles` : contenus integres en modales depuis l'accueil, avec offre marques et offre 3+1 valides.
 - `Espace Directeur` : acces discret ajoute sur l'accueil, avec Planning et Encaissements en construction.
 
 Important : ce depot reste le site de test. La bascule vers le vrai site Orion n'est pas encore faite depuis ce projet.
+
+La suite ne doit plus etre une phase de construction lourde. Les prochaines interventions attendues sont seulement des ajustements d'agencement, de proportions, de positionnement, de lisibilite ou de remplacement ponctuel d'assets.
 
 ## Accueil
 
@@ -38,6 +40,8 @@ Visuel valide :
   - `assets/ui/accueil-lentilles.jpg`
   - `assets/ui/accueil-verres.webp`
   - `assets/ui/accueil-solaire.avif`
+
+Statut : termine. Ne pas reconstruire la page ; faire uniquement des ajustements ponctuels si demandes.
 
 Interaction validee :
 - cartes retournees au clic, pas au survol ;
@@ -60,6 +64,8 @@ Etat valide local :
 - bouton `SAV` actif avec modale image ;
 - image SAV : `assets/verres/sav-construction.png`.
 
+Statut : termine cote accueil/navigation. Les changements restants doivent rester des ajustements fins.
+
 ## Univers Solaire
 
 Etat valide local :
@@ -74,13 +80,16 @@ Assets :
 - `assets/solaire/vuarnet.jpg`
 - `assets/solaire/bolle.png`
 
+Statut : termine. Les prochaines modifications devraient se limiter a de l'agencement ou a un remplacement d'image.
+
 ## Univers Lentilles
 
 Etat :
 - boutons actifs depuis la carte Lentilles ;
 - `Offre`, `Garantie`, `Produits` et `Offres 3+1` ouvrent des images en modale ;
 - `Offre` affiche les visuels par marque avec boutons internes ;
-- `Offres 3+1` affiche les visuels par gamme avec boutons internes, Moist ouvert par defaut.
+- `Offres 3+1` affiche les visuels par gamme avec boutons internes, Moist ouvert par defaut ;
+- les boutons internes des modales `Offre` et `Offres 3+1` ont le meme style compact, avec etat actif bien visible.
 
 Assets :
 - `assets/lentilles/garantie-lentille.png`
@@ -95,6 +104,8 @@ Assets :
 - `assets/lentilles/offre3plus1/moist.png`
 - `assets/lentilles/offre3plus1/oasys.png`
 - `assets/lentilles/offre3plus1/oasys-max.png`
+
+Statut : termine. Les changements restants devraient etre des remplacements ponctuels d'images ou des ajustements de placement.
 
 ## Espace Directeur
 
@@ -125,7 +136,11 @@ Etat valide :
 - les options matiere/traitement indisponibles ne sont plus affichees en grise ;
 - mode Reseaux espace correctement les sous-boutons ;
 - police simplifiee et harmonisee ;
-- modales contraintes sans scroll interne visible.
+- modales contraintes sans scroll interne visible ;
+- bulle photochromique avec icone soleil/lune et tooltip `Photochromique` ;
+- les interactions dans une bulle de verre ne relancent plus l'animation du panneau pedagogique.
+
+Statut : termine. Ne pas refaire la structure Podium ; intervenir seulement sur des ajustements de mise en page, de taille, de placement, de lisibilite ou de contenu.
 
 Donnees :
 - `data/verres-template.csv` pilote les verres, prix, matieres, traitements, reseaux et references.
@@ -139,7 +154,7 @@ Le dossier `assets/` contient des ressources partagees entre Accueil, Podium et 
 
 Nettoyage effectue :
 - suppression des anciennes images/logos et polices non references ;
-- suppression de l'ancienne image unique de l'offre 3+1, remplacee par les 6 visuels ranges dans `assets/lentilles/offre3plus1/` ;
+- suppression de l'ancienne image unique de l'offre 3+1, remplacee par les 5 visuels ranges dans `assets/lentilles/offre3plus1/` ;
 - verification statique : aucun asset restant n'est detecte comme orphelin.
 
 Ne rien supprimer sans recherche prealable dans le projet.
@@ -162,6 +177,8 @@ Pour la suite, travailler par petites etapes :
 5. attendre le deploiement GitHub Pages, puis verifier en ligne.
 6. seulement apres validation explicite, preparer la bascule vers le vrai site Orion.
 
+Rappel important : les modules Accueil, Podium, Verres, Solaire et Lentilles sont termines. Ne pas proposer de refonte ni de nouvelle architecture sans demande explicite.
+
 URL de test :
 https://hijomi2013.github.io/orion-podium-test/
 
@@ -178,4 +195,41 @@ Dernier etat fonctionnel verifie :
 - branche `main` mise a jour avec Accueil, Lentilles, Solaire, Verres et acces Directeur ;
 - `index.html` sert l'accueil sur GitHub Pages ;
 - `podium.html` reste la page directe du module Podium ;
-- `accueil.html`, `accueil.css`, `accueil.js` representent l'accueil valide avec Verres, Solaire, Lentilles et Directeur actifs.
+- `accueil.html`, `accueil.css`, `accueil.js` representent l'accueil valide avec Verres, Solaire, Lentilles et Directeur actifs ;
+- la suite du travail doit etre traitee comme une phase de finition/agencement, pas comme une phase de construction.
+
+## Prompt Nouvelle Conversation
+
+Contexte a donner a Codex dans une nouvelle conversation :
+
+```text
+On travaille sur le depot de test Orion :
+C:\Users\hijom\Documents\GitHub\orion-podium-test
+
+Site de test :
+https://hijomi2013.github.io/orion-podium-test/
+
+Important :
+- Ne pas toucher au depot/site Orion de production.
+- Le site de test est sur la branche main.
+- Accueil, Podium, Verres, Solaire et Lentilles sont termines.
+- Il ne faut plus refaire de structure ni proposer de refonte.
+- Les prochaines demandes concernent seulement des ajustements d'agencement, de proportions, de lisibilite, de placement ou des remplacements ponctuels d'assets.
+- Lire README.md avant de modifier quoi que ce soit.
+- Faire des changements courts et cibles.
+- Verifier en local ou visuellement quand c'est utile.
+- Commit et push sur main quand c'est valide.
+
+Pages principales :
+- index.html sert l'accueil GitHub Pages.
+- accueil.html est une copie directe de l'accueil.
+- podium.html est la page directe Podium.
+- accueil.css / accueil.js gerent l'accueil et les modales.
+- podium.css / podium.js gerent le Podium.
+
+Etat fonctionnel important :
+- Modal Offre lentilles : boutons internes compacts, actifs visibles, images dans assets/lentilles/offre/.
+- Modal Offres 3+1 : boutons Precision One, Total One, Moist, Oasys, Oasys Max ; Moist par defaut ; images dans assets/lentilles/offre3plus1/.
+- Podium : ne pas faire bouger le panneau pedagogique quand on touche une bulle verre ou ses options.
+- Photochromique : icone soleil/lune avec tooltip Photochromique.
+```
