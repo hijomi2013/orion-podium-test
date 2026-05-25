@@ -973,6 +973,11 @@ button {
   box-shadow: 0 18px 42px rgba(20, 45, 66, 0.13);
 }
 
+.image-modal__viewport img[src$="sav-construction.png"] {
+  max-width: min(520px, 78vw);
+  max-height: min(460px, 58vh);
+}
+
 .image-modal__viewport img.is-pending {
   display: none;
 }
